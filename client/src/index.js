@@ -12,6 +12,7 @@ import { createStore } from 'redux'
 import Logout from './components/Logout';
 import BaseLayout from './components/BaseLayout';
 import Room from './components/Room'
+import Home from './components/Home';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -29,8 +30,9 @@ root.render(
           <Routes>
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/home' element={<Room />} />
+            <Route path='/home/:username' element={<Home />} />
             <Route path='/logout' element={<Logout />} />
+            <Route path='/room' element={<Room />} />
           </Routes>
         </BaseLayout>
       </BrowserRouter>
