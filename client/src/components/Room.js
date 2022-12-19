@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, forwardRef, useImperativeHandle } from 'react'
 import Inventory from './Popups/Inventory'
+
+
+
+
 
 function Room() {
     
@@ -7,16 +11,22 @@ function Room() {
 
     // Is the pop-up open or not? 
     const [isOpen, setIsOpen] = useState(false);
+    const [hasScrewdriver, setScrewdriver] = useState(false)
     // function to toggle the pop-up
-    const togglePopup = () => {
+    const toggleInventory = () => {
         setIsOpen(!isOpen);
+    }
+
+    const addScrewdriver = () => {
+        setScrewdriver(!hasScrewdriver);
     }
     
     return(
         <div>
         <h1>main room</h1>
-        <div className='open-inventory' onClick={togglePopup}>CLICK TO OPEN INVENTORY</div>
-        <div className='inventory-popup'>{isOpen && <Inventory handleClose={togglePopup}/>}</div>
+        <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
+        <div  className='add-screwdriver' onClick={addScrewdriver}>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>
+        <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory} handleAdd={addScrewdriver}/>}</div>
         </div>
     )
 }
