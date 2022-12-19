@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
+import '../styles/room.css'
+
 
 function Room() {
     
@@ -13,7 +15,7 @@ function Room() {
     }
     
     return(
-        <div>
+        <div className='main'>
         <h1>main room</h1>
         <div className='open-inventory' onClick={togglePopup}>CLICK TO OPEN INVENTORY</div>
         <div className='inventory-popup'>{isOpen && <Inventory handleClose={togglePopup}/>}</div>
