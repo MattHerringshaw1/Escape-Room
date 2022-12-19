@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://er2022:dqPVSRq6ZRxSaikX@escape-room.d7uibmr.mong
 })
 
 app.listen(port, () => {
-    console.log('Server is running up that hill...')
+    console.log('The server is closing in! Time to escape!!')
 })
 
 // ---------------------------------------- ADDING TO DATABASE ----------------------------------------
