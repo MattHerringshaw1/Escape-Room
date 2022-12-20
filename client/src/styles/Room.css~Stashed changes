@@ -1,0 +1,72 @@
+
+
+
+.door-open{
+    height: 350px;
+    width: 200px;
+    background-color: green;
+
+}
+
+.door-closed{
+    height: 350px;
+    width: 200px;
+    background-color: red;
+}
+
+.flag-container{
+    height: 400px;
+    width: 600px;
+    display: flex;
+}
+
+.left-flag{
+    height:400px;
+    width: 200px;
+    background-color: red;
+}
+
+.left-flag-blue{
+    height: 400px;
+    width: 200px;
+    background-color: blue;
+}
+
+.center-flag{
+    height: 100%;
+    width: 33%;
+    background-color: yellow
+}
+
+.center-flag-white{
+    height: 100%;
+    width: 33%;
+    background-color: white;
+}
+
+.right-flag{
+    height: 100%;
+    width: 33%;
+    background-color: blue
+}
+
+.right-flag-red{
+    height: 100%;
+    width: 33%;
+    background-color: red;
+}
+
+
+/* .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    height: 40px;
+    box-shadow: 0 0 0.75rem rgb(0 0 0 / 40%);
+    border-top-color: #e0e0e0;
+    align-items: center;
+} */
+
