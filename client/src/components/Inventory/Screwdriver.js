@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
 function Screwdriver(props) {
 
@@ -12,4 +13,10 @@ function Screwdriver(props) {
     )
 }
 
-export default Screwdriver
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setScrewdriver: () => dispatch({type: 'DELETE_SCREWDRIVER'})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Screwdriver)

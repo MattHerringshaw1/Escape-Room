@@ -1,6 +1,19 @@
 
-.main {
+/* .main {
     height: 100%;
     background-image: url('https://static.giggster.com/images/location/96a311fe-0c7a-48a6-ae54-74fb66368c02/655ae1a3-6b83-4c0c-8c9b-07b62671a89b/full_hd_retina.jpeg');
     height: 100%;
+} */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    height: 40px;
+    box-shadow: 0 0 0.75rem rgb(0 0 0 / 40%);
+    border-top-color: #e0e0e0;
+    align-items: center;
 }
