@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 8080
 // Schemas
 const User = require('./schemas/user')
+// middlewares
+const authenticate = require('./middlewares/authMiddleware')
 
 app.use(cors())
 app.use(express.json())
