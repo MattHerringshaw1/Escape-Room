@@ -10,16 +10,32 @@ function Room(props) {
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
 
-     const username = localStorage.getItem('username')
-
     // Is the pop-up open or not? 
     const [isOpen, setIsOpen] = useState(false);
-    
+
+    const[leftFlag, setLeftFlag] = useState('')
+    const[centerFlag, setCenterFlag] = useState('')
+    const[rightFlag, setRightFlag] = useState('')
+
+    const username = localStorage.getItem('username')
+
     // function to toggle the pop-up
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
     
+    const handleChangeBlue = () =>{
+        setLeftFlag('blue')
+    }
+
+    const handleChangeWhite = () =>{
+        setCenterFlag('white')
+    }
+
+    const handleChangeRed = () =>{
+        setRightFlag('red')
+    }
+
 
     const handleDoorOpen = (doorCode) =>{
         
@@ -30,7 +46,15 @@ function Room(props) {
         }
     }
 
+    const handleCheckColors = () =>{
+        if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
+            alert('The code is 612')
+        }else{
+            return
+        }
+    }
 
+    
 
     return(
         <>
@@ -42,6 +66,44 @@ function Room(props) {
         </div>
 
 
+        <div className='flag-container'>
+            
+            {leftFlag=='' &&(
+            <div className='left-flag'>
+                <button onClick={handleChangeBlue}>Blue</button>
+            </div>
+            )}
+
+            {leftFlag=='blue'&&(
+            <div className='left-flag-blue'>
+            
+            </div>   
+            )}
+
+            {centerFlag=='' &&(
+            <div className='center-flag'>
+                <button onClick={handleChangeWhite}>White</button>
+            </div>   
+            )}
+
+            {centerFlag=='white' &&(
+            <div className='center-flag-white'>
+            </div>   
+            )} 
+
+            {rightFlag=='' &&(
+            <div className='right-flag'>
+                <button onClick={handleChangeRed}>Red</button>
+            </div>
+            )}
+
+            {rightFlag=='red' &&(
+            <div className='right-flag-red'>
+            </div>
+            )}
+            <div><button onClick={handleCheckColors}>Try Colors</button></div>
+            
+        </div>
 
         {doorOpen &&(
         <div className='door-open'>
@@ -66,7 +128,6 @@ function Room(props) {
     )
 }
     
-  
 
 
 const mapStateToProps = (state) => {
