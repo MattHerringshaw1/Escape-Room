@@ -12,9 +12,6 @@ function Room(props) {
     const [showFlag, setShowFlag] = useState(false)
 
 
-    // Is the pop-up open or not? 
-    const [isOpen, setIsOpen] = useState(false);
-
 
     const username = localStorage.getItem('username')
 
@@ -23,6 +20,7 @@ function Room(props) {
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
+
 
     const handleDoorOpen = (doorCode) => {
 
@@ -33,6 +31,7 @@ function Room(props) {
         }
     }
 
+
     const handleShowFlag = () =>{
         setShowFlag(true)
     }
@@ -40,6 +39,7 @@ function Room(props) {
     const handleHideFlag = () =>{
         setShowFlag(false)
     }
+
 
     return(
         <>
@@ -49,6 +49,7 @@ function Room(props) {
             <h3>You Escaped!</h3>
         </div>
         )}
+
 
         {!doorOpen &&(
         <div className='door-closed'>
