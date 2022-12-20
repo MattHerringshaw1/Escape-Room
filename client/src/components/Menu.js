@@ -9,6 +9,7 @@ function Menu(props) {
             {props.isAuth ? null: <NavLink to='/login'>Login</NavLink>}
             {props.isAuth ? <NavLink to='logout'>Logout</NavLink>: null}
             <NavLink to='/home/:username'>Home</NavLink>
+            <NavLink to='/edit-user'>User Info</NavLink>
 
 
         </>
