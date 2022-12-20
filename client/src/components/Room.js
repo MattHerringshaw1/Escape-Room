@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
-
+import '../styles/escape.css'
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
-
-
-import Drawer from './Drawer'
-
 
 
 function Room(props) {
@@ -28,21 +24,6 @@ function Room(props) {
         setIsOpen(!isOpen);
     }
 
-    const handleChangeBlue = () =>{
-        setLeftFlag('blue')
-    }
-
-    const handleChangeWhite = () =>{
-        setCenterFlag('white')
-    }
-
-    const handleChangeRed = () =>{
-        setRightFlag('red')
-    }
-
-
-
-
     const handleDoorOpen = (doorCode) => {
 
         if (doorCode == 612) {
@@ -54,13 +35,6 @@ function Room(props) {
 
     const handleShowFlag = () =>{
         setShowFlag(true)
-
-    const handleCheckColors = () =>{
-        if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
-            alert('The code is 612')
-        }else{
-            return
-        }
     }
 
     const handleHideFlag = () =>{
@@ -110,8 +84,6 @@ function Room(props) {
         </div>
  </>
 
-
-    
     )
 }
 
