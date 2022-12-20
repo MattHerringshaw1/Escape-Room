@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
-
+import '../styles/escape.css'
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
-
-
-import Drawer from './Drawer'
-
 
 
 function Room(props) {
@@ -16,13 +12,6 @@ function Room(props) {
     const [showFlag, setShowFlag] = useState(false)
 
 
-    // Is the pop-up open or not? 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const[leftFlag, setLeftFlag] = useState('')
-    const[centerFlag, setCenterFlag] = useState('')
-    const[rightFlag, setRightFlag] = useState('')
-
 
     const username = localStorage.getItem('username')
 
@@ -31,21 +20,6 @@ function Room(props) {
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
-
-
-    const handleChangeBlue = () =>{
-        setLeftFlag('blue')
-    }
-
-    const handleChangeWhite = () =>{
-        setCenterFlag('white')
-    }
-
-    const handleChangeRed = () =>{
-        setRightFlag('red')
-    }
-
-
 
 
     const handleDoorOpen = (doorCode) => {
@@ -60,14 +34,6 @@ function Room(props) {
 
     const handleShowFlag = () =>{
         setShowFlag(true)
-
-
-    const handleCheckColors = () =>{
-        if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
-            alert('The code is 612')
-        }else{
-            return
-        }
     }
 
     const handleHideFlag = () =>{
@@ -119,12 +85,10 @@ function Room(props) {
         </div>
  </>
 
-
-    
     )
 }
 
-}
+
 
 const mapStateToProps = (state) => {
     return {
