@@ -1,8 +1,7 @@
 
 import Inventory from './Popups/Inventory'
-import { connect } from 'react-redux'
-import React, {useState, useEffect} from 'react'
 import '../styles/Room.css'
+import { connect } from 'react-redux'
 
 
 function Room(props) {
