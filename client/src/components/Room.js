@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import Inventory from './Popups/Inventory'
-import '../styles/room.css'
-import { connect } from 'react-redux'
 
+import Inventory from './Popups/Inventory'
+import { connect } from 'react-redux'
 import React, {useState, useEffect} from 'react'
 import '../styles/Room.css'
 
@@ -31,8 +29,6 @@ function Room(props) {
             return
         }
     }
-
-
 
     return(
         <>
