@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
-import '../styles/room.css'
+
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
+
+
+import Drawer from './Drawer'
 
 
 
@@ -12,29 +15,52 @@ function Room(props) {
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
 
+
     // Is the pop-up open or not? 
     const [isOpen, setIsOpen] = useState(false);
 
 
     const username = localStorage.getItem('username')
 
+
     // function to toggle the pop-up
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
-    
 
-    const handleDoorOpen = (doorCode) =>{
-        
-        if (doorCode==612){
+    const handleChangeBlue = () =>{
+        setLeftFlag('blue')
+    }
+
+    const handleChangeWhite = () =>{
+        setCenterFlag('white')
+    }
+
+    const handleChangeRed = () =>{
+        setRightFlag('red')
+    }
+
+
+
+
+    const handleDoorOpen = (doorCode) => {
+
+        if (doorCode == 612) {
             setDoorOpen(true)
-        }else{
+        } else {
             return
         }
     }
 
     const handleShowFlag = () =>{
         setShowFlag(true)
+
+    const handleCheckColors = () =>{
+        if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
+            alert('The code is 612')
+        }else{
+            return
+        }
     }
 
     const handleHideFlag = () =>{
@@ -83,9 +109,12 @@ function Room(props) {
         <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory}/>}</div>
         </div>
  </>
+
+
+    
     )
 }
-    
+
 
 
 const mapStateToProps = (state) => {
@@ -96,7 +125,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setScrewdriver: () => dispatch({type: 'SET_SCREWDRIVER'})
+        setScrewdriver: () => dispatch({ type: 'SET_SCREWDRIVER' })
     }
 }
 
