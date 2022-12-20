@@ -10,6 +10,7 @@ function Room(props) {
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
 
 
