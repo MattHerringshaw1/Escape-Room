@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Register from './components/Register';
+// import Register from './components/Register';
 import Login from './components/Login';
 import reducer from './store/reducer';
 import { Provider } from 'react-redux';
@@ -27,7 +26,7 @@ root.render(
       <BrowserRouter>
         <BaseLayout>
           <Routes>
-            <Route path='/register' element={<Register />} />
+            {/* <Route path='/register' element={<Register />} /> */}
             <Route path='/login' element={<Login />} />
             <Route path='/home' element={<Room />} />
             <Route path='/logout' element={<Logout />} />

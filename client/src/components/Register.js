@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+function Register() {
 
     // ---------------------------------------- STATES ----------------------------------------
     const [first_name, setFirstname] = useState('')
@@ -48,4 +48,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Register
