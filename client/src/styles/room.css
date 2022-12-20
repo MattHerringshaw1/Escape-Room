@@ -1,59 +1,16 @@
 
-
-
 .door-open{
-    height: 350px;
-    width: 200px;
+    height: 250px;
+    width: 175px;
     background-color: green;
-
 }
-
 .door-closed{
-    height: 350px;
-    width: 200px;
+    height: 250px;
+    width: 175px;
     background-color: red;
 }
-
-.flag-container{
-    height: 400px;
-    width: 600px;
-    display: flex;
-}
-
-.left-flag{
-    height:400px;
-    width: 200px;
-    background-color: red;
-}
-
-.left-flag-blue{
-    height: 400px;
-    width: 200px;
-    background-color: blue;
-}
-
-.center-flag{
-    height: 100%;
-    width: 33%;
-    background-color: yellow
-}
-
-.center-flag-white{
-    height: 100%;
-    width: 33%;
-    background-color: white;
-}
-
-.right-flag{
-    height: 100%;
-    width: 33%;
-    background-color: blue
-}
-
-.right-flag-red{
-    height: 100%;
-    width: 33%;
-    background-color: red;
+.door-code{
+    margin-bottom: 20px;
 }
 
 
