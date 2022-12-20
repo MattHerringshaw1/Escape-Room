@@ -1,4 +1,4 @@
-
+import React, {useState, useEffect} from 'react'
 import Inventory from './Popups/Inventory'
 import '../styles/Room.css'
 import { connect } from 'react-redux'
