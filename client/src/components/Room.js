@@ -1,5 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react'
 import Inventory from './Popups/Inventory'
+import '../styles/room.css'
+
 
 
 
@@ -22,7 +24,7 @@ function Room() {
     }
     
     return(
-        <div>
+        <div className='main'>
         <h1>main room</h1>
         <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
         <div  className='add-screwdriver' onClick={addScrewdriver}>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>
