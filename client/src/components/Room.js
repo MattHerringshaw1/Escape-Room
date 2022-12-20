@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
+<<<<<<< HEAD
+=======
 import '../styles/room.css'
+>>>>>>> main
 import { connect } from 'react-redux'
-
+import Drawer from './Drawer'
+import '../styles/room.css'
 
 
 function Room(props) {
@@ -10,6 +14,13 @@ function Room(props) {
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
 
+<<<<<<< HEAD
+    const username = localStorage.getItem('username')
+
+    // Is the pop-up open or not? 
+    const [isOpen, setIsOpen] = useState(false);
+
+=======
     // Is the pop-up open or not? 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,10 +30,13 @@ function Room(props) {
 
     const username = localStorage.getItem('username')
 
+>>>>>>> main
     // function to toggle the pop-up
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
+<<<<<<< HEAD
+=======
     
     const handleChangeBlue = () =>{
         setLeftFlag('blue')
@@ -36,16 +50,20 @@ function Room(props) {
         setRightFlag('red')
     }
 
+>>>>>>> main
 
-    const handleDoorOpen = (doorCode) =>{
-        
-        if (doorCode==612){
+
+    const handleDoorOpen = (doorCode) => {
+
+        if (doorCode == 612) {
             setDoorOpen(true)
-        }else{
+        } else {
             return
         }
     }
 
+<<<<<<< HEAD
+=======
     const handleCheckColors = () =>{
         if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
             alert('The code is 612')
@@ -58,12 +76,19 @@ function Room(props) {
 
     return(
         <>
+>>>>>>> main
     
-        <div className='door-code'>
-            <h3>Enter Door Code</h3>
-            <input type='text' onChange={(e)=>setDoorCode(e.target.value)}/>
-            <button onClick={()=>handleDoorOpen(doorCode)}>Try Door</button>
-        </div>
+
+
+    return (
+        <>
+            <div className='main'>
+                <h1>main room</h1>
+                <div className='door-code'>
+                    <h3>Enter Door Code</h3>
+                    <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
+                    <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
+                </div>
 
 
         <div className='flag-container'>
@@ -105,29 +130,34 @@ function Room(props) {
             
         </div>
 
-        {doorOpen &&(
-        <div className='door-open'>
-            <h3>You Escaped!</h3>
-        </div>
-        )}
+                {doorOpen && (
+                    <div className='door-open'>
+                        <h3>You Escaped!</h3>
+                    </div>
+                )}
 
-        {!doorOpen &&(
-        <div className='door-closed'>
-            <h3>You're Trapped</h3>
-        </div>
-        )}
-       
+                {!doorOpen && (
+                    <div className='door-closed'>
+                        <h3>You're Trapped</h3>
+                    </div>
+                )}
 
-        <div className='main'>
-        <h1>main room</h1>
-        <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
-        <div  className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null: <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
-        <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory}/>}</div>
-        </div>
- </>
+
+
+                <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
+                <div className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null : <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
+                <div>{<Drawer />}</div>
+                <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory} />}</div>
+            </div>
+        </>
     )
 }
+<<<<<<< HEAD
+
+
+=======
     
+>>>>>>> main
 
 
 const mapStateToProps = (state) => {
@@ -138,7 +168,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setScrewdriver: () => dispatch({type: 'SET_SCREWDRIVER'})
+        setScrewdriver: () => dispatch({ type: 'SET_SCREWDRIVER' })
     }
 }
 
