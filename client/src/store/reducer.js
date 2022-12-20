@@ -1,7 +1,8 @@
 
 const initialState = {
     isAuthenticated: false,
-    hasScrewdriver: false
+    hasScrewdriver: false,
+    drawerOpen: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +26,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             hasScrewdriver: false
+        }
+    } else if(action.type == 'OPEN_DRAWER') {
+        return {
+            ...state,
+            drawerOpen: true
         }
     }
         return state
