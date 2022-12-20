@@ -1,6 +1,7 @@
 
 const initialState = {
-    isAuthenticated: false
+    isAuthenticated: false,
+    hasScrewdriver: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,16 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             isAuthenticated: false
+        }
+    } else if(action.type == 'SET_SCREWDRIVER') {
+        return {
+            ...state,
+            hasScrewdriver: true
+        }
+    } else if(action.type == 'DELETE_SCREWDRIVER') {
+        return {
+            ...state,
+            hasScrewdriver: false
         }
     }
         return state
