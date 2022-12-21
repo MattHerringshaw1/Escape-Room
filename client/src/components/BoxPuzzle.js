@@ -1,68 +1,74 @@
+import { useState, useEffect } from 'react'
+import '../styles/boxpuz.css'
 
-const getShuffledPuzzle = () => {
-    const values = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-
-    const rowOne = [],
-        rowTwo = [],
-        rowThree = [];
-
-    while (values.length) {
-        const random = Math.floor(Math.random() * values.length);
-
-        if (rowOne.length < 3) {
-            rowOne.push(values.splice(random, 1)[0]);
-        } else if (rowTwo.length < 3) {
-            rowTwo.push(values.splice(random, 1)[0]);
-        } else {
-            rowThree.push(values.splice(random, 1)[0]);
-        }
-    }
-
-    return [rowOne, rowTwo, rowThree];
-};
-
-const flattenArray = arr => {
-    return arr.reduce((flatArr, subArr) => flatArr.concat(subArr), []);
-};
-
-const getInversionsCount = arr => {
-    arr = flattenArray(arr).filter(n => n !== 0);
-
-    const inversions = [];
-
-    for (let i = 0; i < arr.length - 1; i++) {
-        const currentValue = arr[i];
-        const currentInversions = arr.filter(
-            (val, j) => i < j && val < currentValue
-        );
-        inversions.push(currentInversions.length);
-    }
-
-    const inversionsCount = inversions.reduce((total, val) => total + val, 0);
-
-    return inversionsCount;
-};
-
-const isSolvable = puzzle => {
-    return getInversionsCount(puzzle) % 2 === 0;
-};
-
-const getPuzzle = () => {
-    let puzzle = getShuffledPuzzle();
-
-    while (!isSolvable(puzzle)) {
-        puzzle = getShuffledPuzzle();
-    }
-
-    return puzzle;
-};
 
 function BoxPuzzle() {
-    const [puzzle, setPuzzle] = React.useState([]);
-    const [complete, setComplete] = React.useState(false);
-    const [moves, setMoves] = React.useState(0);
+    const [puzzle, setPuzzle] = useState([]);
+    const [complete, setComplete] = useState(false);
+    const [moves, setMoves] = useState(0);
 
-    React.useEffect(() => {
+
+    //-----------------CODE FOR SETTING THE PUZZLE UP---------------------
+    // shuffle the puzzle
+    const getShuffledPuzzle = () => {
+        const values = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
+        const firstRow = [],
+            secondRow = [],
+            thirdRow = [];
+
+        while (values.length) {
+            const random = Math.floor(Math.random() * values.length);
+
+            if (firstRow.length < 3) {
+                firstRow.push(values.splice(random, 1)[0]);
+            } else if (secondRow.length < 3) {
+                secondRow.push(values.splice(random, 1)[0]);
+            } else {
+                thirdRow.push(values.splice(random, 1)[0]);
+            }
+        }
+
+        return [firstRow, secondRow, thirdRow];
+    };
+
+    const flattenarrayay = array => {
+        return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []);
+    };
+
+    const getInversionsCount = array => {
+        array = flattenarrayay(array).filter(n => n !== 0);
+
+        const inversions = [];
+
+        for (let i = 0; i < array.length - 1; i++) {
+            const currentValue = array[i];
+            const currentInversions = array.filter(
+                (val, j) => i < j && val < currentValue
+            );
+            inversions.push(currentInversions.length);
+        }
+
+        const inversionsCount = inversions.reduce((total, val) => total + val, 0);
+
+        return inversionsCount;
+    };
+
+    const isSolvable = puzzle => {
+        return getInversionsCount(puzzle) % 2 === 0;
+    };
+
+    const getPuzzle = () => {
+        let puzzle = getShuffledPuzzle();
+
+        while (!isSolvable(puzzle)) {
+            puzzle = getShuffledPuzzle();
+        }
+
+        return puzzle;
+    };
+
+    useEffect(() => {
         setPuzzle(getPuzzle());
     }, []);
 
@@ -103,7 +109,7 @@ function BoxPuzzle() {
     };
 
     const checkCompletion = puzzle => {
-        if (flattenArray(puzzle).join("") === "123456780") {
+        if (flattenarrayay(puzzle).join("") === "123456780") {
             setComplete(true);
         }
     };
@@ -134,61 +140,40 @@ function BoxPuzzle() {
     };
 
     return (
-        <div className="App">
-            {<h3>Moves: {moves}</h3>}
-            <div
-                style={{
-                    display: "inline-block",
-                    backgroundColor: "darkgray",
-                    border: `5px solid ${complete ? "black" : "gray"}`,
-                    borderRadius: 5,
-                    padding: 5
-                }}
-            >
+        <div className="main-box">
+            {<h3>Moves: {moves} - TAKE OFF MOVE COUNTER?</h3>}
+            <div className="outter-box" style={{ border: `5px solid ${complete ? "black" : "red"}` }}>
                 {puzzle.map((row, i) => (
-                    <div
-                        key={i}
-                        style={{
-                            display: "flex"
-                        }}
-                    >
+                    <div key={i} className="middle-box">
                         {row.map((col, j) => {
-                            const color = col === 0 ? "transparent" : "lightgray";
+                            const color = col === 0 ? "transparent" : "yellow";
                             return (
                                 <div
                                     key={`${i}-${j}`}
                                     onClick={() => movePiece(i, j)}
+                                    className="inner-box"
                                     style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        width: 77,
-                                        height: 77,
-                                        margin: 2,
                                         backgroundColor: color,
-                                        borderRadius: 5,
                                         cursor: complete ? "not-allowed" : "pointer",
                                         userSelect: "none"
-                                    }}
-                                >
-                                    <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                                    }}>
+                                    <div className="inside-font">
                                         {col !== 0 && col}
-                                    </span>
+                                    </div>
                                 </div>
                             );
                         })}
                     </div>
                 ))}
+                <div className='reset-button'>
+                    <button onClick={() => { resetPuzzle() }}>
+                    Shuffle Puzzle
+                </button>
+                </div>
             </div>
             {complete && (
                 <p>
-                    <button
-                        onClick={() => {
-                            resetPuzzle();
-                        }}
-                    >
-                        Play Again
-                    </button>
+                    A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."
                 </p>
             )}
         </div>
