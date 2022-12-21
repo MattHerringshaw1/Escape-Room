@@ -20,6 +20,7 @@ function Room(props) {
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
+    const [showGear, setShowGear] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
     const username = localStorage.getItem('username')
@@ -48,6 +49,14 @@ function Room(props) {
         setShowFlag(false)
     }
 
+    const handleShowGear = () =>{
+        setShowGear(true)
+    }
+
+    const handleHideGear = () =>{
+        setShowGear(false)
+    }
+
 
     return(
         <>
@@ -73,7 +82,18 @@ function Room(props) {
             <button onClick={()=>handleDoorOpen(doorCode)}>Try Door</button>
         </div>
 
+        {!showGear &&(
+        <button onClick={handleShowGear}>Show Gear Puzzle</button>    
+        )}  
+
+        {showGear &&(
+        <>
+        <button onClick={handleHideGear}>Hide Gear Puzzle</button>
         <GearPuzzle/>
+        </> 
+       )}   
+
+        
 
         {!showFlag &&(
         <button onClick={handleShowFlag}>Show Flag Puzzle</button>    
@@ -83,7 +103,6 @@ function Room(props) {
        {showFlag &&(
         <>
         <button onClick={handleHideFlag}>Hide Flag Puzzle</button>
-        <h1>Bonjour!</h1>
         <FlagPuzzle/>
         </> 
        )}
