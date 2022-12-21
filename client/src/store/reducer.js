@@ -2,7 +2,11 @@
 const initialState = {
     isAuthenticated: false,
     hasScrewdriver: false,
-    drawerOpen: false
+    drawerOpen: false,
+    hasWrench: false,
+    hasKey: false,
+    hasMagnifyingGlass: false,
+    hasLighter: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +35,46 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             drawerOpen: true
+        }
+    } else if(action.type == 'SET_WRENCH') {
+        return {
+            ...state,
+            hasWrench: true
+        }
+    } else if(action.type == 'DELETE_WRENCH') {
+        return {
+            ...state,
+            hasWrench: false
+        }
+    } else if(action.type == 'SET_KEY') {
+        return {
+            ...state,
+            hasKey: true
+        }
+    } else if(action.type == 'DELETE_KEY') {
+        return {
+            ...state,
+            hasKey: false
+        }
+    } else if(action.type == 'SET_MAGNIFYINGGLASS') {
+        return {
+            ...state,
+            hasMagnifyingGlass: true
+        }
+    } else if(action.type == 'DELETE_MAGNIFYINGGLASS') {
+        return {
+            ...state,
+            hasMagnifyingGlass: false
+        }
+    } else if(action.type == 'SET_LIGHTER') {
+        return {
+            ...state,
+            hasLighter: true
+        }
+    } else if(action.type == 'DELETE_LIGHTER') {
+        return {
+            ...state,
+            hasLighter: false
         }
     }
         return state
