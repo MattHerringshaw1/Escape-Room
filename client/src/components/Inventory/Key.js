@@ -1,20 +1,20 @@
 import { connect } from 'react-redux'
 
-function Screwdriver() {
+function Key() {
 
     const username = localStorage.getItem('username')
 
     return (
         <>
-        <h4>{username}'s Screwdriver</h4>
+        <h4>{username}'s Key</h4>
         </>
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setScrewdriver: () => dispatch({type: 'DELETE_SCREWDRIVER'})
+        setKey: () => dispatch({type: 'DELETE_KEY'})
     }
 }
 
-export default connect(null, mapDispatchToProps)(Screwdriver)
+export default connect(null, mapDispatchToProps)(Key)
