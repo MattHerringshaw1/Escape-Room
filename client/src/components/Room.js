@@ -1,26 +1,29 @@
 import React, { useState } from 'react'
 import Inventory from './Popups/Inventory'
+import '../styles/escape.css'
 import { connect } from 'react-redux'
-import Drawer from './Drawer'
-import '../styles/room.css'
+import FlagPuzzle from './FlagPuzzle'
+import GearPuzzle from './GearPuzzle'
+import {fas} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import Box from './Box'
+
+library.add(fas)
+
 
 
 function Room(props) {
 
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
+    const [showFlag, setShowFlag] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     const username = localStorage.getItem('username')
 
-    // Is the pop-up open or not? 
-    const [isOpen, setIsOpen] = useState(false);
 
-   
 
-    const[leftFlag, setLeftFlag] = useState('')
-    const[centerFlag, setCenterFlag] = useState('')
-    const[rightFlag, setRightFlag] = useState('')
+
 
     
 
@@ -28,19 +31,6 @@ function Room(props) {
     const toggleInventory = () => {
         setIsOpen(!isOpen);
     }
-    
-    const handleChangeBlue = () =>{
-        setLeftFlag('blue')
-    }
-
-    const handleChangeWhite = () =>{
-        setCenterFlag('white')
-    }
-
-    const handleChangeRed = () =>{
-        setRightFlag('red')
-    }
-
 
 
     const handleDoorOpen = (doorCode) => {
@@ -52,90 +42,67 @@ function Room(props) {
         }
     }
 
-    const handleCheckColors = () =>{
-        if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
-            alert('The code is 612')
-        }else{
-            return
-        }
+
+    const handleShowFlag = () =>{
+        setShowFlag(true)
     }
 
-    return (
+    const handleHideFlag = () =>{
+        setShowFlag(false)
+    }
+
+
+    return(
         <>
-            
-            <div>{<Box />}</div>
-            <div className='main'>
-                <h1>main room</h1>
-                <div className='door-code'>
-                    <h3>Enter Door Code</h3>
-                    <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
-                    <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
-                </div>
+    
+        {doorOpen &&(
+        <div className='door-open'>
+            <h3>You Escaped!</h3>
+        </div>
+        )}
 
 
-        <div className='flag-container'>
-            
-            {leftFlag=='' &&(
-            <div className='left-flag'>
-                <button onClick={handleChangeBlue}>Blue</button>
-            </div>
-            )}
+        {!doorOpen &&(
+        <div className='door-closed'>
+            <h3>You're Trapped</h3>
+        </div>
+        )}
 
-            {leftFlag=='blue'&&(
-            <div className='left-flag-blue'>
-            
-            </div>   
-            )}
-
-            {centerFlag=='' &&(
-            <div className='center-flag'>
-                <button onClick={handleChangeWhite}>White</button>
-            </div>   
-            )}
-
-            {centerFlag=='white' &&(
-            <div className='center-flag-white'>
-            </div>   
-            )} 
-
-            {rightFlag=='' &&(
-            <div className='right-flag'>
-                <button onClick={handleChangeRed}>Red</button>
-            </div>
-            )}
-
-            {rightFlag=='red' &&(
-            <div className='right-flag-red'>
-            </div>
-            )}
-            <div><button onClick={handleCheckColors}>Try Colors</button></div>
-            
+        <div className='door-code'>
+            <h3>Enter Door Code</h3>
+            <input type='text' onChange={(e)=>setDoorCode(e.target.value)}/>
+            <button onClick={()=>handleDoorOpen(doorCode)}>Try Door</button>
         </div>
 
-                {doorOpen && (
-                    <div className='door-open'>
-                        <h3>You Escaped!</h3>
-                    </div>
-                )}
+        <GearPuzzle/>
 
-                {!doorOpen && (
-                    <div className='door-closed'>
-                        <h3>You're Trapped</h3>
-                    </div>
-                )}
+        {!showFlag &&(
+        <button onClick={handleShowFlag}>Show Flag Puzzle</button>    
+        )}    
+        
+      
+       {showFlag &&(
+        <>
+        <button onClick={handleHideFlag}>Hide Flag Puzzle</button>
+        <h1>Bonjour!</h1>
+        <FlagPuzzle/>
+        </> 
+       )}
 
+       
+       
 
+        <div className='main'>
+        <h1>main room</h1>
+        <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
+        <div  className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null: <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
+        <div>{<Drawer />}</div>
+        <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory}/>}</div>
+        </div>
+ </>
 
-                <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
-                <div className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null : <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
-                <div>{<Drawer />}</div>
-                
-                <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory} />}</div>
-            </div>
-        </>
     )
 }
-
 
 
 

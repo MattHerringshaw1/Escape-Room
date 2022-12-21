@@ -1,0 +1,29 @@
+
+.door-open{
+    height: 250px;
+    width: 175px;
+    background-color: green;
+}
+.door-closed{
+    height: 250px;
+    width: 175px;
+    background-color: red;
+}
+.door-code{
+    margin-bottom: 20px;
+}
+
+
+/* .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    height: 40px;
+    box-shadow: 0 0 0.75rem rgb(0 0 0 / 40%);
+    border-top-color: #e0e0e0;
+    align-items: center;
+} */
+
