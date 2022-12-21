@@ -19,7 +19,7 @@ function GearPuzzle(){
     const handleGearSpinLeft = ()=>{
         clickedLeft ? setClickedLeft('') : setClickedLeft('gear-spin-left');
         setCodeLeft(codeLeft + 1);
-        if (codeLeft > 5){
+        if (codeLeft > 6){
             setCodeLeft(0)
         }
     }
@@ -27,7 +27,7 @@ function GearPuzzle(){
     const handleGearSpinCenter = ()=>{
         clickedCenter ? setClickedCenter('') : setClickedCenter('gear-spin-center');
         setCodeCenter(codeCenter + 1);
-        if (codeCenter > 5){
+        if (codeCenter > 6){
             setCodeCenter(0)
         }
     }
@@ -35,7 +35,7 @@ function GearPuzzle(){
     const handleGearSpinRight = ()=>{
         clickedRight ? setClickedRight('') : setClickedRight('gear-spin-right');
         setCodeRight(codeRight + 1);
-        if (codeRight > 5){
+        if (codeRight > 6){
             setCodeRight(0)
         }
     }
@@ -43,13 +43,13 @@ function GearPuzzle(){
     const handleGearSpinFarRight = () =>{
         clickedFarRight ? setClickedFarRight('') : setClickedFarRight('gear-spin-far-right');
         setCodeFarRight(codeFarRight + 1);
-        if (codeFarRight > 5){
+        if (codeFarRight > 6){
             setCodeFarRight(0)
         }
     }
     
     const handleCheckCode =()=>{
-        if(codeLeft == 1 && codeCenter == 2 && codeRight == 3 && codeFarRight == 5){
+        if(codeLeft == 2 && codeCenter == 3 && codeRight == 5 && codeFarRight == 7){
             setSafeDoor(true)
         }
     }
@@ -59,7 +59,7 @@ function GearPuzzle(){
 
         <>  
             
-            <h3>The gears are all PRIMED and ready to go!</h3>
+            
             <div className='gear-puzzle-container'>
             
                 <div className='gear-and-btn-container'>
