@@ -4,11 +4,12 @@ import '../styles/escape.css'
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
 import GearPuzzle from './GearPuzzle'
-import {fas} from '@fortawesome/free-solid-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
+// import {fas} from '@fortawesome/free-solid-svg-icons'
+// import { library } from '@fortawesome/fontawesome-svg-core'
 import Box from './Box'
+import Drawer from './Drawer'
 
-library.add(fas)
+// library.add(fas)
 
 
 
@@ -20,12 +21,6 @@ function Room(props) {
     const [isOpen, setIsOpen] = useState(false)
 
     const username = localStorage.getItem('username')
-
-
-
-
-
-    
 
     // function to toggle the pop-up
     const toggleInventory = () => {
@@ -55,6 +50,8 @@ function Room(props) {
     return(
         <>
     
+        <Box />
+
         {doorOpen &&(
         <div className='door-open'>
             <h3>You Escaped!</h3>
