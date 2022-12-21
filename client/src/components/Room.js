@@ -4,10 +4,16 @@ import '../styles/escape.css'
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
 import GearPuzzle from './GearPuzzle'
+<<<<<<< Updated upstream
 // import {fas} from '@fortawesome/free-solid-svg-icons'
 // import { library } from '@fortawesome/fontawesome-svg-core'
 import Box from './Box'
 import Drawer from './Drawer'
+=======
+import {fas} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import BoxPuzzle from './BoxPuzzle'
+>>>>>>> Stashed changes
 
 // library.add(fas)
 
@@ -50,7 +56,11 @@ function Room(props) {
     return(
         <>
     
+<<<<<<< Updated upstream
         <Box />
+=======
+        
+>>>>>>> Stashed changes
 
         {doorOpen &&(
         <div className='door-open'>
