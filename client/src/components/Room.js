@@ -52,7 +52,11 @@ function Room(props) {
     }
 
     const handleShowGear = () => {
-        setShowGear(true)
+        if (props.hasKey) {
+            setShowGear(true)
+        } else {
+            alert("Oh no, it's locked!")
+        }
     }
 
     const handleHideGear = () => {
@@ -63,9 +67,6 @@ function Room(props) {
 
     return (
         <>
-
-
-
 
             {doorOpen && (
                 <div className='door-open'>
@@ -87,16 +88,23 @@ function Room(props) {
                 <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
             </div>
 
-            {!showGear && (
-                <button onClick={handleShowGear}>Show Gear Puzzle</button>
-            )}
 
-            {showGear && (
-                <>
-                    <button onClick={handleHideGear}>Hide Gear Puzzle</button>
-                    <GearPuzzle />
-                </>
-            )}
+
+            
+
+                {!showGear && (
+                    <button onClick={handleShowGear}>Show Gear Puzzle</button>
+                )}
+
+                {showGear && (
+                    <>
+                        <button onClick={handleHideGear}>Hide Gear Puzzle</button>
+                        <GearPuzzle />
+                    </>
+                )}
+
+
+
 
 
 
@@ -112,9 +120,9 @@ function Room(props) {
                 </>
             )}
 
-          <div onClick={props.setScrewdriver} className='tool-box-container2'>
-                      <ToolBoxSvg/>
-                  </div>
+            <div onClick={props.setScrewdriver} className='tool-box-container2'>
+                <ToolBoxSvg />
+            </div>
 
 
             <div className='main'>
@@ -147,10 +155,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setScrewdriver: () => dispatch({ type: 'SET_SCREWDRIVER' }),
-        setWrench: () => dispatch({type: 'SET_WRENCH'}),
-        setKey: () => dispatch({type: 'SET_KEY'}),
-        setMagnifyingGlass: () => dispatch({type: 'SET_MAGNIFYINGGLASS'}),
-        setLighter: () => dispatch({type: 'SET_LIGHTER'})
+        setWrench: () => dispatch({ type: 'SET_WRENCH' }),
+        setKey: () => dispatch({ type: 'SET_KEY' }),
+        setMagnifyingGlass: () => dispatch({ type: 'SET_MAGNIFYINGGLASS' }),
+        setLighter: () => dispatch({ type: 'SET_LIGHTER' })
     }
 }
 
