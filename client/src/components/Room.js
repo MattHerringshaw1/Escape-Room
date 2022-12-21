@@ -3,6 +3,12 @@ import Inventory from './Popups/Inventory'
 import '../styles/escape.css'
 import { connect } from 'react-redux'
 import FlagPuzzle from './FlagPuzzle'
+import GearPuzzle from './GearPuzzle'
+import {fas} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(fas)
+
 
 
 function Room(props) {
@@ -64,6 +70,8 @@ function Room(props) {
             <button onClick={()=>handleDoorOpen(doorCode)}>Try Door</button>
         </div>
 
+        <GearPuzzle/>
+
         {!showFlag &&(
         <button onClick={handleShowFlag}>Show Flag Puzzle</button>    
         )}    
@@ -76,6 +84,8 @@ function Room(props) {
         <FlagPuzzle/>
         </> 
        )}
+
+       
        
 
         <div className='main'>
