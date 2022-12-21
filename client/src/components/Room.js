@@ -8,6 +8,8 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Drawer from './Drawer'
 import BoxPuzzle from './BoxPuzzle'
+import { ToolBoxSvg } from './ToolBoxSvg.jsx'
+
 
 library.add(fas)
 
@@ -60,8 +62,10 @@ function Room(props) {
 
     return(
         <>
-    
-   
+        
+
+
+
 
         {doorOpen &&(
         <div className='door-open'>
@@ -109,11 +113,12 @@ function Room(props) {
 
        
        
+        <div onClick={props.setScrewdriver} className='tool-box-container2'>
+            <ToolBoxSvg/>
+        </div>
 
         <div className='main'>
-        <h1>main room</h1>
         <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
-        <div  className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null: <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
         <div>{<Drawer />}</div>
         <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory}/>}</div>
         </div>
