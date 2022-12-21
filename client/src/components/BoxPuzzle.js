@@ -13,21 +13,21 @@ function BoxPuzzle() {
     const getShuffledPuzzle = () => {
         const values = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
-        const firstRow = [],
-            secondRow = [],
-            thirdRow = [];
+        const firstRow = [1,3,6],
+            secondRow = [4,2,0],
+            thirdRow = [7,5,8];
 
-        while (values.length) {
-            const random = Math.floor(Math.random() * values.length);
+        // while (values.length) {
+        //     const random = Math.floor(Math.random() * values.length);
 
-            if (firstRow.length < 3) {
-                firstRow.push(values.splice(random, 1)[0]);
-            } else if (secondRow.length < 3) {
-                secondRow.push(values.splice(random, 1)[0]);
-            } else {
-                thirdRow.push(values.splice(random, 1)[0]);
-            }
-        }
+        //     if (firstRow.length < 3) {
+        //         firstRow.push(values.splice(random, 1)[0]);
+        //     } else if (secondRow.length < 3) {
+        //         secondRow.push(values.splice(random, 1)[0]);
+        //     } else {
+        //         thirdRow.push(values.splice(random, 1)[0]);
+        //     }
+        // }
 
         return [firstRow, secondRow, thirdRow];
     };
@@ -167,7 +167,7 @@ function BoxPuzzle() {
                 ))}
                 <div className='reset-button'>
                     <button onClick={() => { resetPuzzle() }}>
-                    Shuffle Puzzle
+                    Reset Puzzle
                 </button>
                 </div>
             </div>
