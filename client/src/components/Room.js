@@ -6,6 +6,8 @@ import FlagPuzzle from './FlagPuzzle'
 import GearPuzzle from './GearPuzzle'
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Drawer from './Drawer'
+import BoxPuzzle from './BoxPuzzle'
 
 library.add(fas)
 
@@ -13,16 +15,15 @@ library.add(fas)
 
 function Room(props) {
 
+
+    
     const [doorCode, setDoorCode] = useState(0)
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
     const [showGear, setShowGear] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
-
-
     const username = localStorage.getItem('username')
-
 
     // function to toggle the pop-up
     const toggleInventory = () => {
@@ -60,6 +61,8 @@ function Room(props) {
     return(
         <>
     
+   
+
         {doorOpen &&(
         <div className='door-open'>
             <h3>You Escaped!</h3>
@@ -111,6 +114,7 @@ function Room(props) {
         <h1>main room</h1>
         <div className='open-inventory' onClick={toggleInventory}>CLICK TO OPEN INVENTORY</div>
         <div  className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null: <div>CLICK TO ADD SCREWDRIVER TO INVENTORY</div>}</div>
+        <div>{<Drawer />}</div>
         <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory}/>}</div>
         </div>
  </>

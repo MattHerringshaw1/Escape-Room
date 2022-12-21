@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import BoxPuzzle from './BoxPuzzle'
 
 function Drawer(props) {
 
@@ -14,7 +15,7 @@ function Drawer(props) {
 
     return (
         <div>
-            <h5 onClick={handleDrawerOpen}>{props.drawerOpen ? <div>Open Drawer</div>: <div>Closed Drawer</div>}</h5>
+            <h5 onClick={handleDrawerOpen}>{props.drawerOpen ? <div>Open Drawer <BoxPuzzle /></div> : <div>Closed Drawer</div>}</h5>
         </div>
     )
 }
