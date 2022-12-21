@@ -7,6 +7,7 @@ import GearPuzzle from './GearPuzzle'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Drawer from './Drawer'
+import { ToolBoxSvg } from './ToolBoxSvg.jsx'
 
 
 
@@ -65,6 +66,7 @@ function Room(props) {
 
 
 
+
             {doorOpen && (
                 <div className='door-open'>
                     <h3>You Escaped!</h3>
@@ -77,6 +79,7 @@ function Room(props) {
                     <h3>You're Trapped</h3>
                 </div>
             )}
+
 
             <div className='door-code'>
                 <h3>Enter Door Code</h3>
@@ -109,12 +112,13 @@ function Room(props) {
                 </>
             )}
 
-
+          <div onClick={props.setScrewdriver} className='tool-box-container2'>
+                      <ToolBoxSvg/>
+                  </div>
 
 
             <div className='main'>
                 <h1>main room</h1>
-                <div className='add-screwdriver' onClick={props.setScrewdriver}>{props.hasScrewdriver ? null : <div>Screwdriver</div>}</div>
                 <div className='add-wrench' onClick={props.setWrench}>{props.hasWrench ? null : <div>Wrench</div>}</div>
                 <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div>Key</div>}</div>
                 <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div>Magnifying Glass</div>}</div>
