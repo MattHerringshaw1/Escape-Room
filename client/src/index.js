@@ -12,7 +12,7 @@ import Logout from './components/Logout';
 import BaseLayout from './components/BaseLayout';
 import Room from './components/Room'
 import Home from './components/Home';
-import EditUser from './components/EditUser';
+import UserInfo from './components/UserInfo';
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -32,7 +32,7 @@ root.render(
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/home/:username' element={<Home />} />
-            <Route path='/edit-user' element={<EditUser />} />
+            <Route path='/edit-user/:userid' element={<UserInfo />} />
             <Route path='/logout' element={<Logout />} />
             <Route path='/room/:username' element={<Room />} />
           </Routes>

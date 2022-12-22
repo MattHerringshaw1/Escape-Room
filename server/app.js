@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 8080
 // Schemas
 const User = require('./schemas/user')
-// middlewares
+// Middlewares
 const authenticate = require('./middlewares/authMiddleware')
 
 app.use(cors())
@@ -72,24 +72,21 @@ app.delete('/api/users/:userId', (req, res) => {
 // ---------------------------------------- UPDATING THINGS IN THE DATABASE ----------------------------------------
 
 // UPDATE USER
-app.put('/api/users/:userId', async (req, res) => {
+app.put('/api/users', (req, res) => {
 
-    const userId = req.params.userId
-    const { first_name, last_name, username, email, password } = req.body
-
-    let salt = await bcrypt.genSalt(10)
-    let hashedPassword = await bcrypt.hash(password, salt)
+    const { first_name, last_name, username, email, userid } = req.body
+    // console.log(userid)
 
     const updatedUser = {
         first_name: first_name,
         last_name: last_name,
         username: username,
         email: email,
-        password: hashedPassword
+        
     }
-
+    console.log('Updated User:', updatedUser)
     User.findByIdAndUpdate(
-        userId,
+        userid,
         updatedUser,
         (error, user) => {
             if (error) {
@@ -120,3 +117,22 @@ app.post('/api/login', async (req, res) => {
         }
     }
 })
+
+// how to create a get request using MongoDb?   
+
+//Get user by ObjectID
+app.get('/api/view-info/:id', (req, res) => {
+    let id = req.params.id
+    console.log(id)
+    User.findById(req.params.id)
+        .then(data => {
+        let first_name = data.first_name
+        let last_name = data.last_name
+        let email = data.email
+        let username = data.username
+        let user = { first_name, last_name, email, username }
+        res.json(user)
+})
+})
+
+    
