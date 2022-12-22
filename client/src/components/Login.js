@@ -39,7 +39,7 @@ function Login(props) {
               localStorage.setItem('userid', userId)
     
               props.onLogin(token)
-              navigate(`/home/${userId}`)
+              navigate(`/home/${username}`)
             }
           })
       };
