@@ -6,7 +6,7 @@ function Scissors() {
 
     return (
         <>
-        <h4>{username}'s Scissors</h4>
+        <b>Forbidden Scissors</b>
         </>
     )
 }

@@ -6,7 +6,7 @@ function Key() {
 
     return (
         <>
-        <h4>{username}'s Key</h4>
+        <b>Mysterious Key</b>
         </>
     )
 }
