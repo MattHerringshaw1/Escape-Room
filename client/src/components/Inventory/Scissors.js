@@ -1,20 +1,20 @@
 import { connect } from 'react-redux'
 
-function Wrench() {
+function Scissors() {
 
     const username = localStorage.getItem('username')
 
     return (
         <>
-        <h4>{username}'s Wrench</h4>
+        <h4>{username}'s Scissors</h4>
         </>
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setWrench: () => dispatch({type: 'DELETE_WRENCH'})
+        setScissors: () => dispatch({type: 'DELETE_SCISSORS'})
     }
 }
 
-export default connect(null, mapDispatchToProps)(Wrench)
+export default connect(null, mapDispatchToProps)(Scissors)

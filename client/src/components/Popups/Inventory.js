@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Screwdriver from '../Inventory/Screwdriver'
 import { connect } from 'react-redux'
-import Wrench from '../Inventory/Wrench'
+import Wrench from '../Inventory/Scissors'
 import Key from '../Inventory/Key'
 import MagnifyingGlass from '../Inventory/MagnifyingGlass'
 import Lighter from '../Inventory/Lighter'

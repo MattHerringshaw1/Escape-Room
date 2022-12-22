@@ -44,7 +44,11 @@ function Room(props) {
 
 
     const handleShowFlag = () => {
-        setShowFlag(true)
+        if (props.hasScissors) {
+            setShowFlag(true)
+        } else {
+            alert("It's tied tightly with a rope! You need to cut it open somehow...")
+        }
     }
 
     const handleHideFlag = () => {
@@ -90,18 +94,18 @@ function Room(props) {
 
 
 
-            
 
-                {!showGear && (
-                    <button onClick={handleShowGear}>Show Gear Puzzle</button>
-                )}
 
-                {showGear && (
-                    <>
-                        <button onClick={handleHideGear}>Hide Gear Puzzle</button>
-                        <GearPuzzle />
-                    </>
-                )}
+            {!showGear && (
+                <button onClick={handleShowGear}>Show Gear Puzzle</button>
+            )}
+
+            {showGear && (
+                <>
+                    <button onClick={handleHideGear}>Hide Gear Puzzle</button>
+                    <GearPuzzle />
+                </>
+            )}
 
 
 
@@ -127,7 +131,7 @@ function Room(props) {
 
             <div className='main'>
                 <h1>main room</h1>
-                <div className='add-wrench' onClick={props.setWrench}>{props.hasWrench ? null : <div>Wrench</div>}</div>
+                <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div>Scissors</div>}</div>
                 <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div>Key</div>}</div>
                 <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div>Magnifying Glass</div>}</div>
                 <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div>Lighter</div>}</div>
@@ -145,7 +149,7 @@ function Room(props) {
 const mapStateToProps = (state) => {
     return {
         hasScrewdriver: state.hasScrewdriver,
-        hasWrench: state.hasWrench,
+        hasScissors: state.hasScissors,
         hasKey: state.hasKey,
         hasMagnifyingGlass: state.hasMagnifyingGlass,
         hasLighter: state.hasLighter
@@ -155,7 +159,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setScrewdriver: () => dispatch({ type: 'SET_SCREWDRIVER' }),
-        setWrench: () => dispatch({ type: 'SET_WRENCH' }),
+        setScissors: () => dispatch({ type: 'SET_SCISSORS' }),
         setKey: () => dispatch({ type: 'SET_KEY' }),
         setMagnifyingGlass: () => dispatch({ type: 'SET_MAGNIFYINGGLASS' }),
         setLighter: () => dispatch({ type: 'SET_LIGHTER' })

@@ -3,7 +3,7 @@ const initialState = {
     isAuthenticated: false,
     hasScrewdriver: false,
     drawerOpen: false,
-    hasWrench: false,
+    hasScissors: false,
     hasKey: false,
     hasMagnifyingGlass: false,
     hasLighter: false,
@@ -36,15 +36,15 @@ const reducer = (state = initialState, action) => {
             ...state,
             drawerOpen: true
         }
-    } else if(action.type == 'SET_WRENCH') {
+    } else if(action.type == 'SET_SCISSORS') {
         return {
             ...state,
-            hasWrench: true
+            hasScissors: true
         }
-    } else if(action.type == 'DELETE_WRENCH') {
+    } else if(action.type == 'DELETE_SCISSORS') {
         return {
             ...state,
-            hasWrench: false
+            hasScissors: false
         }
     } else if(action.type == 'SET_KEY') {
         return {
