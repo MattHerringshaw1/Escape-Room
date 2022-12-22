@@ -14,6 +14,12 @@
 }
 
 
+.tool-box-container2{
+    height:50px;
+    width: 50px ;
+}
+
+
 /* .footer {
     position: absolute;
     bottom: 0;
@@ -26,4 +32,6 @@
     border-top-color: #e0e0e0;
     align-items: center;
 } */
+
+
 

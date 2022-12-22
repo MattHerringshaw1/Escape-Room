@@ -1,20 +1,20 @@
 import { connect } from 'react-redux'
 
-function Screwdriver() {
+function Lighter() {
 
     const username = localStorage.getItem('username')
 
     return (
         <>
-        <h4>{username}'s Screwdriver</h4>
+        <h4>{username}'s Lighter</h4>
         </>
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setScrewdriver: () => dispatch({type: 'DELETE_SCREWDRIVER'})
+        setLighter: () => dispatch({type: 'DELETE_LIGHTER'})
     }
 }
 
-export default connect(null, mapDispatchToProps)(Screwdriver)
+export default connect(null, mapDispatchToProps)(Lighter)
