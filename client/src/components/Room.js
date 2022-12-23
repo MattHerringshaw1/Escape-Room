@@ -23,28 +23,43 @@ function Room(props) {
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
     const [showGear, setShowGear] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
+    const [showInventory, setShowInventory] = useState(false)
+    const [openDrawer, setOpenDrawer] = useState(false)
+ 
 
     const username = localStorage.getItem('username')
-
-    // function to toggle the pop-up
-    const toggleInventory = () => {
-        setIsOpen(!isOpen);
-    }
-
 
     const handleDoorOpen = (doorCode) => {
 
         if (doorCode == 612) {
             setDoorOpen(true)
         } else {
-            return
+            alert("It's locked! Looks like you're trapped. Try to find a way out!")
         }
     }
 
+    const handleShowInventory = () => {
+        setShowInventory(true)
+    }
+
+    const handleHideInventory = () => {
+        setShowInventory(false)
+    }
+
+    const handleShowNote = () => {
+        if (props.hasLighter) {
+            alert("Prime numbers are numbers that are ONLY divisible by 1 and itself. Also, 'bonjour' is a French word.")
+        } else {
+            alert("It's too dark to read...")
+        }
+    }
 
     const handleShowFlag = () => {
-        setShowFlag(true)
+        if (props.hasScissors) {
+            setShowFlag(true)
+        } else {
+            alert("It's tied tightly with a rope! You need to cut it open somehow...")
+        }
     }
 
     const handleHideFlag = () => {
@@ -63,34 +78,62 @@ function Room(props) {
         setShowGear(false)
     }
 
+    const handleCloseDrawer = () => {
+        setOpenDrawer(false)
+    }
+
+    const handleOpenDrawer = () => {
+        if (props.hasScrewdriver) {
+            setOpenDrawer(true)
+        } else {
+            alert("It's locked and there is nowhere to insert a key! What kind of box is this?!")
+        }
+    }
+
 
 
     return (
         <>
+            <div className='main'>
+                <h1>{username}'s Room #1</h1>
 
-            {doorOpen && (
-                <div className='door-open'>
-                    <h3>You Escaped!</h3>
+                {doorOpen && (
+                    <div className='door-open'>
+                        <h3>You Escaped!</h3>
+                    </div>
+                )}
+
+                {!doorOpen && (
+                    <div className='door-closed'>
+                        <h3>You're Trapped! Try to find a way out..</h3>
+                    </div>
+                )}
+
+                <div className='door-code'>
+                    <h3>Enter Door Code</h3>
+                    <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
+                    <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
                 </div>
-            )}
 
+                {!showInventory && (
+                    <button onClick={handleShowInventory}>Show Inventory</button>
+                )}
 
-            {!doorOpen && (
-                <div className='door-closed'>
-                    <h3>You're Trapped</h3>
-                </div>
-            )}
+                {showInventory && (
+                    <>
+                        <button onClick={handleHideInventory}>Hide Inventory</button>
+                        <Inventory />
+                    </>
+                )}
 
+                <h2>Items around the room</h2>
+                <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div>Scissors</div>}</div>
+                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div>Key</div>}</div>
+                <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div>Magnifying Glass</div>}</div>
+                <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div>Lighter</div>}</div>
+                <div onClick={props.setScrewdriver} className='tool-box-container2'><ToolBoxSvg /></div>
 
-            <div className='door-code'>
-                <h3>Enter Door Code</h3>
-                <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
-                <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
-            </div>
-
-
-
-            
+                <button onClick={handleShowNote}>Note in the dark corner of the room</button>
 
                 {!showGear && (
                     <button onClick={handleShowGear}>Show Gear Puzzle</button>
@@ -103,37 +146,27 @@ function Room(props) {
                     </>
                 )}
 
+                {!showFlag && (
+                    <button onClick={handleShowFlag}>Show Flag Puzzle</button>
+                )}
 
+                {showFlag && (
+                    <>
+                        <button onClick={handleHideFlag}>Hide Flag Puzzle</button>
+                        <FlagPuzzle />
+                    </>
+                )}
 
+                {!openDrawer && (
+                    <button onClick={handleOpenDrawer}>Open the mysterious drawer</button>
+                )}
 
-
-
-            {!showFlag && (
-                <button onClick={handleShowFlag}>Show Flag Puzzle</button>
-            )}
-
-
-            {showFlag && (
-                <>
-                    <button onClick={handleHideFlag}>Hide Flag Puzzle</button>
-                    <FlagPuzzle />
-                </>
-            )}
-
-            <div onClick={props.setScrewdriver} className='tool-box-container2'>
-                <ToolBoxSvg />
-            </div>
-
-
-            <div className='main'>
-                <h1>main room</h1>
-                <div className='add-wrench' onClick={props.setWrench}>{props.hasWrench ? null : <div>Wrench</div>}</div>
-                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div>Key</div>}</div>
-                <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div>Magnifying Glass</div>}</div>
-                <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div>Lighter</div>}</div>
-                <div className='open-inventory' onClick={toggleInventory}>Open Inventory</div>
-                <div className='inventory-popup'>{isOpen && <Inventory handleClose={toggleInventory} />}</div>
-                <div>{<Drawer />}</div>
+                {openDrawer && (
+                    <>
+                    <button onClick={handleCloseDrawer}>Close the mysterious drawer for some reason</button>
+                    <Drawer />
+                    </>
+                )}
             </div>
         </>
 
@@ -145,7 +178,7 @@ function Room(props) {
 const mapStateToProps = (state) => {
     return {
         hasScrewdriver: state.hasScrewdriver,
-        hasWrench: state.hasWrench,
+        hasScissors: state.hasScissors,
         hasKey: state.hasKey,
         hasMagnifyingGlass: state.hasMagnifyingGlass,
         hasLighter: state.hasLighter
@@ -155,7 +188,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         setScrewdriver: () => dispatch({ type: 'SET_SCREWDRIVER' }),
-        setWrench: () => dispatch({ type: 'SET_WRENCH' }),
+        setScissors: () => dispatch({ type: 'SET_SCISSORS' }),
         setKey: () => dispatch({ type: 'SET_KEY' }),
         setMagnifyingGlass: () => dispatch({ type: 'SET_MAGNIFYINGGLASS' }),
         setLighter: () => dispatch({ type: 'SET_LIGHTER' })

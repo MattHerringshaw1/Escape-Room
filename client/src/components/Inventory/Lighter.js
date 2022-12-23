@@ -6,7 +6,7 @@ function Lighter() {
 
     return (
         <>
-        <h4>{username}'s Lighter</h4>
+        <b>Baffling Lighter</b>
         </>
     )
 }

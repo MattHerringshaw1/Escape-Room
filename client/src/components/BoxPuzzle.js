@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import '../styles/boxpuz.css'
+import { connect } from 'react-redux'
 
 
-function BoxPuzzle() {
+function BoxPuzzle(props) {
     const [puzzle, setPuzzle] = useState([]);
     const [complete, setComplete] = useState(false);
     const [moves, setMoves] = useState(0);
@@ -173,11 +174,17 @@ function BoxPuzzle() {
             </div>
             {complete && (
                 <p>
-                    A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."
+                    {props.hasMagnifyingGlass ? 'A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."': 'A box opens and a note is inside... but the text is too small to read!'}
                 </p>
             )}
         </div>
     );
 }
 
-export default BoxPuzzle
+const mapStateToProps = (state) => {
+    return {
+        hasMagnifyingGlass: state.hasMagnifyingGlass
+    }
+}
+
+export default connect (mapStateToProps)(BoxPuzzle)

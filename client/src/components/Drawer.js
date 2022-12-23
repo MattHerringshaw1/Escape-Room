@@ -15,7 +15,7 @@ function Drawer(props) {
 
     return (
         <div>
-            <h5 onClick={handleDrawerOpen}>{props.drawerOpen ? <div>Open Drawer <BoxPuzzle /></div> : <div>Closed Drawer</div>}</h5>
+            <h5 onClick={handleDrawerOpen}>{props.drawerOpen ? <div><BoxPuzzle /></div> : <div style={{cursor:'pointer'}}>There's a strange device in this drawer... click to turn it over. </div>}</h5>
         </div>
     )
 }

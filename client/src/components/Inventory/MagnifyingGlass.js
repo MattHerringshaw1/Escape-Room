@@ -6,7 +6,7 @@ function MagnifyingGlass() {
 
     return (
         <>
-        <h4>{username}'s MagnifyingGlass</h4>
+        <b>Inexplicable Magnifying Glass</b>
         </>
     )
 }
