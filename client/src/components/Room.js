@@ -8,6 +8,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Drawer from './Drawer'
 import { ToolBoxSvg } from './ToolBoxSvg.jsx'
+import CountDownTimer from './Timer'
+import Screwdriver from './Inventory/Screwdriver'
 
 
 
@@ -25,6 +27,7 @@ function Room(props) {
     const [showGear, setShowGear] = useState(false)
     const [showInventory, setShowInventory] = useState(false)
     const [openDrawer, setOpenDrawer] = useState(false)
+    const minSecs={minutes:5, seconds:0}
  
 
     const username = localStorage.getItem('username')
@@ -97,6 +100,8 @@ function Room(props) {
             <div className='main'>
                 <h1>{username}'s Room #1</h1>
 
+                <CountDownTimer minSecs={minSecs}/>
+
                 {doorOpen && (
                     <div className='door-open'>
                         <h3>You Escaped!</h3>
@@ -127,10 +132,10 @@ function Room(props) {
                 )}
 
                 <h2>Items around the room</h2>
-                <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div>Scissors</div>}</div>
-                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div>Key</div>}</div>
-                <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div>Magnifying Glass</div>}</div>
-                <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div>Lighter</div>}</div>
+                <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div className='item-hover'>Scissors</div>}</div>
+                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover'>Key</div>}</div>
+                <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div className='item-hover'>Magnifying Glass</div>}</div>
+                <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div className='item-hover'>Lighter</div>}</div>
                 <div onClick={props.setScrewdriver} className='tool-box-container2'><ToolBoxSvg /></div>
 
                 <button onClick={handleShowNote}>Note in the dark corner of the room</button>
