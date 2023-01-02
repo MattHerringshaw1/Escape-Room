@@ -17,8 +17,12 @@
 .tool-box-container2{
     height:50px;
     width: 50px ;
+    cursor: pointer;
 }
 
+.item-hover{
+    cursor: pointer;
+}
 
 /* .footer {
     position: absolute;
