@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 function MyScores() {
 
+
     const [scores, setScores ] = useState([])
+    const username = localStorage.getItem('username')
+    
 
     useEffect(() => {
         fetchAll()
@@ -22,7 +25,19 @@ function MyScores() {
             })
     }
 
-    const scoreList = scores.map((oneScore, index) => {
+    const scoreFilter = scores.filter((newScore) => {
+        return (newScore.username === username)
+    })
+
+    const scoreOrdered = scoreFilter.sort((a, b) => {
+        if (a.mins === b.mins){
+            return a.secs > b.secs ? -1 : 1
+        } else {
+            return a.mins > b.mins ? -1: 1
+        }
+    })
+
+    const scoreList = scoreOrdered.map((oneScore, index) => {
         return <div key={index}>
             <li>{oneScore.username} - {oneScore.mins} minutes : {oneScore.secs} seconds</li>
         </div>

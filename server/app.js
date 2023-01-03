@@ -169,15 +169,6 @@ app.get('/api/leaderboard', async (req, res) => {
     res.json(all_scores)
 })
 
-// LEADERBOARD GET USER SCORES
-app.get('/api/user_scores', async (req, res) => {
-    
-    const { username } = req.body
-
-    const user_scores = await Leaderboard.find().where('username').in(username)
-    res.json(user_scores)
-})
-
 //Get user by ObjectID
 app.get('/api/view-info/:id', (req, res) => {
     let id = req.params.id
