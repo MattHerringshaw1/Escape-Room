@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import '../styles/userinfo.css'
 
 
 function UserInfo() {
@@ -43,8 +44,9 @@ function UserInfo() {
         fetchUser()
     }, [])
 
-    const handleEdit = () => {
+    const handleEdit = (e) => {
 
+        e.preventDefault()
 
         if (!user.first_name || !user.last_name || !user.email || !user.username) {
             alert('Please fill out all textboxes.')
@@ -73,27 +75,42 @@ function UserInfo() {
 
 
     return (
-        <div>
-            <h1>View Restaurant Details Below</h1>
-
-            <ul>
-                <li><u>First Name</u>: {userInfo.first_name}</li>
-                <li><u>Last Name</u>: {userInfo.last_name}</li>
-                <li><u>Email</u>: {userInfo.email}</li>
-                <li><u>Username</u>: {userInfo.username}</li>
-            </ul>
-
-            <div key={user.userid}>
-                <input type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
-                <input type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
-                <input type='text' name='email' placeholder='Enter email' onChange={handleChange} />
-                <input type='text' name='username' placeholder='Enter username' onChange={handleChange} />
-                <button onClick={handleEdit}>Save</button>
-
+        <>
+        <div className='main-container-user'>
+            <div className='main-container-title-user'>
+                <h1>View User Details Below</h1>
             </div>
-
-
+            <div className='main-container-body-user'>
+                <div className='main-container-ul-user'>
+                    <ul>
+                        <li className='main-container-input-ul-user'><u>First Name</u>: {userInfo.first_name}</li>
+                        <li className='main-container-input-ul-user'><u>Last Name</u>: {userInfo.last_name}</li>
+                        <li className='main-container-input-ul-user'><u>Email</u>: {userInfo.email}</li>
+                        <li className='main-container-input-ul-user'><u>Username</u>: {userInfo.username}</li>
+                    </ul>
+                </div>
+                <div key={user.userid}>
+                    <form onSubmit={handleEdit}>
+                        <div className='main-container-input-user'>
+                            <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                        </div>
+                        <div className='main-container-input-user'>
+                            <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
+                        </div>
+                        <div className='main-container-input-user'>
+                            <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                        </div>
+                        <div className='main-container-input-user'>
+                            <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                        </div>
+                        <div className='main-container-input-user'>
+                            <button>Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+        </>
     )
 }
 
