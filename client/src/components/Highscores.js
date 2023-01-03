@@ -31,8 +31,8 @@ function Highscores() {
         }
     })
    
-    const scoreList = scoreOrdered.slice(0, listScores).map(oneScore => {
-        return <div>
+    const scoreList = scoreOrdered.slice(0, listScores).map((oneScore, index) => {
+        return <div key={index}>
             <li>{oneScore.username} - {oneScore.mins} minutes : {oneScore.secs} seconds</li>
         </div>
     })    
