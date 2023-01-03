@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
+import '../styles/login.css'
 
 function Login(props) {
 
@@ -75,20 +76,31 @@ function Login(props) {
 
     return (
         <>
-        <h1>Login Page</h1>
-
-          <form onSubmit={handleSubmit}>
-            <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
-            <input minLength={2} maxLength={16} required name = "password" type = "text" placeholder = "Enter password" onChange={handleOnChange} />
-            <button>Login</button>
-          </form>
-
-
-          <form onSubmit={handleGuestSubmit}>
-            <input type="hidden" value="Guest" name="username"  />
-            <button>Guest Login</button>   
-          </form>
-
+          <div className='main-container-login'>
+            <div className='main-container-title-login'>
+                <h1>Login Page</h1>
+            </div>
+            <div className='main-container-body-login'>
+              <form onSubmit={handleSubmit}>
+                <div className='main-container-input-login'>
+                  <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
+                </div>
+                <div className='main-container-input-login'>
+                  <input minLength={2} maxLength={16} required name = "password" type = "text" placeholder = "Enter password" onChange={handleOnChange} />
+                </div>
+                <div className='main-container-input-login'>
+                  <button>Login</button>
+                </div>
+              </form>
+              
+              <div className='main-container-input-login'>
+                <form onSubmit={handleGuestSubmit}>              
+                  <input type="hidden" value="Guest" name="username"  />
+                  <button>Guest Login</button>   
+                </form>
+              </div>
+            </div>
+          </div>
 
             
         </>
