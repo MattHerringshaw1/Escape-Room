@@ -40,15 +40,57 @@ function Login(props) {
     
               props.onLogin(token)
               navigate(`/home/${username}`)
+            } else {
+              alert('Please provide correct credentials.')
             }
           })
       };
+
+      const handleGuestSubmit = (e) => {
+        e.preventDefault()
+        fetch('http://localhost:8080/api/guest-login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(response => response.json())
+          .then(result => {
+            console.log(result)
+            if (result.success) {
+              const token = result.token
+              const username = result.username
+              const userId = result.userId
+    
+              localStorage.setItem('jwt', token)
+              localStorage.setItem('username', username)
+              localStorage.setItem('userid', userId)
+    
+              props.onLogin(token)
+              navigate(`/home/${username}`)
+            } 
+          })
+      }
+
     return (
         <>
         <h1>Login Page</h1>
-            <input name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
-            <input  name = "password" type = "text" placeholder = "Enter password" onChange={handleOnChange}/>
-            <button onClick={handleSubmit}>Login</button>
+
+          <form onSubmit={handleSubmit}>
+            <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
+            <input minLength={2} maxLength={16} required name = "password" type = "text" placeholder = "Enter password" onChange={handleOnChange} />
+            <button>Login</button>
+          </form>
+
+
+          <form onSubmit={handleGuestSubmit}>
+            <input type="hidden" value="Guest" name="username"  />
+            <button>Guest Login</button>   
+          </form>
+
+
+            
         </>
     )
 }

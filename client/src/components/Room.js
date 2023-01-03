@@ -93,6 +93,13 @@ function Room(props) {
         }
     }
 
+    // const screwdriverAlert = () => {
+    //     if (props.setScrewdriver) {
+    //         alert('At the bottom of the toolbox you found a screwdriver.')
+    //     } else {
+    //         }
+    // }
+
 
 
     return (
@@ -100,7 +107,7 @@ function Room(props) {
             <div className='main'>
                 <h1>{username}'s Room #1</h1>
 
-                <CountDownTimer minSecs={minSecs}/>
+                {/* <CountDownTimer minSecs={minSecs}/> */}
 
                 {doorOpen && (
                     <div className='door-open'>
@@ -132,11 +139,18 @@ function Room(props) {
                 )}
 
                 <h2>Items around the room</h2>
-                <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div className='item-hover'>Scissors</div>}</div>
-                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover'>Key</div>}</div>
-                <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div className='item-hover'>Magnifying Glass</div>}</div>
-                <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div className='item-hover'>Lighter</div>}</div>
-                <div onClick={props.setScrewdriver} className='tool-box-container2'><ToolBoxSvg /></div>
+                <div>
+                    <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div className='item-hover'>Scissors</div>}</div>
+                    <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover'>Key</div>}</div>
+                    <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div className='item-hover'>Magnifying Glass</div>}</div>
+                    <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div className='item-hover'>Lighter</div>}</div>
+                </div>
+
+                <div onClick={props.setScrewdriver}  className='tool-box-container2' >
+                    
+                    {/* <p onClick={screwdriverAlert()}>Old Toolbox</p> */}
+                    <ToolBoxSvg />
+                </div>
 
                 <button onClick={handleShowNote}>Note in the dark corner of the room</button>
 

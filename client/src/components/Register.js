@@ -38,12 +38,14 @@ function Register() {
     return (
         <>
             <h1>Registration</h1>
-            <input type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
-            <input type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
-            <input type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
-            <input type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
-            <input type='text' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={handleRegister}>Register</button>
+            <form onSubmit={handleRegister}>
+                <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
+                <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
+                <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
+                <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
+                <input minLength={2} maxLength={16} required type='text' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+                <button>Register</button>
+            </form>
         </>
     )
 }
