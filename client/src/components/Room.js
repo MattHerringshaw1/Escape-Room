@@ -33,9 +33,9 @@ function Room(props) {
     const username = localStorage.getItem('username')
 
     const handleDoorOpen = (doorCode) => {
-
         if (doorCode == 612) {
             setDoorOpen(true)
+            props.setDoorOpenDis()
         } else {
             alert("It's locked! Looks like you're trapped. Try to find a way out!")
         }
@@ -107,7 +107,7 @@ function Room(props) {
             <div className='main'>
                 <h1>{username}'s Room #1</h1>
 
-                {/* <CountDownTimer minSecs={minSecs}/> */}
+                <CountDownTimer minSecs={minSecs}/>
 
                 {doorOpen && (
                     <div className='door-open'>
@@ -210,7 +210,8 @@ const mapDispatchToProps = (dispatch) => {
         setScissors: () => dispatch({ type: 'SET_SCISSORS' }),
         setKey: () => dispatch({ type: 'SET_KEY' }),
         setMagnifyingGlass: () => dispatch({ type: 'SET_MAGNIFYINGGLASS' }),
-        setLighter: () => dispatch({ type: 'SET_LIGHTER' })
+        setLighter: () => dispatch({ type: 'SET_LIGHTER' }),
+        setDoorOpenDis: () => dispatch({type:'DOOR_OPEN'})
     }
 }
 

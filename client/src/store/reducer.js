@@ -7,6 +7,7 @@ const initialState = {
     hasKey: false,
     hasMagnifyingGlass: false,
     hasLighter: false,
+    doorOpen: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -75,6 +76,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             hasLighter: false
+        }
+    } else if(action.type == 'DOOR_OPEN'){
+        return{
+            ...state,
+            doorOpen: true
         }
     }
         return state

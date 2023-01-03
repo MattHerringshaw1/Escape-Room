@@ -1,9 +1,21 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const CountDownTimer = ({minSecs}) => {
-
-    const {minutes = 0, seconds = 60} = minSecs;
+const CountDownTimer = (props) => {
+    
+    const {minutes = 0, seconds = 60} = props.minSecs;
     const [[mins, secs], setTime] = React.useState([minutes, seconds])
+    const [door, setDoor] = React.useState(false)
+
+    const handleDoorCheck = () =>{
+        
+        if (props.doorOpen){
+            setDoor(true)
+        }else{
+            return
+        }
+    }
+    
 
     const tick = () => {
 
@@ -16,15 +28,15 @@ const CountDownTimer = ({minSecs}) => {
 
 
     React.useEffect(()=>{
-        if(mins===0 && secs===0){
-            alert('You ran out of time!')
+        handleDoorCheck()
+        if((mins===0 && secs===0) || door===true){
             return
         }else{
         const timerId = setInterval(()=>tick(),1000);
         return()=>clearInterval(timerId)}
-    },)
+    })
 
-
+   
 
     return(
         <div>
@@ -36,4 +48,10 @@ const CountDownTimer = ({minSecs}) => {
 
 }
 
-export default CountDownTimer
+const mapStateToProps = (state) => {
+    return {
+        doorOpen: state.doorOpen
+    }
+}
+
+export default connect (mapStateToProps)(CountDownTimer)
