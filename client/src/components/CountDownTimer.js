@@ -6,11 +6,28 @@ const CountDownTimer = (props) => {
     const {minutes = 0, seconds = 60} = props.minSecs;
     const [[mins, secs], setTime] = React.useState([minutes, seconds])
     const [door, setDoor] = React.useState(false)
+    const username = localStorage.getItem('username')
+
 
     const handleDoorCheck = () =>{
         
         if (props.doorOpen){
             setDoor(true)
+            fetch('http://localhost:8080/api/leaderboard', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    mins: mins, 
+                    secs: secs, 
+                    username: username
+                })
+            })
+            .then(response=> response.json())
+            .then(result=>{
+                console.log(result)
+            })
         }else{
             return
         }
@@ -40,9 +57,9 @@ const CountDownTimer = (props) => {
 
     return(
         <div>
-            <p>
+            <h2>
                 {`${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`}
-            </p>
+            </h2>
         </div>
     )
 

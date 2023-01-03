@@ -13,6 +13,7 @@ import BaseLayout from './components/BaseLayout';
 import Room from './components/Room'
 import Home from './components/Home';
 import UserInfo from './components/UserInfo';
+import Leaderboard from './components/Leaderboard';
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -35,6 +36,7 @@ root.render(
             <Route path='/edit-user/:userid' element={<UserInfo />} />
             <Route path='/logout' element={<Logout />} />
             <Route path='/room/:username' element={<Room />} />
+            <Route path='/leaderboard' element={<Leaderboard />} />
           </Routes>
         </BaseLayout>
       </BrowserRouter>
