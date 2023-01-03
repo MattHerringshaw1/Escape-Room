@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Highscores from './Highscores'
+import MyScores from './MyScores'
 
 function Leaderboard() {
 
@@ -9,6 +10,7 @@ function Leaderboard() {
     return (
         <>
             <Highscores />
+            <MyScores />
         </>
     )
 

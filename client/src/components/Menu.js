@@ -16,6 +16,7 @@ function Menu(props) {
             <NavLink to={`/edit-user/${userid}`}>User Info</NavLink>
 
             <NavLink to={`/home/${username}`}>Home</NavLink>
+            <NavLink to={'/leaderboard'}>Leaderboard</NavLink>
 
 
 

@@ -69,7 +69,7 @@ app.post('/api/leaderboard', (req, res) => {
         secs: secsNumber,
         username: username
     })
-    console.log(time)
+
     time.save((error) => {
         if (error) {
             res.json({ success: false, message: error })
@@ -167,15 +167,6 @@ app.post('/api/guest-login', async (req, res) => {
 app.get('/api/leaderboard', async (req, res) => {
     const all_scores = await Leaderboard.find()
     res.json(all_scores)
-})
-
-// LEADERBOARD GET USER SCORES
-app.get('/api/user_scores', async (req, res) => {
-    
-    const { username } = req.body
-
-    const user_scores = await Leaderboard.find().where('username').in(username)
-    res.json(user_scores)
 })
 
 //Get user by ObjectID
