@@ -44,27 +44,30 @@ function Register() {
                 </div>
                 <div className='main-container-body-register'>
                     <form onSubmit={handleRegister}>
-                        <div className='main-container-input-register'>
-                            <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
-                        </div>
-                        <div className='main-container-input-register'>
-                            <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
-                        </div>
-                        <div className='main-container-input-register'>
-                            <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
-                        </div>
-                        <div className='main-container-input-register'>
-                            <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
-                        </div>
-                        <div className='main-container-input-register'>
-                            <input minLength={2} maxLength={16} required type='text' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
-                        </div>
-                        <div className='main-container-input-register'>
-                            <button>Register</button>
+                        <div className='form-center'>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={16} required type='password' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <button>Register</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
+        
         </>
     )
 }

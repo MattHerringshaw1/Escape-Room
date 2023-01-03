@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(138, 22, 119);
-    width: 40%;
+    width: 80%;
     height: 60%;
 }
 .main-container-body-login {
@@ -20,16 +20,20 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 0, 0);
-    width: 40%;
+    width: 80%;
     height: 100%;
     flex-direction: column;
 }
-.main-container-input-login {
+
+.form-center {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgb(208, 237, 59);
-    width: 400px;
-    height: 60px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.main-container-input-login {
+    display: flex;
     margin-top: 1%;
 }
+

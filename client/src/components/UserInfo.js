@@ -82,29 +82,31 @@ function UserInfo() {
             </div>
             <div className='main-container-body-user'>
                 <div className='main-container-ul-user'>
-                    <ul>
-                        <li className='main-container-input-ul-user'><u>First Name</u>: {userInfo.first_name}</li>
-                        <li className='main-container-input-ul-user'><u>Last Name</u>: {userInfo.last_name}</li>
-                        <li className='main-container-input-ul-user'><u>Email</u>: {userInfo.email}</li>
-                        <li className='main-container-input-ul-user'><u>Username</u>: {userInfo.username}</li>
-                    </ul>
+                    <div>
+                        <p className='main-container-input-ul-user'><u>First Name</u>: {userInfo.first_name}</p>
+                        <p className='main-container-input-ul-user'><u>Last Name</u>: {userInfo.last_name}</p>
+                        <p className='main-container-input-ul-user'><u>Email</u>: {userInfo.email}</p>
+                        <p className='main-container-input-ul-user'><u>Username</u>: {userInfo.username}</p>
+                    </div>
                 </div>
-                <div key={user.userid}>
+                <div className='main-container-ul-user' key={user.userid}>
                     <form onSubmit={handleEdit}>
-                        <div className='main-container-input-user'>
-                            <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
-                        </div>
-                        <div className='main-container-input-user'>
-                            <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
-                        </div>
-                        <div className='main-container-input-user'>
-                            <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
-                        </div>
-                        <div className='main-container-input-user'>
-                            <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
-                        </div>
-                        <div className='main-container-input-user'>
-                            <button>Save</button>
+                        <div className='form-center'>
+                            <div className='main-container-input-user'>
+                                <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                            </div>
+                            <div className='main-container-input-user'>
+                                <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
+                            </div>
+                            <div className='main-container-input-user'>
+                                <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                            </div>
+                            <div className='main-container-input-user'>
+                                <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                            </div>
+                            <div className='main-container-input-user'>
+                                <button>Save</button>
+                            </div>
                         </div>
                     </form>
                 </div>
