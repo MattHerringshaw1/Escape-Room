@@ -10,6 +10,7 @@ const port = process.env.PORT || 8080
 const User = require('./schemas/user')
 // Middlewares
 const authenticate = require('./middlewares/authMiddleware')
+const Leaderboard = require('./schemas/leaderboard')
 
 app.use(cors())
 app.use(express.json())
@@ -51,6 +52,26 @@ app.post('/api/register', async (req, res) => {
             res.json({ success: false, message: error })
         } else {
             res.json({ success: true, message: 'New user successfully registered.' })
+        }
+    })
+})
+
+// ADD TO LEADERBOARD
+app.post('/api/leaderboard', (req, res) => {
+
+    const {mins, secs, username} = req.body
+    
+    const time = new Leaderboard({
+        mins: mins,
+        secs: secs,
+        username: username
+    })
+    console.log(time)
+    time.save((error) => {
+        if (error) {
+            res.json({ success: false, message: error })
+        } else {
+            res.json({ success: true, message: 'Time was saved successfully'})
         }
     })
 })
@@ -99,6 +120,7 @@ app.put('/api/users', (req, res) => {
 
 // ---------------------------------------- READING FROM DATABASE ----------------------------------------
 
+// USER LOGIN
 app.post('/api/login', async (req, res) => {
     
     const { username, password } = req.body
@@ -138,7 +160,20 @@ app.post('/api/guest-login', async (req, res) => {
     }
 })
 
-// how to create a get request using MongoDb?   
+// LEADERBOARD GET ALL SCORES
+app.get('/api/leaderboard', async (req, res) => {
+    const all_scores = await Leaderboard.find()
+    res.json(all_scores)
+})
+
+// LEADERBOARD GET USER SCORES
+app.get('/api/user_scores', async (req, res) => {
+    
+    const { username } = req.body
+
+    const user_scores = await Leaderboard.find().where('username').in(username)
+    res.json(user_scores)
+})
 
 //Get user by ObjectID
 app.get('/api/view-info/:id', (req, res) => {
