@@ -61,9 +61,12 @@ app.post('/api/leaderboard', (req, res) => {
 
     const {mins, secs, username} = req.body
     
+    const minsNumber = parseInt(mins)
+    const secsNumber = parseInt(secs)
+
     const time = new Leaderboard({
-        mins: mins,
-        secs: secs,
+        mins: minsNumber,
+        secs: secsNumber,
         username: username
     })
     console.log(time)

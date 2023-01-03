@@ -13,12 +13,16 @@ const CountDownTimer = (props) => {
         
         if (props.doorOpen){
             setDoor(true)
-            fetch('http://localhost:8080/api/leaderboad', {
+            fetch('http://localhost:8080/api/leaderboard', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(mins, secs, username)
+                body: JSON.stringify({
+                    mins: mins, 
+                    secs: secs, 
+                    username: username
+                })
             })
             .then(response=> response.json())
             .then(result=>{
