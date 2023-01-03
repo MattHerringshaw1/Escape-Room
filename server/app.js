@@ -118,6 +118,26 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
+
+app.post('/api/guest-login', async (req, res) => {
+    
+    const username = 'Guest'
+    const password = '123456'
+    const user = await User.findOne({
+            username: username
+    })
+    if (user) {
+        const result = await bcrypt.compare(password, user.password)
+        if (result) {
+            const token = jwt.sign({ username: user.username }, 'SECRETKEYJWT')
+
+            res.json({ success: true, token: token, username: user.username, userId: user._id })
+        } else {
+            res.json({ success: false, message: 'Username or password is incorrect' })
+        }
+    }
+})
+
 // how to create a get request using MongoDb?   
 
 //Get user by ObjectID
