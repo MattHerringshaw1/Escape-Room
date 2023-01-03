@@ -12,23 +12,29 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(158, 27, 27);
-    width: 40%;
-    height: 60%;
+    width: 80%;
+    height: 100%;
+    text-align: center;
 }
+
 .main-container-body-register {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(49, 146, 12);
-    width: 40%;
+    width: 80%;
     height: 100%;
 }
+
 .main-container-input-register {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(34, 27, 158);
-    width: 400px;
-    height: 60px;
     margin-top: 1%;
+
+}
+
+.form-center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
 }

@@ -77,32 +77,40 @@ function Login(props) {
     return (
         <>
           <div className='main-container-login'>
+
             <div className='main-container-title-login'>
                 <h1>Login Page</h1>
             </div>
+
             <div className='main-container-body-login'>
-              <form onSubmit={handleSubmit}>
-                <div className='main-container-input-login'>
-                  <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
-                </div>
-                <div className='main-container-input-login'>
-                  <input minLength={2} maxLength={16} required name = "password" type = "text" placeholder = "Enter password" onChange={handleOnChange} />
-                </div>
-                <div className='main-container-input-login'>
-                  <button>Login</button>
-                </div>
-              </form>
               
-              <div className='main-container-input-login'>
-                <form onSubmit={handleGuestSubmit}>              
-                  <input type="hidden" value="Guest" name="username"  />
-                  <button>Guest Login</button>   
+                <form onSubmit={handleSubmit}>
+                  <div className='form-center' >
+                    <div className='main-container-input-login'>
+                      <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
+                    </div>
+                    <div className='main-container-input-login'>
+                      <input minLength={2} maxLength={16} required name = "password" type = "password" placeholder = "Enter password" onChange={handleOnChange} />
+                    </div>
+                    <div className='main-container-input-login'>
+                      <button>Login</button>
+                    </div>
+                  </div>
                 </form>
-              </div>
+                
+              
+                <form onSubmit={handleGuestSubmit}> 
+                  <div className='form-center'>
+                    <div className='main-container-input-login'>             
+                      <input type="hidden" value="Guest" name="username"  />
+                      <button>Guest Login</button> 
+                    </div>  
+                  </div>
+                </form>
+              
             </div>
           </div>
-
-            
+ 
         </>
     )
 }
