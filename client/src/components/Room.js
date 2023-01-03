@@ -8,7 +8,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Drawer from './Drawer'
 import { ToolBoxSvg } from './ToolBoxSvg.jsx'
-import CountDownTimer from './Timer'
+import CountDownTimer from './CountDownTimer'
 import Screwdriver from './Inventory/Screwdriver'
 
 
