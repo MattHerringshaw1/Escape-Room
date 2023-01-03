@@ -10,6 +10,7 @@ function Menu(props) {
 
     return(
         <>
+
             
                 <div className='nonAuth-main'>
                     <div className='register'>
@@ -31,6 +32,7 @@ function Menu(props) {
                     </div>
                 </div>
             
+
         </>
     )
 }
