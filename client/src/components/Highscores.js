@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 function Highscores() {
 
     const [scores, setScores ] = useState([])
+    const [listScores, setListScores] = useState(5)
 
     useEffect(() => {
         fetchAll()
@@ -30,17 +31,18 @@ function Highscores() {
         }
     })
    
-
-    const scoreList = scoreOrdered.map((oneScore, index) => {
-        return <div key={index}>
+    const scoreList = scoreOrdered.slice(0, listScores).map(oneScore => {
+        return <div>
             <li>{oneScore.username} - {oneScore.mins} minutes : {oneScore.secs} seconds</li>
         </div>
-    })
+    })    
 
     return (
-        <>
+        <div>
             <ol><h1>High Scores: </h1>{scoreList}</ol>
-        </>
+            <button onClick={() => setListScores(listScores + 5)}>Show more...</button>
+            <button onClick={() => setListScores(listScores - 5)}>Show less...</button>
+        </div>
     )
 
 }

@@ -69,7 +69,7 @@ app.post('/api/leaderboard', (req, res) => {
         secs: secsNumber,
         username: username
     })
-    console.log(time)
+
     time.save((error) => {
         if (error) {
             res.json({ success: false, message: error })
