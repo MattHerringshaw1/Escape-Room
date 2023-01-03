@@ -13,6 +13,13 @@ const CountDownTimer = (props) => {
         
         if (props.doorOpen){
             setDoor(true)
+        }else{
+            return
+        }
+    }
+    
+    const handleSaveTime = () =>{
+            console.log(mins, secs)
             fetch('http://localhost:8080/api/leaderboard', {
                 method: 'POST',
                 headers: {
@@ -28,11 +35,9 @@ const CountDownTimer = (props) => {
             .then(result=>{
                 console.log(result)
             })
-        }else{
-            return
-        }
-    }
     
+    }
+
 
     const tick = () => {
 
@@ -60,6 +65,11 @@ const CountDownTimer = (props) => {
             <h2>
                 {`${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`}
             </h2>
+            {door && (
+                    <div className='time-save-container'>
+                        <button onClick={handleSaveTime}>Save Time</button>
+                    </div>
+                )}
         </div>
     )
 
