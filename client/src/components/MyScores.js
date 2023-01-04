@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/leaderboard.css'
 
 
 function MyScores() {
 
 
     const [scores, setScores ] = useState([])
-    const [listScores, setListScores] = useState(5)
+    const [listScores, setListScores] = useState(10)
     const username = localStorage.getItem('username')
     
     
@@ -40,17 +41,28 @@ function MyScores() {
     })
 
     const scoreList = scoreOrdered.slice(0, listScores).map((oneScore, index) => {
-        return <div key={index}>
-            <li>{oneScore.username} - {oneScore.mins} minutes : {oneScore.secs} seconds</li>
+        return <div className='rendered-body' key={index}>
+            <div className='rendered-text-1'>{index + 1} </div>
+            <div className='rendered-text-2'>{oneScore.mins} minutes</div>
+            <div className='rendered-text-5'>{oneScore.secs} seconds</div>
         </div>
     })   
 
     return (
-        <>
-            <ol><h1>My Highest Scores: </h1>{scoreList}</ol>
-            <button onClick={() => setListScores(listScores + 5)}>Show more...</button>
-            <button onClick={() => setListScores(listScores - 5)}>Show less...</button>
-        </>
+        <div>
+            <div className='main-lb-body'>
+                <div className='leadheader'>{username}'s Top 10</div>
+                <div className='column-header'>
+                    <div className='col-row-1'>#</div>
+                    <div className='col-row-2'>Minutes</div>
+                    <div className='col-row-5'>Seconds</div>
+                </div>
+
+                {scoreList}
+              
+
+            </div>
+        </div>
     )
 
 }

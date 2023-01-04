@@ -14,6 +14,7 @@ import Room from './components/Room'
 import Home from './components/Home';
 import UserInfo from './components/UserInfo';
 import Leaderboard from './components/Leaderboard';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
