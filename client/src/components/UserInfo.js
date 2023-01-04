@@ -10,6 +10,15 @@ function UserInfo() {
 
     const [user, setUser] = useState({})
     const userId = localStorage.getItem('userid')
+    const username = localStorage.getItem('username')
+    const [show, setShow] = useState(true);
+
+    const handleShow = () => {
+        if (username === 'Guest') {
+            setShow(false)
+        } 
+    }
+       
 
     const handleChange = (e) => {
         setUser({
@@ -43,6 +52,10 @@ function UserInfo() {
     useEffect(() => {
         fetchUser()
     }, [])
+    
+    useEffect(() => {
+        handleShow()
+    }, [])
 
     const handleEdit = (e) => {
 
@@ -66,13 +79,13 @@ function UserInfo() {
             })
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result)
+                    // console.log(result)
                 })
                 fetchUser()
         }
+        fetchUser()
     }
 
-    fetchUser()
 
     return (
         <>
@@ -105,7 +118,7 @@ function UserInfo() {
                                 <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <button>Save</button>
+                                {show ? <button>Save</button>: null}
                             </div>
                         </div>
                     </form>
