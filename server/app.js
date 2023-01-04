@@ -6,11 +6,40 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 8080
+
+// Uploading pictures
+const DIR = './uploads/'
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, uuidv4() + '-' + fileName)
+    }
+});
+ 
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    }
+});
+
 // Schemas
 const User = require('./schemas/user')
+const Leaderboard = require('./schemas/leaderboard')
+const ProfilePic = require('./schemas/profilepic')
+
 // Middlewares
 const authenticate = require('./middlewares/authMiddleware')
-const Leaderboard = require('./schemas/leaderboard')
+
 
 app.use(cors())
 app.use(express.json())
@@ -33,9 +62,10 @@ app.listen(port, () => {
 // ---------------------------------------- ADDING TO DATABASE ----------------------------------------
 
 // ADD USER
-app.post('/api/register', async (req, res) => {
+app.post('/api/register', upload.single('profileImg'), async (req, res) => {
     
     const { first_name, last_name, username, email, password } = req.body
+    const url = req.protocol + '://' + req.get('host')
     let salt = await bcrypt.genSalt(10)
     let hashedPassword = await bcrypt.hash(password, salt)
 
@@ -44,7 +74,8 @@ app.post('/api/register', async (req, res) => {
         last_name: last_name,
         username: username,
         email: email,
-        password: hashedPassword
+        password: hashedPassword,
+        profileImg: url + '/public/' + req.file.filename
     })
 
     user.save((error) => {
@@ -143,7 +174,6 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
-
 app.post('/api/guest-login', async (req, res) => {
     
     const username = 'Guest'
@@ -162,6 +192,17 @@ app.post('/api/guest-login', async (req, res) => {
         }
     }
 })
+
+// View profile pic
+app.get("/pic", (req, res, next) => {
+    User.find().then(data => {
+        res.status(200).json({
+            message: "User list retrieved successfully!",
+            users: data
+        });
+    });
+});
+
 
 // LEADERBOARD GET ALL SCORES
 app.get('/api/leaderboard', async (req, res) => {

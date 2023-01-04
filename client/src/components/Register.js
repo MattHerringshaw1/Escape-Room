@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/register.css'
+import UploadPic from './UploadPic'
 
 function Register() {
 
@@ -59,6 +60,9 @@ function Register() {
                             </div>
                             <div className='main-container-input-register'>
                                 <input minLength={2} maxLength={16} required type='password' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+                            </div>
+                            <div>
+                                <UploadPic />
                             </div>
                             <div className='main-container-input-register'>
                                 <button>Register</button>

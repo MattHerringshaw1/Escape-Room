@@ -5,9 +5,6 @@ import '../styles/leaderboard.css'
 
 function Leaderboard() {
 
-    const username = localStorage.getItem('username')
-
-
     return (
         <div>
             <div className='main-lb-body'>
