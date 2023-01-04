@@ -17,6 +17,7 @@ import Leaderboard from './components/Leaderboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const token = localStorage.getItem('jwt')
