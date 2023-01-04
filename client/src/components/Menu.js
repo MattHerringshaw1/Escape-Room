@@ -27,6 +27,9 @@ function Menu(props) {
                     <div className='auth-link'>
                         {props.isAuth ? <NavLink to={`/edit-user/${userid}`}>User Info</NavLink>: null}
                     </div>
+                    <div className='auth-link'>
+                        {props.isAuth ? <NavLink to={'/leaderboard'}>Leaderboard</NavLink>: null}
+                    </div>
                     <div className='logout'>
                         {props.isAuth ? <NavLink to='logout'>Logout</NavLink>: null}
                     </div>
