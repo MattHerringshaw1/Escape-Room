@@ -72,7 +72,7 @@ function UserInfo() {
         }
     }
 
-
+    fetchUser()
 
     return (
         <>
@@ -93,16 +93,16 @@ function UserInfo() {
                     <form onSubmit={handleEdit}>
                         <div className='form-center'>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
                                 <button>Save</button>
