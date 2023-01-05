@@ -17,9 +17,9 @@ function UserInfo() {
     const handleShow = () => {
         if (username === 'Guest') {
             setShow(false)
-        } 
+        }
     }
-       
+
 
     const handleChange = (e) => {
         setUser({
@@ -53,7 +53,7 @@ function UserInfo() {
     useEffect(() => {
         fetchUser()
     }, [])
-    
+
     useEffect(() => {
         handleShow()
     }, [])
@@ -82,58 +82,53 @@ function UserInfo() {
                 .then(result => {
                     // console.log(result)
                 })
-                fetchUser()
+            fetchUser()
         }
         fetchUser()
     }
 
 
     return (
-        <>
-        <div className='background-user'>
-            <div className='main-lb-body-info'>
-                <div className='leadheader-info'>
-                    <h1>View User Details Below</h1>
-                </div>
-                
-                <div className='rendered-body-info'>
-                    <div className='rendered-text-info-1'><u>First Name</u>: {userInfo.first_name}</div>
-                    <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
-                    <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
-                    <div className='rendered-text-info-4'><u>Username</u>: {userInfo.username}</div>
-                </div>
-            </div>
+            <div className='background-user'>
+                <div className='main-lb-body-info'>
+                    <div className='leadheader-info'>
+                        <h1>View User Details Below</h1>
+                    </div>
 
+                    <div className='rendered-body-info'>
+                        <div className='rendered-text-info-1'><u>First Name</u>: {userInfo.first_name}</div>
+                        <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
+                        <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
+                        <div className='rendered-text-info-4'><u>Username</u>: {userInfo.username}</div>
+                    </div>
+                </div>
                 <div className='main-lb-body-update' key={user.userid}>
                     <div className='leadheader-info'>
                         <h1>Edit Details Below</h1>
                     </div>
                     <div className='rendered-body-info'>
-                    <form onSubmit={handleEdit}>
-                        <div className='form-center'>
-                            <div className='rendered-text-info-1'>
-                                <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                        <form onSubmit={handleEdit}>
+                            <div className='form-center'>
+                                <div className='rendered-text-info-1'>
+                                    <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                                </div>
+                                <div className='rendered-text-info-2'>
+                                    <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
+                                </div>
+                                <div className='rendered-text-info-3'>
+                                    <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                                </div>
+                                <div className='rendered-text-info-4'>
+                                    <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                                </div>
+                                <div className='rendered-text-info-button'>
+                                    {show ? <button>Save</button> : null}
+                                </div>
                             </div>
-                            <div className='rendered-text-info-2'>
-                                <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
-                            </div>
-                            <div className='rendered-text-info-3'>
-                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
-                            </div>
-                            <div className='rendered-text-info-4'>
-                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
-                            </div>
-                            <div className='rendered-text-info-button'>
-                                {show ? <button>Save</button>: null}
-                            </div>
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
-            
             </div>
-        
-        </>
     )
 }
 
