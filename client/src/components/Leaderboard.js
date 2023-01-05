@@ -9,7 +9,7 @@ function Leaderboard() {
 
 
     return (
-        <div>
+        <div className="background">
             <div className='main-lb-body'>
                 <Highscores />
             </div>

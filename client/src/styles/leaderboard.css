@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
-
+.background {
+    background-color: rgb(0, 0, 0);
+    padding-bottom: 20px;
+    padding-top: 20px
+}
 .main-lb-body {
     display: block;
     width: 80%;
