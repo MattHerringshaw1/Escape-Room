@@ -88,23 +88,24 @@ function Login(props) {
 
     return (
         <>
-          <div className='main-container-login'>
+          <div className='background-login'>
+            <div className='main-lb-body-login'>
 
-            <div className='main-container-title-login'>
+            <div className='leadheader-login'>
                 <h1>Login Page</h1>
             </div>
 
-            <div className='main-container-body-login'>
+            <div className='rendered-body-login'>
               
                 <form onSubmit={handleSubmit}>
                   <div className='form-center' >
-                    <div className='main-container-input-login'>
-                      <input minLength={2} maxLength={50} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
+                    <div className='rendered-text-login-1'>
+                      <input minLength={2} maxLength={50} required name = "username" type = "text" placeholder = "Enter Username" onChange={handleOnChange} /> 
                     </div>
-                    <div className='main-container-input-login'>
-                      <input minLength={2} maxLength={50} required name = "password" type = "password" placeholder = "Enter password" onChange={handleOnChange} />
+                    <div className='rendered-text-login-2'>
+                      <input minLength={2} maxLength={50} required name = "password" type = "password" placeholder = "Enter Password" onChange={handleOnChange} />
                     </div>
-                    <div className='main-container-input-login'>
+                    <div className='rendered-text-login-button'>
                       <button >Login</button>
                     </div>
                     <div>
@@ -118,12 +119,13 @@ function Login(props) {
                 
                 <form onSubmit={handleGuestSubmit}> 
                   <div className='form-center'>
-                    <div className='main-container-input-login'>             
+                    <div className='rendered-text-login-guest'>             
                       <input type="hidden" value="Guest" name="username"  />
                       <button>Guest Login</button> 
                     </div>  
                   </div>
                 </form>
+              </div>
               
             </div>
           </div>

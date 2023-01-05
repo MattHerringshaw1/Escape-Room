@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import '../styles/userinfo.css'
 
 
+
 function UserInfo() {
 
     const [userInfo, setUserInfo] = useState([])
@@ -89,42 +90,49 @@ function UserInfo() {
 
     return (
         <>
-        <div className='main-container-user'>
-            <div className='main-container-title-user'>
-                <h1>View User Details Below</h1>
-            </div>
-            <div className='main-container-body-user'>
-                <div className='main-container-ul-user'>
-                    <div>
-                        <p className='main-container-input-ul-user'><u>First Name</u>: {userInfo.first_name}</p>
-                        <p className='main-container-input-ul-user'><u>Last Name</u>: {userInfo.last_name}</p>
-                        <p className='main-container-input-ul-user'><u>Email</u>: {userInfo.email}</p>
-                        <p className='main-container-input-ul-user'><u>Username</u>: {userInfo.username}</p>
-                    </div>
+        <div className='background-user'>
+            <div className='main-lb-body-info'>
+                <div className='leadheader-info'>
+                    <h1>View User Details Below</h1>
                 </div>
-                <div className='main-container-ul-user' key={user.userid}>
+                
+                <div className='rendered-body-info'>
+                    <div className='rendered-text-info-1'><u>First Name</u>: {userInfo.first_name}</div>
+                    <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
+                    <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
+                    <div className='rendered-text-info-4'><u>Username</u>: {userInfo.username}</div>
+                </div>
+            </div>
+
+                <div className='main-lb-body-update' key={user.userid}>
+                    <div className='leadheader-info'>
+                        <h1>Edit Details Below</h1>
+                    </div>
+                    <div className='rendered-body-info'>
                     <form onSubmit={handleEdit}>
                         <div className='form-center'>
-                            <div className='main-container-input-user'>
+                            <div className='rendered-text-info-1'>
                                 <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
                             </div>
-                            <div className='main-container-input-user'>
+                            <div className='rendered-text-info-2'>
                                 <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
                             </div>
-                            <div className='main-container-input-user'>
+                            <div className='rendered-text-info-3'>
                                 <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
                             </div>
-                            <div className='main-container-input-user'>
+                            <div className='rendered-text-info-4'>
                                 <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
                             </div>
-                            <div className='main-container-input-user'>
+                            <div className='rendered-text-info-button'>
                                 {show ? <button>Save</button>: null}
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
+            
             </div>
-        </div>
+        
         </>
     )
 }
