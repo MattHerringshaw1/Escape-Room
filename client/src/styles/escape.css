@@ -133,6 +133,7 @@
 
 .room-content-container{
     margin: auto;
+    background-color: black;
 }
 
 .room-background{
@@ -149,6 +150,7 @@
 .main{
     height: 100%;
     width: 100%;
+    
 }
 
 .inventory-container{

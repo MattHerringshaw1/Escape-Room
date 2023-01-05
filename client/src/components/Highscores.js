@@ -6,7 +6,7 @@ import '../styles/leaderboard.css'
 function Highscores() {
 
     const [scores, setScores] = useState([])
-    const [listScores, setListScores] = useState(5)
+    const [listScores, setListScores] = useState(10)
 
     useEffect(() => {
         fetchAll()
@@ -45,26 +45,18 @@ function Highscores() {
     return (
         <div>
             <div className='main-lb-body'>
-                <div className='leadheader'>World Leaderboard</div>
+                <div className='leadheader'>Room #1 World Leaderboard</div>
                 <div className='column-header'>
                     <div className='col-row-1'>#</div>
                     <div className='col-row-2'>Username</div>
                     <div className='col-row-3'>Minutes</div>
                     <div className='col-row-4'>Seconds</div>
                 </div>
-
                 {scoreList}
                 <div className="more-button" onClick={() => setListScores(listScores + 5)}>Load more...
                     <span></span><span></span><span></span><span></span>
                 </div>
-
             </div>
-
-
-
-
-
-            {/* <button onClick={() => setListScores(listScores - 5)}>Show less...</button> */}
         </div>
     )
 
