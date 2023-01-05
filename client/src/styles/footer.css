@@ -8,10 +8,10 @@
     visibility: visible;
 }
 
-/* .footer-inline {
+.footer-inline {
     position: fixed;
     bottom: 0%;
     width: 100%;
     background-color: blue;
     backface-visibility: hidden;
-} */
+}
