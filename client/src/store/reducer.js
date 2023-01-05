@@ -8,6 +8,7 @@ const initialState = {
     hasMagnifyingGlass: false,
     hasLighter: false,
     doorOpen: false,
+    safeOpen: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,11 +28,6 @@ const reducer = (state = initialState, action) => {
             ...state,
             hasScrewdriver: true
         }
-    } else if(action.type == 'DELETE_SCREWDRIVER') {
-        return {
-            ...state,
-            hasScrewdriver: false
-        }
     } else if(action.type == 'OPEN_DRAWER') {
         return {
             ...state,
@@ -42,45 +38,30 @@ const reducer = (state = initialState, action) => {
             ...state,
             hasScissors: true
         }
-    } else if(action.type == 'DELETE_SCISSORS') {
-        return {
-            ...state,
-            hasScissors: false
-        }
     } else if(action.type == 'SET_KEY') {
         return {
             ...state,
             hasKey: true
-        }
-    } else if(action.type == 'DELETE_KEY') {
-        return {
-            ...state,
-            hasKey: false
         }
     } else if(action.type == 'SET_MAGNIFYINGGLASS') {
         return {
             ...state,
             hasMagnifyingGlass: true
         }
-    } else if(action.type == 'DELETE_MAGNIFYINGGLASS') {
-        return {
-            ...state,
-            hasMagnifyingGlass: false
-        }
     } else if(action.type == 'SET_LIGHTER') {
         return {
             ...state,
             hasLighter: true
         }
-    } else if(action.type == 'DELETE_LIGHTER') {
-        return {
-            ...state,
-            hasLighter: false
-        }
     } else if(action.type == 'DOOR_OPEN'){
         return{
             ...state,
             doorOpen: true
+        }
+    } else if(action.type == 'OPEN_SAFE'){
+        return{
+            ...state,
+            safeOpen: true
         }
     }
         return state

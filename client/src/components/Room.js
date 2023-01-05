@@ -6,10 +6,15 @@ import FlagPuzzle from './FlagPuzzle'
 import GearPuzzle from './GearPuzzle'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import Drawer from './Drawer'
-import { ToolBoxSvg } from './ToolBoxSvg.jsx'
 import CountDownTimer from './CountDownTimer'
-import Screwdriver from './Inventory/Screwdriver'
+import test from '../images/EscapeRoomMain.png'
+import test2 from '../images/screwdriver.png'
+import test3 from '../images/remote.png'
+import test4 from '../images/screwtop.png'
+import test5 from '../images/magglass.png'
+import test6 from '../images/france.jpg'
+import BoxPuzzle from './BoxPuzzle'
+
 
 
 
@@ -26,7 +31,13 @@ function Room(props) {
     const [showFlag, setShowFlag] = useState(false)
     const [showGear, setShowGear] = useState(false)
     const [showInventory, setShowInventory] = useState(false)
-    const [openDrawer, setOpenDrawer] = useState(false)
+    const [showCode, setShowCode] = useState(false)
+    const [showTool, setShowTool] = useState(false)
+    const [showDriver, setShowDriver] = useState(true)
+    const [showRemote, setShowRemote] = useState(true)
+    const [showBox, setShowBox] = useState(false)
+    const [showGlass, setShowGlass] = useState(false)
+    const [showSafe, setShowSafe] = useState(false)
     const minSecs={minutes:5, seconds:0}
  
 
@@ -41,13 +52,7 @@ function Room(props) {
         }
     }
 
-    const handleShowInventory = () => {
-        setShowInventory(true)
-    }
 
-    const handleHideInventory = () => {
-        setShowInventory(false)
-    }
 
     const handleShowNote = () => {
         if (props.hasLighter) {
@@ -61,13 +66,14 @@ function Room(props) {
         if (props.hasScissors) {
             setShowFlag(true)
         } else {
-            alert("It's tied tightly with a rope! You need to cut it open somehow...")
+            alert("The display on the wall does not respond to your touch")
         }
     }
 
     const handleHideFlag = () => {
         setShowFlag(false)
     }
+
 
     const handleShowGear = () => {
         if (props.hasKey) {
@@ -81,111 +87,196 @@ function Room(props) {
         setShowGear(false)
     }
 
-    const handleCloseDrawer = () => {
-        setOpenDrawer(false)
-    }
 
     const handleOpenDrawer = () => {
         if (props.hasScrewdriver) {
-            setOpenDrawer(true)
+            setShowBox(true)
         } else {
             alert("It's locked and there is nowhere to insert a key! What kind of box is this?!")
         }
     }
 
-    // const screwdriverAlert = () => {
-    //     if (props.setScrewdriver) {
-    //         alert('At the bottom of the toolbox you found a screwdriver.')
-    //     } else {
-    //         }
-    // }
+    const handleSafeDoor = () => {
+        if (props.safeOpen) {
+            setShowSafe(true)
+        }else{
+            alert('The safe is locked tight.')
+        }
+    }
 
+    const handleHideSafe = () =>{
+        setShowSafe(false)
+    }
 
+    const handleShowCode = () =>{
+        setShowCode(true)
+    }
+    const handleHideCode = () =>{
+        setShowCode(false)
+    }
+
+    const handleShowTool = () =>{
+        setShowTool(true)
+    }
+    const handleHideTool = () =>{
+        setShowTool(false)
+    }
+
+    const handleShowDriver = () =>{
+        setShowDriver(false)
+    }
+
+    const handleShowRemote = () =>{
+        setShowRemote(false)
+    }
+
+    const handleHideBox = () =>{
+        setShowBox(false)
+    }
+
+    const handleScrewTurn = () =>{
+        setShowGlass(true)
+    }
+
+    const handleMagClick = () =>{
+        setShowGlass(false)
+    }
 
     return (
         <>
             <div className='main'>
                 <h1>{username}'s Room #1</h1>
+                
+                
+            <div className='room-content-container'>
 
-                <CountDownTimer minSecs={minSecs}/>
-
-                {doorOpen && (
-                    <div className='door-open'>
-                        <h3>You Escaped!</h3>
+                {showCode &&(
+                    <div className='code-pop-container'>
+                        <p onClick={handleHideCode} className='pop-close'>X</p>
+                        <div className='door-code'>
+                            <div className='code-input'>
+                                <h3>Enter Door Code</h3>
+                                <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
+                                <button className='code-btn' onClick={() => handleDoorOpen(doorCode)}>Try Door</button>   
+                            </div>
+                        </div>  
                     </div>
                 )}
 
-                {!doorOpen && (
-                    <div className='door-closed'>
-                        <h3>You're Trapped! Try to find a way out..</h3>
+                {showFlag &&(
+                    <div className='flag-pop-container'>
+                        <p onClick={handleHideFlag} className='pop-close'>X</p>
+                            <div className='flag-puzzle-container'>
+                                <FlagPuzzle/>
+                            </div>
                     </div>
                 )}
 
-                <div className='door-code'>
-                    <h3>Enter Door Code</h3>
-                    <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
-                    <button onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
+                {showGear &&(
+                    <div className='gear-pop-container'>
+                        <p onClick={handleHideGear} className='pop-close'>X</p>
+                            <div className='gear-puzzle-container'>
+                                <GearPuzzle/>
+                            </div>    
+                    </div>
+                )}
+
+                {showBox &&(
+                    <div className='box-pop-container'>
+                        <p onClick={handleHideBox} className='pop-close'>X</p>
+                            <div className='box-puzzle-container'>
+                                <BoxPuzzle/>
+                                <img onClick={handleScrewTurn} className='screwtop' src={test4}/>
+
+                                {showGlass &&(
+                                    <div>
+                                    <p>A hidden drawer opens</p>
+                                    <div onClick={handleMagClick} className='mag-click'>
+                                    <img onClick={props.setMagnifyingGlass} className='magglass' src={test5}/>    
+                                    </div>
+                                    
+                                    </div>   
+                                )}
+                                
+                            </div>
+                    </div>
+                )}
+
+                {showSafe &&(
+                    <div className='safe-pop-container'>
+                        <p onClick={handleHideSafe} className='pop-close'>X</p>
+                        <div className='france-img-container'>
+                            <p className='france-hint'>There is a single picture inside of what looks like France</p>
+                            <img className='france-img' src={test6}/>
+                        </div>
+                    </div>
+                )}
+
+                {showTool &&(
+                    <div className='tool-pop-container'>
+                        <p onClick={handleHideTool} className='pop-close'>X</p>
+                        <div className='inside-tool-container'>
+
+                                {showDriver &&(
+                                    <div onClick={handleShowDriver} className='driver-container'>
+                                        <img onClick={props.setScrewdriver} className='screwdriver' src={test2}/>
+                                    </div>   
+                                )}
+
+                                {!showDriver &&(
+                                    <div></div>
+                                )}
+                                
+                                {showRemote &&(
+                                    <div onClick={handleShowRemote} >
+                                        <img onClick={props.setScissors} className='remote' src={test3}/>
+                                    </div>        
+                                )}
+
+                                {!showRemote &&(
+                                    <div></div>
+                                )}
+                                
+                        </div>
+                    </div>
+
+                )}
+
+                <img className='room-background' src={test}/>
+                <div className='timer-container'><CountDownTimer minSecs={minSecs}/></div>
+
+                <div className='code-pointer-container' onClick={handleShowCode}>
                 </div>
 
-                {!showInventory && (
-                    <button onClick={handleShowInventory}>Show Inventory</button>
-                )}
-
-                {showInventory && (
-                    <>
-                        <button onClick={handleHideInventory}>Hide Inventory</button>
-                        <Inventory />
-                    </>
-                )}
-
-                <h2>Items around the room</h2>
-                <div>
-                    <div className='add-scissors' onClick={props.setScissors}>{props.hasScissors ? null : <div className='item-hover'>Scissors</div>}</div>
-                    <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover'>Key</div>}</div>
-                    <div className='add-magnifying-glass' onClick={props.setMagnifyingGlass}>{props.hasMagnifyingGlass ? null : <div className='item-hover'>Magnifying Glass</div>}</div>
-                    <div className='add-lighter' onClick={props.setLighter}>{props.hasLighter ? null : <div className='item-hover'>Lighter</div>}</div>
+                <div className='flag-pointer-container' onClick={handleShowFlag}>
                 </div>
 
-                <div onClick={props.setScrewdriver}  className='tool-box-container2' >
-                    
-                    {/* <p onClick={screwdriverAlert()}>Old Toolbox</p> */}
-                    <ToolBoxSvg />
+                <div className='key-pointer-container'>
+                <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover-key'></div>}</div>
                 </div>
 
-                <button onClick={handleShowNote}>Note in the dark corner of the room</button>
+                <div className='drawer-pointer-container' onClick={handleOpenDrawer}>
+                </div>
 
-                {!showGear && (
-                    <button onClick={handleShowGear}>Show Gear Puzzle</button>
-                )}
+                <div className='note-pointer-container'>
+                </div>
 
-                {showGear && (
-                    <>
-                        <button onClick={handleHideGear}>Hide Gear Puzzle</button>
-                        <GearPuzzle />
-                    </>
-                )}
+                <div className='toolbox-pointer-container' onClick={handleShowTool}>
+                <div className='screwdriver-click' ></div>
+                </div>
 
-                {!showFlag && (
-                    <button onClick={handleShowFlag}>Show Flag Puzzle</button>
-                )}
+                <div className='gear-pointer-container' onClick={handleShowGear}>
+                </div>
 
-                {showFlag && (
-                    <>
-                        <button onClick={handleHideFlag}>Hide Flag Puzzle</button>
-                        <FlagPuzzle />
-                    </>
-                )}
+                <div className='safe-pointer-container' onClick={handleSafeDoor}>
+                </div>
+                
 
-                {!openDrawer && (
-                    <button onClick={handleOpenDrawer}>Open the mysterious drawer</button>
-                )}
+            </div>
+            </div>
 
-                {openDrawer && (
-                    <>
-                    <button onClick={handleCloseDrawer}>Close the mysterious drawer for some reason</button>
-                    <Drawer />
-                    </>
-                )}
+            <div className='inventory-container'>        
+                        <Inventory />            
             </div>
         </>
 
@@ -200,7 +291,8 @@ const mapStateToProps = (state) => {
         hasScissors: state.hasScissors,
         hasKey: state.hasKey,
         hasMagnifyingGlass: state.hasMagnifyingGlass,
-        hasLighter: state.hasLighter
+        hasLighter: state.hasLighter,
+        safeOpen: state.safeOpen
     }
 }
 
