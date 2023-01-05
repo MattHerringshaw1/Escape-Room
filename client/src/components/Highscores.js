@@ -6,7 +6,7 @@ import '../styles/leaderboard.css'
 function Highscores() {
 
     const [scores, setScores] = useState([])
-    const [listScores, setListScores] = useState(5)
+    const [listScores, setListScores] = useState(10)
 
     useEffect(() => {
         fetchAll()

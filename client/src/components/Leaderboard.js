@@ -13,9 +13,7 @@ function Leaderboard() {
             <div className='main-lb-body'>
                 <Highscores />
             </div>
-            <div className='my-lb-body'>
-                <MyScores />
-            </div>
+            
         </div>
     )
 

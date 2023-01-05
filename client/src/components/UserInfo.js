@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import '../styles/userinfo.css'
+import MyScores from './MyScores'
 
 
 
@@ -87,48 +88,68 @@ function UserInfo() {
         fetchUser()
     }
 
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
+
+    const [isOpen2, setIsOpen2] = useState(false);
+    const togglePopup2 = () => {
+        setIsOpen2(!isOpen2);
+    }
 
     return (
-            <div className='background-user'>
-                <div className='main-lb-body-info'>
-                    <div className='leadheader-info'>
-                        <h1>View User Details Below</h1>
-                    </div>
-
+        <div className='background-user'>
+            <div className='main-lb-body-info'>
+                <div className='leadheader-info'>
+                    Account Details
+                </div>
+                <div className='acc-details'>
                     <div className='rendered-body-info'>
+                        <div className='leadheader-info2'>
+                            {username}'s Account Details Below
+                        </div>
                         <div className='rendered-text-info-1'><u>First Name</u>: {userInfo.first_name}</div>
                         <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
                         <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
                         <div className='rendered-text-info-4'><u>Username</u>: {userInfo.username}</div>
+                        <div className="more-button2" onClick={togglePopup2}>Change account details <span></span><span></span><span></span><span></span></div>
                     </div>
-                </div>
-                <div className='main-lb-body-update' key={user.userid}>
-                    <div className='leadheader-info'>
-                        <h1>Edit Details Below</h1>
-                    </div>
-                    <div className='rendered-body-info'>
-                        <form onSubmit={handleEdit}>
-                            <div className='form-center'>
-                                <div className='rendered-text-info-1'>
-                                    <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                    <div className='body-update'>{isOpen2 &&
+                        <div className='main-lb-body-update' key={user.userid}>
+                            <div className='rendered-body-info2'>
+                                <div className='leadheader-info2'>
+                                    Edit Details Below
                                 </div>
-                                <div className='rendered-text-info-2'>
-                                    <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
-                                </div>
-                                <div className='rendered-text-info-3'>
-                                    <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
-                                </div>
-                                <div className='rendered-text-info-4'>
-                                    <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
-                                </div>
-                                <div className='rendered-text-info-button'>
-                                    {show ? <button>Save</button> : null}
-                                </div>
+                                <form className='form-center' onSubmit={handleEdit}>
+
+                                    <div className='rendered-text-info-12'>
+                                        <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder={userInfo.first_name} onChange={handleChange} />
+                                    </div>
+                                    <div className='rendered-text-info-22'>
+                                        <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder={userInfo.last_name} onChange={handleChange} />
+                                    </div>
+                                    <div className='rendered-text-info-32'>
+                                        <input minLength={2} maxLength={50} required type='text' name='email' placeholder={userInfo.email} onChange={handleChange} />
+                                    </div>
+                                    <div className='rendered-text-info-42'>
+                                        <input minLength={2} maxLength={50} required type='text' name='username' placeholder={userInfo.username} onChange={handleChange} />
+                                    </div>
+                                    <div className='rendered-text-info-button2'>
+                                        {show ? <button className='more-button3'>Save <span></span><span></span><span></span><span></span></button> : null}
+                                    </div>
+
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                </div>
+
+                        </div>}
+                    </div></div>
+                <br></br>
+                <div><div className="more-button" onClick={togglePopup}>View High Scores <span></span><span></span><span></span><span></span></div></div>
             </div>
+            <div>{isOpen && <MyScores />}</div>
+
+        </div>
     )
 }
 
