@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import '../styles/gear.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {connect} from 'react-redux'
 
 
 
-function GearPuzzle(){
+function GearPuzzle(props){
 
     const [clickedLeft, setClickedLeft] = useState('gear-start-left')
     const [clickedCenter, setClickedCenter] = useState('gear-start-center')
@@ -14,7 +15,8 @@ function GearPuzzle(){
     const [codeCenter, setCodeCenter] = useState(0)
     const [codeRight, setCodeRight] =useState(0)
     const [codeFarRight, setCodeFarRight] =useState(0)
-    const [safeDoor, setSafeDoor] = useState(false)
+    const [safeOpen, setSafeOpen]=useState(false)
+
 
     const handleGearSpinLeft = ()=>{
         clickedLeft ? setClickedLeft('') : setClickedLeft('gear-spin-left');
@@ -50,7 +52,10 @@ function GearPuzzle(){
     
     const handleCheckCode =()=>{
         if(codeLeft == 2 && codeCenter == 3 && codeRight == 5 && codeFarRight == 7){
-            setSafeDoor(true)
+            props.setSafeDoor()
+            setSafeOpen(true)
+        }else{
+            return
         }
     }
 
@@ -58,7 +63,6 @@ function GearPuzzle(){
     return(
 
         <>  
-            
             
             <div className='gear-puzzle-container'>
             
@@ -86,28 +90,24 @@ function GearPuzzle(){
                 <button onClick={handleCheckCode}>Try Code</button>
                 </div>
 
-                {safeDoor &&(
-                <div className='safe-door-open'>
-                    <h3>Bonjour!</h3> 
-                </div>   
+
+                {safeOpen &&(
+                   <div className='safe-open-hint'>
+                    <h2>You hear the safe door open</h2>
+                </div>  
                 )}
-
-                {!safeDoor &&(
-                <div className='safe-door-closed'>
-                    <h3>Safe Door</h3>
-                </div>   
-                )}
-
-
-
-
+               
             </div>
-
-    //     // </>
-
-
+</>
     )
-
 }
 
-export default GearPuzzle
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setSafeDoor: () => dispatch({type: 'OPEN_SAFE'})
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(GearPuzzle)

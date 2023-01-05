@@ -10,6 +10,15 @@ function UserInfo() {
 
     const [user, setUser] = useState({})
     const userId = localStorage.getItem('userid')
+    const username = localStorage.getItem('username')
+    const [show, setShow] = useState(true);
+
+    const handleShow = () => {
+        if (username === 'Guest') {
+            setShow(false)
+        } 
+    }
+       
 
     const handleChange = (e) => {
         setUser({
@@ -43,6 +52,10 @@ function UserInfo() {
     useEffect(() => {
         fetchUser()
     }, [])
+    
+    useEffect(() => {
+        handleShow()
+    }, [])
 
     const handleEdit = (e) => {
 
@@ -66,12 +79,12 @@ function UserInfo() {
             })
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result)
+                    // console.log(result)
                 })
                 fetchUser()
         }
+        fetchUser()
     }
-
 
 
     return (
@@ -93,19 +106,19 @@ function UserInfo() {
                     <form onSubmit={handleEdit}>
                         <div className='form-center'>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <input minLength={2} maxLength={16} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
                             </div>
                             <div className='main-container-input-user'>
-                                <button>Save</button>
+                                {show ? <button>Save</button>: null}
                             </div>
                         </div>
                     </form>

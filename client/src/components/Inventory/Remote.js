@@ -6,7 +6,7 @@ function Scissors() {
 
     return (
         <>
-        <b>Forbidden Scissors</b>
+        <b>Universal Remote</b>
         </>
     )
 }

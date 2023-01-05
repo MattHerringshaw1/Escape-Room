@@ -140,6 +140,9 @@ app.post('/api/login', async (req, res) => {
         } else {
             res.json({ success: false, message: 'Username or password is incorrect' })
         }
+    } else {
+        res.json({ success: false, message: 'Username or password is incorrect' })
+
     }
 })
 

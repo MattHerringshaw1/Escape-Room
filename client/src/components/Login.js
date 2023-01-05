@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux'
 import '../styles/login.css'
+import  UserModal  from './UserModal.js'
+
 
 function Login(props) {
 
     // ---------------------------------------- STATES ----------------------------------------
     const [user, setUser] = useState({})
-
+    const [modalShow, setModalShow] = React.useState(false)
     const navigate = useNavigate()
 
     // ---------------------------------------- FUNCTIONS ----------------------------------------
@@ -41,11 +43,19 @@ function Login(props) {
     
               props.onLogin(token)
               navigate(`/home/${username}`)
-            } else {
-              alert('Please provide correct credentials.')
+            } 
+          //   else if (user.username === null || user.username !== user.username || user !== user )  {
+          //     // console.log(typeof(user.username))
+          //     console.log(user.username)
+          //     setModalShow(true)
+            
+          // }
+             else {
+              setModalShow(true)
             }
-          })
-      };
+              // alert('Please provide correct credentials.')
+            
+      })}
 
       const handleGuestSubmit = (e) => {
         e.preventDefault()
@@ -74,6 +84,8 @@ function Login(props) {
           })
       }
 
+
+
     return (
         <>
           <div className='main-container-login'>
@@ -87,18 +99,23 @@ function Login(props) {
                 <form onSubmit={handleSubmit}>
                   <div className='form-center' >
                     <div className='main-container-input-login'>
-                      <input minLength={2} maxLength={16} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
+                      <input minLength={2} maxLength={50} required name = "username" type = "text" placeholder = "Enter username" onChange={handleOnChange} /> 
                     </div>
                     <div className='main-container-input-login'>
-                      <input minLength={2} maxLength={16} required name = "password" type = "password" placeholder = "Enter password" onChange={handleOnChange} />
+                      <input minLength={2} maxLength={50} required name = "password" type = "password" placeholder = "Enter password" onChange={handleOnChange} />
                     </div>
                     <div className='main-container-input-login'>
-                      <button>Login</button>
+                      <button >Login</button>
                     </div>
+                    <div>
+                      {modalShow ? <UserModal 
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                      /> : null}
+                    </div> 
                   </div>
                 </form>
                 
-              
                 <form onSubmit={handleGuestSubmit}> 
                   <div className='form-center'>
                     <div className='main-container-input-login'>             
@@ -111,6 +128,12 @@ function Login(props) {
             </div>
           </div>
  
+          
+        
+
+
+
+
         </>
     )
 }

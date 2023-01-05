@@ -53,7 +53,7 @@ function FlagPuzzle(){
 
     const handleCheckColors = () =>{
         if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
-            alert('The code is 612')
+            alert('The door code is 612')
         }else{
             return
         }
