@@ -15,7 +15,7 @@ function GearPuzzle(props){
     const [codeCenter, setCodeCenter] = useState(0)
     const [codeRight, setCodeRight] =useState(0)
     const [codeFarRight, setCodeFarRight] =useState(0)
-    const [safeOpen, setSafeOpen]=useState(false)
+    const [gearNoti, setGearNoti]=useState(false)
 
 
     const handleGearSpinLeft = ()=>{
@@ -53,10 +53,14 @@ function GearPuzzle(props){
     const handleCheckCode =()=>{
         if(codeLeft == 2 && codeCenter == 3 && codeRight == 5 && codeFarRight == 7){
             props.setSafeDoor()
-            setSafeOpen(true)
+            setGearNoti(true)
         }else{
             return
         }
+    }
+
+    const handleHideGearNoti =()=>{
+        setGearNoti(false)
     }
 
 
@@ -91,11 +95,14 @@ function GearPuzzle(props){
                 </div>
 
 
-                {safeOpen &&(
-                   <div className='safe-open-hint'>
-                    <h2>You hear the safe door open</h2>
-                </div>  
+              
+                {gearNoti &&(
+                    <div className='gear-noti-container'>
+                        <p onClick={handleHideGearNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>You hear machinery behind the wall churn. The safe door opens.</p>
+                    </div>                        
                 )}
+                
                
             </div>
 </>
