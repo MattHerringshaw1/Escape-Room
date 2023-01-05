@@ -6,6 +6,7 @@ function FlagPuzzle(){
     const[leftFlag, setLeftFlag] = useState('')
     const[centerFlag, setCenterFlag] = useState('')
     const[rightFlag, setRightFlag] = useState('')
+    const[flagNoti, setFlagNoti] = useState(false)
 
     const handleChangeLeftBlue = () =>{
         setLeftFlag('blue')
@@ -47,13 +48,16 @@ function FlagPuzzle(){
     const handleChangeRightYellow = () =>{
         setRightFlag('yellow')
     }
-
+    
+    const handleHideFlagNoti = ()=>{
+        setFlagNoti(false)
+    }
 
 
 
     const handleCheckColors = () =>{
         if(leftFlag=='blue' && centerFlag=='white' && rightFlag=='red'){
-            alert('The door code is 612')
+            setFlagNoti(true)
         }else{
             return
         }
@@ -193,6 +197,13 @@ function FlagPuzzle(){
             <div><button onClick={handleCheckColors}>Try Colors</button></div>
             
         </div>
+
+            {flagNoti &&(
+                    <div className='flag-noti-container'>
+                        <p onClick={handleHideFlagNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The display flickers to black and then the numbers 6 1 2 appear</p>
+                    </div>                      
+                )}
         
         </>
     )
