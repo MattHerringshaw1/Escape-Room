@@ -321,8 +321,8 @@ span:nth-child(4) {
     color: goldenrod;
     border: 0.1em solid goldenrod;
     border-radius: 0.5em;
-    width: 40%;
-    height: 13%;
+    width: 50%;
+    
     text-transform: uppercase;
     font-family: 'VT323', sans-serif;
     font-size: 20px;
