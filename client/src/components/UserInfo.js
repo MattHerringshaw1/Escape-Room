@@ -118,10 +118,10 @@ function UserInfo() {
                                 <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={handleChange} />
                             </div>
                             <div className='rendered-text-info-3'>
-                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter Email' onChange={handleChange} />
                             </div>
                             <div className='rendered-text-info-4'>
-                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={handleChange} />
+                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter Username' onChange={handleChange} />
                             </div>
                             <div className='rendered-text-info-button'>
                                 {show ? <button>Save</button>: null}
