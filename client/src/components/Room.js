@@ -30,7 +30,6 @@ function Room(props) {
     const [doorOpen, setDoorOpen] = useState(false)
     const [showFlag, setShowFlag] = useState(false)
     const [showGear, setShowGear] = useState(false)
-    const [showInventory, setShowInventory] = useState(false)
     const [showCode, setShowCode] = useState(false)
     const [showTool, setShowTool] = useState(false)
     const [showDriver, setShowDriver] = useState(true)
@@ -38,6 +37,16 @@ function Room(props) {
     const [showBox, setShowBox] = useState(false)
     const [showGlass, setShowGlass] = useState(false)
     const [showSafe, setShowSafe] = useState(false)
+    const [showNote, setShowNote] = useState(false)
+    const [openTool, setOpenTool] = useState(false)
+    const [doorNoti, setDoorNoti] = useState(false)
+    const [toolNoti, setToolNoti] = useState(false)
+    const [flagNoti, setFlagNoti] = useState(false)
+    const [boxNoti, setBoxNoti] = useState(false)
+    const [gearNoti, setGearNoti] = useState(false)
+    const [safeNoti, setSafeNoti] = useState(false)
+    const [doorSolveNoti, setDoorSolveNoti] = useState(false)
+    const [keyNoti, setKeyNoti] = useState(false)
     const minSecs={minutes:5, seconds:0}
  
 
@@ -46,27 +55,24 @@ function Room(props) {
     const handleDoorOpen = (doorCode) => {
         if (doorCode == 612) {
             setDoorOpen(true)
+            setDoorSolveNoti(true)
             props.setDoorOpenDis()
         } else {
-            alert("It's locked! Looks like you're trapped. Try to find a way out!")
+            setDoorNoti(true)
         }
     }
 
 
-
     const handleShowNote = () => {
-        if (props.hasLighter) {
-            alert("Prime numbers are numbers that are ONLY divisible by 1 and itself. Also, 'bonjour' is a French word.")
-        } else {
-            alert("It's too dark to read...")
-        }
+        setShowNote(true)
+        setOpenTool(true)
     }
 
     const handleShowFlag = () => {
         if (props.hasScissors) {
             setShowFlag(true)
         } else {
-            alert("The display on the wall does not respond to your touch")
+            setFlagNoti(true)
         }
     }
 
@@ -79,7 +85,7 @@ function Room(props) {
         if (props.hasKey) {
             setShowGear(true)
         } else {
-            alert("Oh no, it's locked!")
+            setGearNoti(true)
         }
     }
 
@@ -92,7 +98,7 @@ function Room(props) {
         if (props.hasScrewdriver) {
             setShowBox(true)
         } else {
-            alert("It's locked and there is nowhere to insert a key! What kind of box is this?!")
+            setBoxNoti(true)
         }
     }
 
@@ -100,7 +106,7 @@ function Room(props) {
         if (props.safeOpen) {
             setShowSafe(true)
         }else{
-            alert('The safe is locked tight.')
+            setSafeNoti(true)
         }
     }
 
@@ -116,7 +122,12 @@ function Room(props) {
     }
 
     const handleShowTool = () =>{
-        setShowTool(true)
+        if(openTool){
+        setShowTool(true)   
+        }else{
+            setToolNoti(true)
+        }
+        
     }
     const handleHideTool = () =>{
         setShowTool(false)
@@ -142,6 +153,45 @@ function Room(props) {
         setShowGlass(false)
     }
 
+    const handleHideNote = () =>{
+        setShowNote(false)
+    }
+
+    const handleHideDoorNoti = () =>{
+        setDoorNoti(false)
+    }
+
+    const handleHideToolNoti = () =>{
+        setToolNoti(false)
+    }
+
+    const handleHideFlagNoti = () =>{
+        setFlagNoti(false)
+    }
+
+    const handleHideBoxNoti = () => {
+        setBoxNoti(false)
+    }
+
+    const handleHideGearNoti = () => {
+        setGearNoti(false)
+    }
+
+    const handleHideSafeNoti = () => {
+        setSafeNoti(false)
+    }
+
+    const handleHideDoorSolveNoti = () =>{
+        setDoorSolveNoti(false)
+    }
+
+    const handleHideKeyNoti = () =>{
+        setKeyNoti(false)
+    }
+    const handleShowKeyNoti = () => {
+        setKeyNoti(true)
+    }
+
     return (
         <>
             <div className='main'>
@@ -160,6 +210,16 @@ function Room(props) {
                                 <button className='code-btn' onClick={() => handleDoorOpen(doorCode)}>Try Door</button>   
                             </div>
                         </div>  
+                    </div>
+                )}
+
+                {showNote &&(
+                    <div className='note-pop-container'>
+                        <p onClick={handleHideNote} className='pop-close'>X</p>
+                            <div className='note-hint-container'>
+                                <h1>The note on the floor reads:</h1>
+                                <h5>The old caretaker Matt accidentally welded the toolbox shut years ago. Luckily the red button on the bottom of the box opens it.</h5> 
+                            </div>
                     </div>
                 )}
 
@@ -242,6 +302,67 @@ function Room(props) {
 
                 )}
 
+                {doorNoti &&(
+                    <div className='door-noti-container'>
+                        <p onClick={handleHideDoorNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The red light blinks. The door remains locked.</p>
+                    </div>
+                )}
+
+                {doorSolveNoti &&(
+                    <div className='door-noti-container'>
+                        <p onClick={handleHideDoorSolveNoti} className='pop-close'>X</p>
+                        <h1 className='noti-text'>Congratulations!</h1>
+                        <p className='noti-text'>The light turns green. The door opens! You escaped!!</p>
+                    </div>
+                )}
+
+                {toolNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideToolNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The toolbox is welded shut</p>
+                    </div>    
+                )}
+
+                {flagNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideFlagNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The display on the wall does not respond to touch</p>
+                    </div>    
+                )}
+
+                {boxNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideBoxNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The drawer is locked tight, but there appears to be a hole in the top for something long and thing</p>
+                    </div>                    
+                )}
+
+                {gearNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideGearNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>There are a series of gears locked behind a glass panel</p>
+                    </div>                        
+                )}
+
+                {safeNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideSafeNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>The safe is locked tight</p>
+                    </div>                      
+                )}
+
+                {keyNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideKeyNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>You pick up the large key</p>
+                    </div>                      
+                )}
+                
+
+
+            
+
                 <img className='room-background' src={test}/>
                 <div className='timer-container'><CountDownTimer minSecs={minSecs}/></div>
 
@@ -251,14 +372,14 @@ function Room(props) {
                 <div className='flag-pointer-container' onClick={handleShowFlag}>
                 </div>
 
-                <div className='key-pointer-container'>
+                <div className='key-pointer-container' onClick={handleShowKeyNoti}>
                 <div className='add-key' onClick={props.setKey}>{props.hasKey ? null : <div className='item-hover-key'></div>}</div>
                 </div>
 
                 <div className='drawer-pointer-container' onClick={handleOpenDrawer}>
                 </div>
 
-                <div className='note-pointer-container'>
+                <div className='note-pointer-container' onClick={handleShowNote}>
                 </div>
 
                 <div className='toolbox-pointer-container' onClick={handleShowTool}>

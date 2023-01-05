@@ -139,7 +139,11 @@
     position: absolute;
     margin-left: 100px;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 28px;
+    border: solid;
+    border-width: 2px;
+    border-color: purple;
+    border-radius: 5px;
 }
 
 .main{
@@ -153,9 +157,11 @@
     width: 300px;
     background-color: tan;
     left: 1230px;
+    padding: 8px;
     border: solid;
+    border-width: 2px;
     border-color: purple;
-    padding: 8px
+    border-radius: 5px;
 
 }
 
@@ -167,6 +173,10 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
 }
 
 .flag-pop-container{
@@ -177,6 +187,10 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
 }
 .tool-pop-container{
     position: absolute;
@@ -186,6 +200,10 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
 }
 .gear-pop-container{
     position: absolute;
@@ -195,6 +213,10 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
 }
 .box-pop-container{
     position: absolute;
@@ -204,6 +226,10 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
 }
 .safe-pop-container{
     position: absolute;
@@ -213,6 +239,87 @@
     left: 150px;
     top: 260px;
     z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+.note-pop-container{
+    position: absolute;
+    height: 550px;
+    width: 1000px;
+    background-color: tan;
+    left: 150px;
+    top: 260px;
+    z-index: 2;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.door-noti-container{
+    position: absolute;
+    height: 400px;
+    width: 320px;
+    background-color: palegoldenrod;
+    left: 600px;
+    top: 300px;
+    z-index: 3;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.tool-noti-container{
+    position: absolute;
+    height: 400px;
+    width: 320px;
+    background-color: palegoldenrod;
+    left: 600px;
+    top: 300px;
+    z-index: 3;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.gear-noti-container{
+    position: absolute;
+    height: 400px;
+    width: 320px;
+    background-color: palegoldenrod;
+    left: 270px;
+    top: -100px;
+    z-index: 3;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.flag-noti-container{
+    position: absolute;
+    height: 400px;
+    width: 320px;
+    background-color: palegoldenrod;
+    left: 270px;
+    top: -40px;
+    z-index: 3;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.note-hint-container{
+    margin: auto;
+    margin-top: 50px;
+    width: 400px;
+    height: 500px;
+    padding: 40px;
 }
 
 .france-hint{
@@ -232,7 +339,12 @@
     position: absolute;
     left: 200px;
     top: 50px
+}
 
+.gear-puzzle-container{
+    position: absolute;
+    left: 149px;
+    top: 69px
 }
 
 .pop-close{
@@ -278,6 +390,13 @@
     right: 200px;
     top: 100px;
     cursor: pointer;
+}
+
+.noti-text{
+    color: purple;
+    font-size: 30px;
+    margin: 15px;
+    margin-top: 40px;
 }
 
 
