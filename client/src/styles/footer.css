@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+
 .footer {
     display: flex;
-    background-color: cyan;
+    background-color: #212525;
+    font-family: 'VT323', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF8C;
     justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: 0%;
     width: 100%;
     visibility: visible;
+    height: 40px;
 }
 
 .footer-inline {
     position: fixed;
     bottom: 0%;
     width: 100%;
-    background-color: blue;
     backface-visibility: hidden;
+    background-color: #212525
 }

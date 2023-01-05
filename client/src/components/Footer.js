@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div className='footer-inline'>
             <div className="footer">
-                <h6>2022/2023 EscapeRoom. All rights reserved.</h6>
+                <div>Copyright 2022 EscapeRoom</div>
             </div>
         </div>
     )
