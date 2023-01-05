@@ -34,8 +34,8 @@
 
 .timer-container{
     position: absolute;
-    left: 635px;
-    top: 166px;
+    left: 630px;
+    top: 178px;
     background-color: white;
     height: 50px;
     width: 75px;
@@ -49,6 +49,7 @@
     left: 400px;
     top: 272px;
     cursor: pointer;
+  
 }
 
 .drawer-pointer-container{
@@ -58,6 +59,7 @@
     left: 540px;
     top: 436px;
     cursor: pointer;
+    
 
 }
 
@@ -68,6 +70,7 @@
     left: 375px;
     top: 655px;
     cursor: pointer;
+   
 }
 
 .toolbox-pointer-container{
@@ -128,6 +131,7 @@
     position: absolute;
     margin-left: 100px;
     margin-right: auto;
+    margin-top: 30px;
 }
 
 .main{
