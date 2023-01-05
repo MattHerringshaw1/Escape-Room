@@ -1,4 +1,4 @@
-.main-container-register {
+/* .main-container-register {
     display: flex;
     flex-direction: column;
     background-color: gray;
@@ -30,11 +30,148 @@
     display: flex;
     margin-top: 1%;
 
-}
+} */
 
 .form-center {
     display: flex;
     align-items: center;
     width: 100%;
     flex-direction: column;
+}
+
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+.background-reg {
+    background-color: rgb(0, 0, 0);
+    padding-bottom: 100%;
+    padding-top: 20px
+}
+
+.main-lb-body-reg {
+    display: block;
+    width: 80%;
+    margin: 80px auto;
+}
+
+.leadheader-reg {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background: black;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+    color: #fefefe;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.1;
+    box-sizing: border-box;
+    align-items: stretch;
+    justify-content: center;
+    border-color: #333;
+    padding-top: 1%;
+    font-size: 50px;
+    position: relative
+}
+
+.leadheader-reg:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 3px;
+    bottom: 8px;
+    transform: scaleX(0);
+    background: white;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.leadheader-reg:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom;
+}
+
+.rendered-body-reg {
+    background: rgba(254, 254, 254, 0.9);
+    width: 100%;
+    margin-left: 0;
+    border-top: 1px solid rgba(107, 104, 104);
+    border-bottom: 1px solid rgba(107, 104, 104);
+    border-left: 1px solid rgba(107, 104, 104);
+    border-right: 1px solid rgba(107, 104, 104);
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px;
+    position: relative;
+    background-color: black;
+}
+
+.rendered-body-reg:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 3px;
+    bottom: 8px;
+    transform: scaleX(0);
+    background: goldenrod;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.rendered-body-reg:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.rendered-text-reg-1 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+}
+
+.rendered-text-reg-2 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.42857143;
+}
+.rendered-text-reg-3 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.42857143;
+}
+.rendered-text-reg-4 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.42857143;
+}
+.rendered-text-reg-5 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.42857143;
+}
+
+.rendered-text-reg-button {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    font-size: 30px;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.42857143;
 }

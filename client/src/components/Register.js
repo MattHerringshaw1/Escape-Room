@@ -38,33 +38,35 @@ function Register() {
 
     return (
         <>
-            <div className='main-container-register'>
-                <div className='main-container-title-register'>
-                    <h1>Registration Page</h1>
-                </div>
-                <div className='main-container-body-register'>
-                    <form onSubmit={handleRegister}>
-                        <div className='form-center'>
-                            <div className='main-container-input-register'>
-                                <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
+            <div className='background-reg'>
+                <div className='main-lb-body-reg'>
+                    <div className='leadheader-reg'>
+                        <h1>Registration Page</h1>
+                    </div>
+                    <div className='rendered-body-reg'>
+                        <form onSubmit={handleRegister}>
+                            <div className='form-center'>
+                                <div className='rendered-text-reg-1'>
+                                    <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
+                                </div>
+                                <div className='rendered-text-reg-2'>
+                                    <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
+                                </div>
+                                <div className='rendered-text-reg-3'>
+                                    <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
+                                </div>
+                                <div className='rendered-text-reg-4'>
+                                    <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter Username' onChange={(e) => setUsername(e.target.value)} />
+                                </div>
+                                <div className='rendered-text-reg-5'>
+                                    <input minLength={2} maxLength={50} required type='password' name='password' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
+                                </div>
+                                <div className='rendered-text-reg-button'>
+                                    <button>Register</button>
+                                </div>
                             </div>
-                            <div className='main-container-input-register'>
-                                <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
-                            </div>
-                            <div className='main-container-input-register'>
-                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
-                            </div>
-                            <div className='main-container-input-register'>
-                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
-                            </div>
-                            <div className='main-container-input-register'>
-                                <input minLength={2} maxLength={50} required type='password' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
-                            </div>
-                            <div className='main-container-input-register'>
-                                <button>Register</button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         
