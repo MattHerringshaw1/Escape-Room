@@ -145,7 +145,7 @@ function Room(props) {
     return (
         <>
             <div className='main'>
-                <h1>{username}'s Room #1</h1>
+                <div className='room-title'><h1>{username}'s Room #1</h1></div>
                 
                 
             <div className='room-content-container'>
