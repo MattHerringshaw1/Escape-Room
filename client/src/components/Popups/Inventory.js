@@ -5,6 +5,7 @@ import Scissors from '../Inventory/Remote'
 import Key from '../Inventory/Key'
 import MagnifyingGlass from '../Inventory/MagnifyingGlass'
 import Lighter from '../Inventory/Lighter'
+import '../styles/inventory.css'
 
 function Inventory(props) {
 
