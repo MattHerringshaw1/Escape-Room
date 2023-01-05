@@ -8,6 +8,9 @@ const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 8080
 // Schemas
 const User = require('./schemas/user')
+// Middlewares
+const authenticate = require('./middlewares/authMiddleware')
+const Leaderboard = require('./schemas/leaderboard')
 
 app.use(cors())
 app.use(express.json())
@@ -53,6 +56,29 @@ app.post('/api/register', async (req, res) => {
     })
 })
 
+// ADD TO LEADERBOARD
+app.post('/api/leaderboard', (req, res) => {
+
+    const {mins, secs, username} = req.body
+    
+    const minsNumber = parseInt(mins)
+    const secsNumber = parseInt(secs)
+
+    const time = new Leaderboard({
+        mins: minsNumber,
+        secs: secsNumber,
+        username: username
+    })
+
+    time.save((error) => {
+        if (error) {
+            res.json({ success: false, message: error })
+        } else {
+            res.json({ success: true, message: 'Time was saved successfully'})
+        }
+    })
+})
+
 // ---------------------------------------- DELETING FROM DATABASE ----------------------------------------
 
 // DELETE USER
@@ -70,24 +96,21 @@ app.delete('/api/users/:userId', (req, res) => {
 // ---------------------------------------- UPDATING THINGS IN THE DATABASE ----------------------------------------
 
 // UPDATE USER
-app.put('/api/users/:userId', async (req, res) => {
+app.put('/api/users', (req, res) => {
 
-    const userId = req.params.userId
-    const { first_name, last_name, username, email, password } = req.body
-
-    let salt = await bcrypt.genSalt(10)
-    let hashedPassword = await bcrypt.hash(password, salt)
+    const { first_name, last_name, username, email, userid } = req.body
+    // console.log(userid)
 
     const updatedUser = {
         first_name: first_name,
         last_name: last_name,
         username: username,
         email: email,
-        password: hashedPassword
+        
     }
-
+    console.log('Updated User:', updatedUser)
     User.findByIdAndUpdate(
-        userId,
+        userid,
         updatedUser,
         (error, user) => {
             if (error) {
@@ -100,6 +123,7 @@ app.put('/api/users/:userId', async (req, res) => {
 
 // ---------------------------------------- READING FROM DATABASE ----------------------------------------
 
+// USER LOGIN
 app.post('/api/login', async (req, res) => {
     
     const { username, password } = req.body
@@ -116,5 +140,51 @@ app.post('/api/login', async (req, res) => {
         } else {
             res.json({ success: false, message: 'Username or password is incorrect' })
         }
+    } else {
+        res.json({ success: false, message: 'Username or password is incorrect' })
+
     }
 })
+
+
+app.post('/api/guest-login', async (req, res) => {
+    
+    const username = 'Guest'
+    const password = '123456'
+    const user = await User.findOne({
+            username: username
+    })
+    if (user) {
+        const result = await bcrypt.compare(password, user.password)
+        if (result) {
+            const token = jwt.sign({ username: user.username }, 'SECRETKEYJWT')
+
+            res.json({ success: true, token: token, username: user.username, userId: user._id })
+        } else {
+            res.json({ success: false, message: 'Username or password is incorrect' })
+        }
+    }
+})
+
+// LEADERBOARD GET ALL SCORES
+app.get('/api/leaderboard', async (req, res) => {
+    const all_scores = await Leaderboard.find()
+    res.json(all_scores)
+})
+
+//Get user by ObjectID
+app.get('/api/view-info/:id', (req, res) => {
+    let id = req.params.id
+    console.log(id)
+    User.findById(req.params.id)
+        .then(data => {
+        let first_name = data.first_name
+        let last_name = data.last_name
+        let email = data.email
+        let username = data.username
+        let user = { first_name, last_name, email, username }
+        res.json(user)
+})
+})
+
+    

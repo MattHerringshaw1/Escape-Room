@@ -1,0 +1,75 @@
+
+.gear-puzzle-container{
+    display: flex
+}
+
+.gear-and-btn-container{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+
+
+.gear-start-left{
+    font-size: 100px;
+    color: grey;
+}
+
+.gear-spin-left{
+    animation: rotate .5s;
+    font-size: 100px;
+    color: grey
+}
+
+.gear-start-center{
+    font-size: 100px;
+    color: grey;
+}
+
+.gear-spin-center{
+    animation: rotate .5s;
+    font-size: 100px;
+    color: grey
+}
+
+.gear-start-right{
+    font-size: 100px;
+    color: grey;
+}
+
+.gear-spin-right{
+    animation: rotate .5s;
+    font-size: 100px;
+    color: grey
+}
+.gear-start-far-right{
+    font-size: 100px;
+    color: grey;
+}
+
+.gear-spin-far-right{
+    animation: rotate .5s;
+    font-size: 100px;
+    color: grey
+}
+
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(60deg)}
+}
+
+.safe-door-closed{
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    color: white
+}
+
+.safe-door-open{
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    color: white
+}

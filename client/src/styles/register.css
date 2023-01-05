@@ -1,0 +1,40 @@
+.main-container-register {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.main-container-title-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(158, 27, 27);
+    width: 80%;
+    height: 100%;
+    text-align: center;
+}
+
+.main-container-body-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(49, 146, 12);
+    width: 80%;
+    height: 100%;
+}
+
+.main-container-input-register {
+    display: flex;
+    margin-top: 1%;
+
+}
+
+.form-center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}

@@ -1,0 +1,39 @@
+.main-container-login {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(100, 158, 12);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.main-container-title-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(138, 22, 119);
+    width: 80%;
+    height: 60%;
+}
+.main-container-body-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 0, 0);
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.form-center {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.main-container-input-login {
+    display: flex;
+    margin-top: 1%;
+}
+

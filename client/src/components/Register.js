@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../styles/register.css'
 
-function Login() {
+function Register() {
 
     // ---------------------------------------- STATES ----------------------------------------
     const [first_name, setFirstname] = useState('')
@@ -37,15 +38,38 @@ function Login() {
 
     return (
         <>
-            <h1>Registration</h1>
-            <input type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
-            <input type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
-            <input type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
-            <input type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
-            <input type='text' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={handleRegister}>Register</button>
+            <div className='main-container-register'>
+                <div className='main-container-title-register'>
+                    <h1>Registration Page</h1>
+                </div>
+                <div className='main-container-body-register'>
+                    <form onSubmit={handleRegister}>
+                        <div className='form-center'>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={50} required type='text' name='first_name' placeholder='Enter First Name' onChange={(e) => setFirstname(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={50} required type='text' name='last_name' placeholder='Enter Last Name' onChange={(e) => setLastname(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={50} required type='text' name='email' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={50} required type='text' name='username' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <input minLength={2} maxLength={50} required type='password' name='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+                            </div>
+                            <div className='main-container-input-register'>
+                                <button>Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
         </>
     )
 }
 
-export default Login
+export default Register

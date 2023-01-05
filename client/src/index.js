@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Register from './components/Register';
@@ -12,6 +11,12 @@ import { createStore } from 'redux'
 import Logout from './components/Logout';
 import BaseLayout from './components/BaseLayout';
 import Room from './components/Room'
+import Home from './components/Home';
+import UserInfo from './components/UserInfo';
+import Leaderboard from './components/Leaderboard';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -29,8 +34,11 @@ root.render(
           <Routes>
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/home' element={<Room />} />
+            <Route path='/home/:username' element={<Home />} />
+            <Route path='/edit-user/:userid' element={<UserInfo />} />
             <Route path='/logout' element={<Logout />} />
+            <Route path='/room/:username' element={<Room />} />
+            <Route path='/leaderboard' element={<Leaderboard />} />
           </Routes>
         </BaseLayout>
       </BrowserRouter>

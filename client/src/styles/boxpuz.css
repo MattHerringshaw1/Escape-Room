@@ -1,0 +1,36 @@
+
+.main-box {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blue
+}
+
+
+.outter-box {
+    display: inline-block;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 5px
+}
+
+.middle-box {
+    display: flex
+}
+
+.inner-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 77px;
+    height: 77px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.inside-font {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.reset-button {
+    align-items: center;
+}

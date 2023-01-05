@@ -1,0 +1,85 @@
+.flag-container{
+    height: 400px;
+    width: 600px;
+    display: flex;
+}
+
+.left-flag-start{
+    height:400px;
+    width: 200px;
+    background-color: red;
+}
+.left-flag-blue{
+    height: 400px;
+    width: 200px;
+    background-color: blue;
+}
+.left-flag-white{
+    height: 400px;
+    width: 200px;
+    background-color: white;
+}
+.left-flag-yellow{
+    height: 400px;
+    width: 200px;
+    background-color: yellow;
+}
+.left-flag-red{
+    height: 400px;
+    width: 200px;
+    background-color: red;
+}
+
+
+.center-flag-start{
+    height: 100%;
+    width: 33%;
+    background-color: yellow
+}
+.center-flag-white{
+    height: 100%;
+    width: 33%;
+    background-color: white;
+}
+.center-flag-blue{
+    height: 100%;
+    width: 33%;
+    background-color: blue;
+}
+.center-flag-red{
+    height: 400px;
+    width: 200px;
+    background-color: red;
+}
+.center-flag-yellow{
+    height: 100%;
+    width: 33%;
+    background-color: yellow
+}
+
+
+.right-flag-start{
+    height: 100%;
+    width: 33%;
+    background-color: blue
+}
+.right-flag-red{
+    height: 100%;
+    width: 33%;
+    background-color: red;
+}
+.right-flag-blue{
+    height: 100%;
+    width: 33%;
+    background-color: blue;
+}
+.right-flag-white{
+    height: 100%;
+    width: 33%;
+    background-color: white;
+}
+.right-flag-yellow{
+    height: 100%;
+    width: 33%;
+    background-color: yellow;
+}
