@@ -1,4 +1,6 @@
-
+.room-title{
+    margin-left: 25%
+}
 
 .door-code{
     margin-top: 150px;
@@ -35,7 +37,7 @@
 .timer-container{
     position: absolute;
     left: 630px;
-    top: 178px;
+    top: 218px;
     background-color: white;
     height: 50px;
     width: 75px;
@@ -47,8 +49,9 @@
     width: 150px;
     height: 94px;
     left: 400px;
-    top: 272px;
+    top: 310px;
     cursor: pointer;
+    /* background-color: purple; */
   
 }
 
@@ -57,9 +60,9 @@
     width: 160px;
     height: 50px;
     left: 540px;
-    top: 436px;
+    top: 476px;
     cursor: pointer;
-    
+    /* background-color: purple; */
 
 }
 
@@ -68,9 +71,9 @@
     width: 69px;
     height: 50px;
     left: 375px;
-    top: 655px;
+    top: 693px;
     cursor: pointer;
-   
+    /* background-color: purple; */
 }
 
 .toolbox-pointer-container{
@@ -78,8 +81,9 @@
     width: 90px;
     height: 50px;
     left: 832px;
-    top: 550px;
+    top: 590px;
     cursor: pointer;
+    /* background-color: purple; */
 }
 
 .screwdriver-click{
@@ -92,8 +96,9 @@
     width: 190px;
     height: 180px;
     left: 890px;
-    top: 190px;
+    top: 230px;
     cursor: pointer;
+    /* background-color: purple; */
 }
 
 .safe-pointer-container{
@@ -101,17 +106,19 @@
     width: 170px;
     height: 170px;
     left: 1005px;
-    top: 425px;
+    top: 465px;
     cursor: pointer;
+    /* background-color: purple; */
 }
 
 .key-pointer-container{
     position: absolute;
     width: 30px;
     height: 50px;
-    top: 380px;
+    top: 418px;
     left: 115px;
     cursor: pointer;
+    /* background-color: purple; */
 }
 
 .code-pointer-container{
@@ -119,8 +126,9 @@
     width: 28px;
     position: absolute;
     left: 295px;
-    top: 454px;
+    top: 490px;
     cursor: pointer;
+    /* background-color: purple; */
 }
 
 .room-content-container{
