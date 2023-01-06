@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+.inv-box {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inv-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    width: 100%;
+    height: 70px;
+    background: black;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+    color: #fefefe;
+    font-family: 'VT323', sans-serif;
+    line-height: 1.1;
+    box-sizing: border-box;
+    align-items: stretch;
+    justify-content: center;
+    border-color: #333;
+    padding-top: 1%;
+    font-size: 50px;
+    position:relative;
+    margin-bottom: 10px
+}
+
+.inv-magnifyingglass {
+    padding-top: 40%
+}
+
+.inv-scissors {
+    padding-left: 20%;
+    padding-top: 10%
+}
+
