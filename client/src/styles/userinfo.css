@@ -56,7 +56,7 @@
     position: absolute;
     width: 90%;
     height: 3px;
-    bottom: 8px;
+    bottom: 3px;
     transform: scaleX(0);
     background: white;
     transform-origin: bottom right;
