@@ -12,7 +12,7 @@
 * [Escape Room!]()
 
 ## Programming Languages
-* HTML, CSS, JavaScript, React, Node.js, Express.js, Mongoose, MongoDB
+* React, Node.js, Express.js, Mongoose, MongoDB, HTML, CSS, JavaScript
 
 ## Team Members
 - [Matt Herringshaw](https://github.com/MattHerringshaw1) 

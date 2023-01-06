@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import '../styles/timer.css'
 
 const CountDownTimer = (props) => {
     
@@ -67,7 +68,7 @@ const CountDownTimer = (props) => {
             </h2>
             {door && (
                     <div className='time-save-container'>
-                        <button onClick={handleSaveTime}>Save Time</button>
+                        <button className='time-save-btn' onClick={handleSaveTime}>Save Time</button>
                     </div>
                 )}
         </div>
