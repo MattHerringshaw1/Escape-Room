@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 .room-title{
-    margin-left: 25%
+    margin-left: 25%;
+    color: white
 }
 
 .door-code{
