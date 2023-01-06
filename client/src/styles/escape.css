@@ -163,7 +163,6 @@
 .mainmain {
     font-family: 'VT323', sans-serif;
     background: black;
-    color: goldenrod;
     border: 1px solid goldenrod
 }
 
@@ -178,7 +177,6 @@
     border-width: 2px;
     border-color: purple;
     border-radius: 5px;
-
 }
 
 .code-pop-container{
