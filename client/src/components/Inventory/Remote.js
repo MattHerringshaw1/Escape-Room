@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import remote from './inv-images/remote.png'
 
 function Scissors() {
 
@@ -6,7 +7,14 @@ function Scissors() {
 
     return (
         <>
-        <b>Universal Remote</b>
+        <img
+                src={remote}
+                width="60"
+                height="150"
+                className="d-inline-block align-top"
+                alt="Remote Control"
+            />
+           
         </>
     )
 }

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import magglass from './inv-images/magglass.png'
 
 function MagnifyingGlass() {
 
@@ -6,7 +7,14 @@ function MagnifyingGlass() {
 
     return (
         <>
-        <b>Inexplicable Magnifying Glass</b>
+        <img
+                src={magglass}
+                width="120"
+                height="100"
+                className="d-inline-block align-top"
+                alt="Magnifying Glass"
+            />
+            
         </>
     )
 }

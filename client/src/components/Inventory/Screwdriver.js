@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import screwdriver from './inv-images/screwdriver.png'
 
 function Screwdriver() {
 
@@ -6,7 +7,14 @@ function Screwdriver() {
 
     return (
         <>
-        <b>Phillips Head Screwdriver</b>
+        <img
+                src={screwdriver}
+                width="120"
+                height="100"
+                className="d-inline-block align-top"
+                alt="Screwdriver"
+            />
+            
         </>
     )
 }
