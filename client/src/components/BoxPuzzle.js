@@ -172,7 +172,7 @@ function BoxPuzzle(props) {
             {complete && props.hasMagnifyingGlass &&(
                 <div className='box-solve-noti-container'>
                     <p onClick={handleHideBoxSolveNoti} className='pop-close'>X</p>
-                    <p className='noti-text'>A note pops out that you read with the magnifying glass </p>
+                    <p className='noti-text'>The numbers vanish, and you read the display with the magnifying glass</p>
                     <p className='noti-text'>"The gears are all PRIMED and in working ORDER"</p>
                 </div>     
             )}
@@ -180,16 +180,12 @@ function BoxPuzzle(props) {
             {complete && !props.hasMagnifyingGlass &&(
                 <div className='box-solve-noti-container'>
                     <p onClick={handleHideBoxSolveNoti} className='pop-close'>X</p>
-                    <p className='noti-text'>A note pops out of the box.</p>
-                    <p className='noti-text'>The text is too small to read...</p>
+                    <p className='noti-text'>The numbers vanish, and the display shows a note</p>
+                    <p className='noti-text'>But the text is too small to read...</p>
                 </div>     
             )}
 
-            {/* {complete && (
-                <p>
-                    {props.hasMagnifyingGlass ? 'A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."': 'A box opens and a note is inside... but the text is too small to read!'}
-                </p>
-            )} */}
+
         </div>
     );
 }
