@@ -191,7 +191,7 @@ function Room(props) {
     }
      
     return (
-        <>
+        <div className='mainmain'>
             <div className='main'>
                 <div className='room-title'><h1>{username}'s Room #1</h1></div>
 
@@ -419,7 +419,7 @@ function Room(props) {
             <div className='inventory-container'>
                 <Inventory />
             </div>
-        </>
+        </div>
 
     )
 }

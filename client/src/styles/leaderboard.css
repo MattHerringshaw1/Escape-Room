@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 .background {
-    background-color: rgb(0, 0, 0);
+    background: rgb(86, 85, 94);
+    background: linear-gradient(144deg, rgba(86, 85, 94, 1) 0%, rgba(0, 0, 0, 1) 100%);
     padding-bottom: 50%;
     padding-top: 20px
 }
+
 .main-lb-body {
     display: block;
     width: 80%;
@@ -200,6 +202,7 @@
     color: black;
     border: 0.2em solid black;
 }
+
 .more-button span {
     position: absolute;
     width: 25%;
@@ -233,4 +236,3 @@ span:nth-child(3) {
 span:nth-child(4) {
     --n: 4;
 }
-

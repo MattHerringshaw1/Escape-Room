@@ -3,20 +3,20 @@ import '../styles/home.css'
 import mainRoom from '../images/EscapeRoomMain.png'
 
 function Home() {
-    
+
     const username = localStorage.getItem('username')
-    
+
 
     return (
         <div className="background-home">
             <div className="main-lb-body-home">
                 <div className="leadheader-home">
-                    <h1>Rooms</h1>
+                    Pick a room
                 </div>
 
                 <div className="rendered-body-home">
                     <div className="rendered-body-center">
-                    <div className="room1-img">
+                        <div className="room1-img">
                             <NavLink to={`/room/${username}`}>
                                 <div className="img-resize">
                                     <img src={mainRoom} />
@@ -24,7 +24,9 @@ function Home() {
                             </NavLink>
                         </div>
                         <div className="rendered-text-room1-button">
-                            <NavLink to={`/room/${username}`}>ROOM 1</NavLink>
+                            <NavLink className='buttonlink' to={`/room/${username}`}>
+                                <div className="button">Room #1 <span></span><span></span><span></span><span></span></div>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

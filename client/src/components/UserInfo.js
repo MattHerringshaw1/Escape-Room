@@ -97,9 +97,8 @@ function UserInfo() {
         setIsOpen(!isOpen);
     }
 
-    const [isOpen2, setIsOpen2] = useState(false);
-    const togglePopup2 = () => {
-        setIsOpen2(!isOpen2);
+    function refresh() {
+        window.location.reload(false)
     }
 
     return (
@@ -114,9 +113,8 @@ function UserInfo() {
                         <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
                         <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
                         <div className='rendered-text-info-4'><u>Username</u>: {userInfo.username}</div>
-                        <div className="more-button2" onClick={togglePopup2}>Change account details <span></span><span></span><span></span><span></span></div>
                     </div>
-                    <div className='body-update'>{isOpen2 &&
+                    <div className='body-update'>
                         <div className='main-lb-body-update' key={user.userid}>
                             <div className='rendered-body-info2'>
                                 <div className='leadheader-info2'>
@@ -137,13 +135,13 @@ function UserInfo() {
                                         <input minLength={2} maxLength={50} required type='text' name='username' placeholder={userInfo.username} onChange={handleChange} />
                                     </div>
                                     <div className='rendered-text-info-button2'>
-                                        {show ? <button className='more-button3'>Save <span></span><span></span><span></span><span></span></button> : null}
+                                        {show ? <button onClick={refresh} className='more-button3'>Save <span></span><span></span><span></span><span></span></button> : null}
                                     </div>
 
                                 </form>
                             </div>
 
-                        </div>}
+                        </div>
                     </div></div>
                 <br></br>
                 <div><div className="more-button" onClick={togglePopup}>View High Scores <span></span><span></span><span></span><span></span></div></div>
