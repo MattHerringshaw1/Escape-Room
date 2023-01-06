@@ -34,7 +34,6 @@ function Menu(props) {
                         <NavDropdown title="Leaderboard" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="/leaderboard">Room 1</NavDropdown.Item>
                             <NavDropdown.Item href="#">Room 2 (WIP)</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Room 3 (WIP)</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav className="me-auto">

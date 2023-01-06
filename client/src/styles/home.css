@@ -67,6 +67,7 @@
     box-sizing: border-box;
     padding: 15px;
     position: relative;
+    margin-bottom: 10px
 }
 
 .rendered-body-home:after {
