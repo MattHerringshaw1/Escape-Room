@@ -7,6 +7,7 @@ function BoxPuzzle(props) {
     const [puzzle, setPuzzle] = useState([]);
     const [complete, setComplete] = useState(false);
     const [moves, setMoves] = useState(0);
+    const [boxSolve, setBoxSolve] = useState(false)
 
 
     //-----------------CODE FOR SETTING THE PUZZLE UP---------------------
@@ -18,17 +19,7 @@ function BoxPuzzle(props) {
             secondRow = [4,2,0],
             thirdRow = [7,5,8];
 
-        // while (values.length) {
-        //     const random = Math.floor(Math.random() * values.length);
 
-        //     if (firstRow.length < 3) {
-        //         firstRow.push(values.splice(random, 1)[0]);
-        //     } else if (secondRow.length < 3) {
-        //         secondRow.push(values.splice(random, 1)[0]);
-        //     } else {
-        //         thirdRow.push(values.splice(random, 1)[0]);
-        //     }
-        // }
 
         return [firstRow, secondRow, thirdRow];
     };
@@ -112,6 +103,7 @@ function BoxPuzzle(props) {
     const checkCompletion = puzzle => {
         if (flattenarrayay(puzzle).join("") === "123456780") {
             setComplete(true);
+            setBoxSolve(true)
         }
     };
 
@@ -140,10 +132,14 @@ function BoxPuzzle(props) {
         setMoves(0);
     };
 
+    const handleHideBoxSolveNoti = () => {
+        setComplete(false)
+    }
+
     return (
         <div className="main-box">
-            {<h3>Moves: {moves} - TAKE OFF MOVE COUNTER?</h3>}
-            <div className="outter-box" style={{ border: `5px solid ${complete ? "black" : "red"}` }}>
+            {<h3 className='moves-text'>Moves: {moves}</h3>}
+            <div className="outter-box" style={{ border: `5px solid ${complete ? "black" : "purple"}` }}>
                 {puzzle.map((row, i) => (
                     <div key={i} className="middle-box">
                         {row.map((col, j) => {
@@ -172,11 +168,28 @@ function BoxPuzzle(props) {
                 </button>
                 </div>
             </div>
-            {complete && (
+
+            {complete && props.hasMagnifyingGlass &&(
+                <div className='box-solve-noti-container'>
+                    <p onClick={handleHideBoxSolveNoti} className='pop-close'>X</p>
+                    <p className='noti-text'>A note pops out that you read with the magnifying glass </p>
+                    <p className='noti-text'>"The gears are all PRIMED and in working ORDER"</p>
+                </div>     
+            )}
+
+            {complete && !props.hasMagnifyingGlass &&(
+                <div className='box-solve-noti-container'>
+                    <p onClick={handleHideBoxSolveNoti} className='pop-close'>X</p>
+                    <p className='noti-text'>A note pops out of the box.</p>
+                    <p className='noti-text'>The text is too small to read...</p>
+                </div>     
+            )}
+
+            {/* {complete && (
                 <p>
                     {props.hasMagnifyingGlass ? 'A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."': 'A box opens and a note is inside... but the text is too small to read!'}
                 </p>
-            )}
+            )} */}
         </div>
     );
 }

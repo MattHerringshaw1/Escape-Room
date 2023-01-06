@@ -33,4 +33,33 @@
 
 .reset-button {
     align-items: center;
+    margin-left: 73px;
+    margin-top: 10px;
+}
+
+.moves-text{
+    margin-left: 80px
+}
+
+.box-solve-noti-container{
+    position: absolute;
+    height: 400px;
+    width: 320px;
+    background-color: palegoldenrod;
+    left: 600px;
+    top: 75px;
+    z-index: 3;
+    border: solid;
+    border-width: 5px;
+    border-color: purple;
+    border-radius: 5px;
+}
+
+.pop-close{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    margin: 0;
+    font-size: 20px;
+    cursor: pointer;
 }

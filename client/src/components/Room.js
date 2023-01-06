@@ -48,6 +48,8 @@ function Room(props) {
     const [safeNoti, setSafeNoti] = useState(false)
     const [doorSolveNoti, setDoorSolveNoti] = useState(false)
     const [keyNoti, setKeyNoti] = useState(false)
+    const [toolSolveNoti, setToolSolveNoti] = useState(false)
+
     const minSecs={minutes:5, seconds:0}
 
 
@@ -124,7 +126,8 @@ function Room(props) {
 
     const handleShowTool = () =>{
         if(openTool){
-        setShowTool(true)   
+        setShowTool(true)
+        setToolSolveNoti(true)   
         }else{
             setToolNoti(true)
         }
@@ -132,67 +135,61 @@ function Room(props) {
     }
     const handleHideTool = () => {
         setShowTool(false)
+        setToolSolveNoti(false)
     }
-
     const handleShowDriver = () => {
         setShowDriver(false)
     }
-
     const handleShowRemote = () => {
         setShowRemote(false)
     }
-
     const handleHideBox = () => {
         setShowBox(false)
     }
-
     const handleScrewTurn = () => {
         setShowGlass(true)
     }
-
     const handleMagClick = () => {
         setShowGlass(false)
     }
-
     const handleHideNote = () =>{
         setShowNote(false)
     }
-
     const handleHideDoorNoti = () =>{
         setDoorNoti(false)
     }
-
     const handleHideToolNoti = () =>{
         setToolNoti(false)
     }
-
     const handleHideFlagNoti = () =>{
         setFlagNoti(false)
     }
-
     const handleHideBoxNoti = () => {
         setBoxNoti(false)
     }
-
     const handleHideGearNoti = () => {
         setGearNoti(false)
     }
-
     const handleHideSafeNoti = () => {
         setSafeNoti(false)
     }
-
     const handleHideDoorSolveNoti = () =>{
         setDoorSolveNoti(false)
     }
-
     const handleHideKeyNoti = () =>{
         setKeyNoti(false)
     }
     const handleShowKeyNoti = () => {
         setKeyNoti(true)
     }
+    const handleHideToolSolveNoti = () =>{
+        setToolSolveNoti(false)
+    }
 
+    const handleHideMagSolveNoti = () => {
+        setShowGlass(false)
+    }
+     
     return (
         <>
             <div className='main'>
@@ -219,8 +216,12 @@ function Room(props) {
                     <div className='note-pop-container'>
                         <p onClick={handleHideNote} className='pop-close'>X</p>
                             <div className='note-hint-container'>
-                                <h1>The note on the floor reads:</h1>
-                                <h5>The old caretaker Matt accidentally welded the toolbox shut years ago. Luckily the red button on the bottom of the box opens it.</h5> 
+                                <div className='heading-container'>
+                                    <h1>The note on the floor reads:</h1>
+                                </div>
+                                <div className='note-text-container'>
+                                    <h5>"The old caretaker Matt accidentally welded the toolbox shut years ago. Luckily the red button on the bottom of the box opens it."</h5>
+                                </div> 
                             </div>
                     </div>
                 )}
@@ -253,11 +254,14 @@ function Room(props) {
 
                                 {showGlass && (
                                     <div>
-                                        <p>A hidden drawer opens</p>
+                                        
                                         <div onClick={handleMagClick} className='mag-click'>
                                             <img onClick={props.setMagnifyingGlass} className='magglass' src={test5} />
                                         </div>
-
+                                        <div className='mag-solve-noti-container'>
+                                            <p onClick={handleHideMagSolveNoti} className='pop-close'>X</p>
+                                            <p className='noti-text'>Using the screwdriver, a hidden drawer opens revealing a magnifying glass.</p>
+                                        </div> 
                                     </div>
                                 )}
 
@@ -269,7 +273,6 @@ function Room(props) {
                         <div className='safe-pop-container'>
                             <p onClick={handleHideSafe} className='pop-close'>X</p>
                             <div className='france-img-container'>
-                                <p className='france-hint'>There is a single picture inside of what looks like France</p>
                                 <img className='france-img' src={test6} />
                             </div>
                         </div>
@@ -308,6 +311,7 @@ function Room(props) {
                 {doorNoti &&(
                     <div className='door-noti-container'>
                         <p onClick={handleHideDoorNoti} className='pop-close'>X</p>
+                        <h3 className='noti-text'>INCORRECT</h3>
                         <p className='noti-text'>The red light blinks. The door remains locked.</p>
                     </div>
                 )}
@@ -315,50 +319,58 @@ function Room(props) {
                 {doorSolveNoti &&(
                     <div className='door-noti-container'>
                         <p onClick={handleHideDoorSolveNoti} className='pop-close'>X</p>
-                        <h1 className='noti-text'>Congratulations!</h1>
+                        <h1 className='noti-text'>CORRECT</h1>
                         <p className='noti-text'>The light turns green. The door opens! You escaped!!</p>
+                        <h1 className='noti-text'>Congratulations!</h1>
                     </div>
                 )}
 
                 {toolNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideToolNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>The toolbox is welded shut</p>
+                        <p className='noti-text'>The toolbox is welded shut.</p>
+                    </div>    
+                )}
+
+                {toolSolveNoti &&(
+                    <div className='tool-noti-container'>
+                        <p onClick={handleHideToolSolveNoti} className='pop-close'>X</p>
+                        <p className='noti-text'>You flip the toolbox over and press the red button. The toolbox opens.</p>
                     </div>    
                 )}
 
                 {flagNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideFlagNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>The display on the wall does not respond to touch</p>
+                        <p className='noti-text'>The display on the wall does not respond to touch.</p>
                     </div>    
                 )}
 
                 {boxNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideBoxNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>The drawer is locked tight, but there appears to be a hole in the top for something long and thing</p>
+                        <p className='noti-text'>The drawer is locked tight, but there appears to be a hole in the top for something long and thin.</p>
                     </div>                    
                 )}
 
                 {gearNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideGearNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>There are a series of gears locked behind a glass panel</p>
+                        <p className='noti-text'>There are a series of gears locked behind a glass panel.</p>
                     </div>                        
                 )}
 
                 {safeNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideSafeNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>The safe is locked tight</p>
+                        <p className='noti-text'>The safe is locked tight.</p>
                     </div>                      
                 )}
 
                 {keyNoti &&(
                     <div className='tool-noti-container'>
                         <p onClick={handleHideKeyNoti} className='pop-close'>X</p>
-                        <p className='noti-text'>You pick up the large key</p>
+                        <p className='noti-text'>You pick up the large key.</p>
                     </div>                      
                 )}
                 
