@@ -135,7 +135,7 @@ function UserInfo() {
                                         <input minLength={2} maxLength={50} required type='text' name='username' placeholder={userInfo.username} onChange={handleChange} />
                                     </div>
                                     <div className='rendered-text-info-button2'>
-                                        {show ? <button onClick={refresh} className='more-button3'>Save <span></span><span></span><span></span><span></span></button> : null}
+                                        {show ? <button className='more-button3'>Save <span></span><span></span><span></span><span></span></button> : null}
                                     </div>
 
                                 </form>
