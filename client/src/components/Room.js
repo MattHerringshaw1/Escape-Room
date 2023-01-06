@@ -203,7 +203,7 @@ function Room(props) {
                             <p onClick={handleHideCode} className='pop-close'>X</p>
                             <div className='door-code'>
                                 <div className='code-input'>
-                                    <h3 className='noti-text'>Enter Door Code</h3>
+                                    <h3 className='noti-text-heading'>Enter Door Code</h3>
                                     <input type='text' onChange={(e) => setDoorCode(e.target.value)} />
                                     <button className='code-btn' onClick={() => handleDoorOpen(doorCode)}>Try Door</button>
                                 </div>
@@ -217,10 +217,10 @@ function Room(props) {
                         <p onClick={handleHideNote} className='pop-close'>X</p>
                             <div className='note-hint-container'>
                                 <div className='heading-container'>
-                                    <h1 className='noti-text'>The note on the floor reads:</h1>
+                                    <h1 className='noti-text-head'>The note on the floor reads:</h1>
                                 </div>
                                 <div className='note-text-container'>
-                                    <h5>"The old caretaker Matt accidentally welded the toolbox shut years ago. Luckily the red button on the bottom of the box opens it."</h5>
+                                    <h5 className='noti-text-body'>"The old caretaker Matt accidentally welded the toolbox shut years ago. Luckily the red button on the bottom of the box opens it."</h5>
                                 </div> 
                             </div>
                     </div>
