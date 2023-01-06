@@ -1,19 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 .main-box {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: blue
+    font-family: 'VT323', sans-serif;
+    color: white
 }
 
 
 .outter-box {
     display: inline-block;
-    background-color: blue;
-    border-radius: 5px;
+    background-color: black;
     padding: 5px
 }
 
 .middle-box {
-    display: flex
+    display: flex;
 }
 
 .inner-box {
@@ -24,7 +24,10 @@
     height: 77px;
     margin: 2px;
     border-radius: 5px;
+    border: 1px solid goldenrod;
 }
+
+
 
 .inside-font {
     font-size: 2rem;
@@ -33,12 +36,15 @@
 
 .reset-button {
     align-items: center;
-    margin-left: 73px;
     margin-top: 10px;
 }
 
 .moves-text{
-    margin-left: 80px
+    margin-left: 80px;
+    background-color: black;
+    width: 13%;
+    border: 3px solid purple;
+    padding: 5px
 }
 
 .box-solve-noti-container{
@@ -62,4 +68,28 @@
     margin: 0;
     font-size: 20px;
     cursor: pointer;
+}
+
+.reset-button2 {
+    color: goldenrod;
+    border: 0.1em solid goldenrod;
+    border-radius: 0.5em;
+    width: 100%;
+    height: 25%;
+    text-transform: uppercase;
+    font-family: 'VT323', sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    background-color: black;
+    cursor: pointer
+}
+
+.reset-button2:hover {
+    color: black;
+    background-color: goldenrod;
 }

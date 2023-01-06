@@ -44,16 +44,10 @@ function Login(props) {
               props.onLogin(token)
               navigate(`/home/${username}`)
             } 
-          //   else if (user.username === null || user.username !== user.username || user !== user )  {
-          //     // console.log(typeof(user.username))
-          //     console.log(user.username)
-          //     setModalShow(true)
-            
-          // }
+          
              else {
               setModalShow(true)
             }
-              // alert('Please provide correct credentials.')
             
       })}
 
@@ -106,7 +100,7 @@ function Login(props) {
                       <input minLength={2} maxLength={50} required name = "password" type = "password" placeholder = "Enter Password" onChange={handleOnChange} />
                     </div>
                     <div className='rendered-text-login-button'>
-                      <button >Login</button>
+                      <button className='rendered-text-login-button2'>Login <span></span><span></span><span></span><span></span></button>
                     </div>
                     <div>
                       {modalShow ? <UserModal 
@@ -121,7 +115,7 @@ function Login(props) {
                   <div className='form-center'>
                     <div className='rendered-text-login-guest'>             
                       <input type="hidden" value="Guest" name="username"  />
-                      <button>Guest Login</button> 
+                      <button className='rendered-text-login-button2'>Guest Login <span></span><span></span><span></span><span></span></button> 
                     </div>  
                   </div>
                 </form>

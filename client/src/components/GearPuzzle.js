@@ -73,25 +73,25 @@ function GearPuzzle(props){
                 <div className='gear-and-btn-container'>
                     <h3>{codeLeft}</h3>
                     <FontAwesomeIcon className={clickedLeft || 'gear-start-left'} icon={['fas', 'fa-gear']}/>
-                    <button onClick={handleGearSpinLeft}>rotate</button>
+                    <button className='gear-button' onClick={handleGearSpinLeft}>rotate</button>
                 </div>
                 <div className='gear-and-btn-container'>
                     <h3>{codeCenter}</h3>
                     <FontAwesomeIcon className={clickedCenter || 'gear-start-center'} icon={['fas', 'fa-gear']}/>
-                    <button onClick={handleGearSpinCenter}>rotate</button>
+                    <button className='gear-button' onClick={handleGearSpinCenter}>rotate</button>
                 </div>
                 <div className='gear-and-btn-container'>
                     <h3>{codeRight}</h3>
                     <FontAwesomeIcon className={clickedRight || 'gear-start-right'} icon={['fas', 'fa-gear']}/>
-                    <button onClick={handleGearSpinRight}>rotate</button>
+                    <button className='gear-button' onClick={handleGearSpinRight}>rotate</button>
                 </div>
                 <div className='gear-and-btn-container'>
                     <h3>{codeFarRight}</h3>
                     <FontAwesomeIcon className={clickedFarRight || 'gear-start-far-right'} icon={['fas', 'fa-gear']}/>
-                    <button onClick={handleGearSpinFarRight}>rotate</button>
+                    <button className='gear-button' onClick={handleGearSpinFarRight}>rotate</button>
                 </div>
                 <div>
-                <button onClick={handleCheckCode}>Try Code</button>
+                <button className='gear-button-try' onClick={handleCheckCode}>Try Code</button>
                 </div>
 
 

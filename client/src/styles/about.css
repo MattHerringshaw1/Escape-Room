@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 .background-about {
-    background-color: rgb(0, 0, 0);
-    padding-bottom: 100%;
-    padding-top: 20px
+    background-color: rgb(41, 41, 41);
+    padding-bottom: .1%;
+    padding-top: .1%
 }
 
 .main-lb-body-about {
@@ -16,7 +16,6 @@
     display: flex;
     width: 100%;
     height: 70px;
-    background: black;
     text-align: center;
     border-radius: 5px 5px 0 0;
     margin: 0;
@@ -28,8 +27,10 @@
     justify-content: center;
     border-color: #333;
     padding-top: 1%;
+    padding-bottom: 7%;
     font-size: 50px;
-    position: relative
+    position: relative;
+    border: 1px solid goldenrod;
 }
 
 .leadheader-about:after {
@@ -49,15 +50,31 @@
     transform-origin: bottom;
 }
 
+a:link {
+    color: goldenrod;
+    text-decoration: underline;
+}
+
+.our-name {
+    text-align: center;
+    font-size: 50px;
+    color: white
+}
+
+.about {
+    font-size: 80px;
+    
+}
+
+.email {
+    text-align: center;
+    text-decoration: underline;
+}
+
 .rendered-body-about {
-    background: rgba(254, 254, 254, 0.9);
     width: 100%;
     margin-left: 0;
-    border-top: 1px solid rgba(107, 104, 104);
-    border-bottom: 1px solid rgba(107, 104, 104);
-    border-left: 1px solid rgba(107, 104, 104);
-    border-right: 1px solid rgba(107, 104, 104);
-    font-size: 14px;
+    border: 1px solid goldenrod;
     line-height: 1.42857143;
     color: goldenrod;
     display: flex;
@@ -65,37 +82,19 @@
     box-sizing: border-box;
     padding: 15px;
     position: relative;
+    font-family: 'VT323', sans-serif;
     background-color: black;
 }
-
-/* .rendered-body-about:after {
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 3px;
-    bottom: 8px;
-    transform: scaleX(0);
-    background: goldenrod;
-    transform-origin: bottom right;
-    transition: transform 0.5s ease-out;
-}
-
-.rendered-body-about:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-} */
 
 .rendered-text-about-1 {
     width: auto;
     position: relative;
     min-height: 1px;
     font-size: 30px;
-    /* font-family: 'VT323', sans-serif; */
-    border-bottom: 1px solid rgba(107, 104, 104);
-    border-left: 1px solid rgba(107, 104, 104);
-    border-right: 1px solid rgba(107, 104, 104);
-    border-top: 1px solid rgba(107, 104, 104);
+    border: 1px solid goldenrod;
     margin-bottom: 1%;
+    padding: 30px;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(36, 34, 34));
 }
 
 .rendered-text-about-1:after {

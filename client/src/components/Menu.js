@@ -17,7 +17,7 @@ function Menu(props) {
 
     return (
         <div className="header">
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="black" variant="dark">
                 <Container>
                     <Navbar.Brand className="home" href={`/home/${username}`}>
                         <img

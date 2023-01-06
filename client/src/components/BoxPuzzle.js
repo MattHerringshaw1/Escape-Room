@@ -3,6 +3,7 @@ import '../styles/boxpuz.css'
 import { connect } from 'react-redux'
 
 
+
 function BoxPuzzle(props) {
     const [puzzle, setPuzzle] = useState([]);
     const [complete, setComplete] = useState(false);
@@ -15,9 +16,10 @@ function BoxPuzzle(props) {
     const getShuffledPuzzle = () => {
         const values = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+        
         const firstRow = [1,3,6],
-            secondRow = [4,2,0],
-            thirdRow = [7,5,8];
+            secondRow = [4,2,8],
+            thirdRow = [0,7,5];
 
 
 
@@ -143,7 +145,7 @@ function BoxPuzzle(props) {
                 {puzzle.map((row, i) => (
                     <div key={i} className="middle-box">
                         {row.map((col, j) => {
-                            const color = col === 0 ? "transparent" : "yellow";
+                            const color = col === 0 ? "transparent" : "transparent";
                             return (
                                 <div
                                     key={`${i}-${j}`}
@@ -163,7 +165,7 @@ function BoxPuzzle(props) {
                     </div>
                 ))}
                 <div className='reset-button'>
-                    <button onClick={() => { resetPuzzle() }}>
+                    <button className='reset-button2' onClick={() => { resetPuzzle() }}>
                     Reset Puzzle
                 </button>
                 </div>
@@ -185,7 +187,11 @@ function BoxPuzzle(props) {
                 </div>     
             )}
 
-
+            {/* {complete && (
+                <p>
+                    {props.hasMagnifyingGlass ? 'A box opens and a note is inside reading "The gears are all *PRIMED* and in working *ORDER*."': 'A box opens and a note is inside... but the text is too small to read!'}
+                </p>
+            )} */}
         </div>
     );
 }

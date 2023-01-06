@@ -83,3 +83,83 @@
     width: 33%;
     background-color: yellow;
 }
+
+.flag-button-blue {
+    width: 24%;
+    height: 8%;
+    text-transform: uppercase;
+    font-family: 'VT323', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    background-color: blue;
+    cursor: pointer
+}
+
+.flag-button-blue:hover {
+    border: 2px solid goldenrod
+}
+
+.flag-button-white {
+    width: 24%;
+    height: 8%;
+    text-transform: uppercase;
+    font-family: 'VT323', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    background-color: white;
+    cursor: pointer
+}
+
+.flag-button-white:hover {
+    border: 2px solid goldenrod
+}
+
+.flag-button-red {
+    width: 24%;
+    height: 8%;
+    text-transform: uppercase;
+    font-family: 'VT323', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    background-color: red;
+    cursor: pointer
+}
+
+.flag-button-red:hover {
+    border: 2px solid goldenrod
+}
+
+.flag-button-yellow {
+    width: 24%;
+    height: 8%;
+    text-transform: uppercase;
+    font-family: 'VT323', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    background-color: yellow;
+    cursor: pointer
+}
+
+.flag-button-yellow:hover {
+    border: 2px solid pink
+}
