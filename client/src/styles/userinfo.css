@@ -5,13 +5,15 @@
     align-items: center;
     width: 100%;
     flex-direction: column;
-} 
+}
 
 .background-user {
-    background-color: rgb(0, 0, 0);
+    background: rgb(86, 85, 94);
+    background: linear-gradient(144deg, rgba(86, 85, 94, 1) 0%, rgba(0, 0, 0, 1) 100%);
     padding-bottom: 80%;
     padding-top: 1%;
 }
+
 .main-lb-body-info {
     display: block;
     width: 80%;
@@ -21,7 +23,7 @@
 .main-lb-body-update {
     display: block;
     width: 100%;
-    
+
 }
 
 .body-update {
@@ -45,7 +47,8 @@
     border-color: #333;
     padding-top: 1%;
     font-size: 50px;
-    position: relative
+    position: relative;
+    border: 1px solid goldenrod
 }
 
 .leadheader-info:after {
@@ -69,13 +72,10 @@
     display: flex;
     width: 100%;
     height: 10%;
-    background: black;
     text-align: center;
     border-radius: 5px 5px 0 0;
-
     color: #fefefe;
     font-family: 'VT323', sans-serif;
-
     box-sizing: border-box;
     align-items: stretch;
     justify-content: center;
@@ -102,7 +102,6 @@
 }
 
 .rendered-body-info {
-    background: rgba(254, 254, 254, 0.9);
     width: 50%;
     margin-left: 0;
     border-top: 1px solid rgba(107, 104, 104);
@@ -117,7 +116,8 @@
     box-sizing: border-box;
     padding: 15px;
     position: relative;
-    background-color: black;
+    background: rgb(46, 46, 52);
+    background: linear-gradient(144deg, rgba(46, 46, 52, 1) 0%, rgba(0, 0, 0, 1) 100%);
     justify-content: center;
 }
 
@@ -183,7 +183,6 @@
 
 
 .rendered-body-info2 {
-    background: rgba(254, 254, 254, 0.9);
     width: 100%;
     margin-left: 0;
     border-top: 1px solid rgba(107, 104, 104);
@@ -198,7 +197,8 @@
     box-sizing: border-box;
     padding: 15px;
     position: relative;
-    background-color: black;
+    background: rgb(46,46,52);
+background: linear-gradient(223deg, rgba(46,46,52,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .rendered-body-info2:after {
@@ -284,6 +284,7 @@
     color: black;
     border: 0.2em solid black;
 }
+
 .more-button span {
     position: absolute;
     width: 25%;
@@ -323,7 +324,7 @@ span:nth-child(4) {
     border: 0.1em solid goldenrod;
     border-radius: 0.5em;
     width: 50%;
-    
+
     text-transform: uppercase;
     font-family: 'VT323', sans-serif;
     font-size: 20px;
@@ -341,6 +342,7 @@ span:nth-child(4) {
     color: black;
     border: 0.2em solid black;
 }
+
 .more-button2 span {
     position: absolute;
     width: 25%;
@@ -403,6 +405,7 @@ span:nth-child(4) {
     color: black;
     border: 0.2em solid black;
 }
+
 .more-button3 span {
     position: absolute;
     width: 25%;

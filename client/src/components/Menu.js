@@ -33,8 +33,8 @@ function Menu(props) {
                         <Nav.Link href={`/home/${username}`}>- Home -</Nav.Link>
                         <NavDropdown title="Leaderboard" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="/leaderboard">Room 1</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Room 2</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Room 3</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Room 2 (WIP)</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Room 3 (WIP)</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav className="me-auto">
