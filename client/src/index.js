@@ -15,6 +15,7 @@ import Home from './components/Home';
 import UserInfo from './components/UserInfo';
 import Leaderboard from './components/Leaderboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AboutUs from './components/AboutUs';
 
 
 
@@ -40,6 +41,7 @@ root.render(
             <Route path='/logout' element={<Logout />} />
             <Route path='/room/:username' element={<Room />} />
             <Route path='/leaderboard' element={<Leaderboard />} />
+            <Route path='/about-us' element={<AboutUs />} />
           </Routes>
         </BaseLayout>
       </BrowserRouter>

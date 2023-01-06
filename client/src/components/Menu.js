@@ -38,6 +38,9 @@ function Menu(props) {
                         </NavDropdown>
                     </Nav>
                     <Nav className="me-auto">
+                        <Nav.Link href='/about-us'>- About Us -</Nav.Link>
+                    </Nav>
+                    <Nav className="me-auto">
                         {props.isAuth ? <Nav.Link href="/logout">Logout</Nav.Link> : null}
                         {props.isAuth ? null : <Nav.Link href="/login">- Login -</Nav.Link>}
                         {props.isAuth ? null : <Nav.Link href="/register">- Register -</Nav.Link>}
