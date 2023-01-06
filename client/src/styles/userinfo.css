@@ -118,6 +118,7 @@
     padding: 15px;
     position: relative;
     background-color: black;
+    justify-content: center;
 }
 
 .rendered-body-info:after {

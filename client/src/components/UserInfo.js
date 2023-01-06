@@ -59,13 +59,17 @@ function UserInfo() {
         handleShow()
     }, [])
 
+    
+
     const handleEdit = (e) => {
 
         e.preventDefault()
-
+        
         if (!user.first_name || !user.last_name || !user.email || !user.username) {
             alert('Please fill out all textboxes.')
         } else {
+            const username = user.username
+            localStorage.setItem('username', username)
             fetch('http://localhost:8080/api/users', {
                 method: 'PUT',
                 headers: {
@@ -75,7 +79,7 @@ function UserInfo() {
                     first_name: user.first_name,
                     last_name: user.last_name,
                     email: user.email,
-                    username: user.username,
+                    username: username,
                     userid: userId
                 })
             })
@@ -106,9 +110,6 @@ function UserInfo() {
                 </div>
                 <div className='acc-details'>
                     <div className='rendered-body-info'>
-                        <div className='leadheader-info2'>
-                            {username}'s Account Details Below
-                        </div>
                         <div className='rendered-text-info-1'><u>First Name</u>: {userInfo.first_name}</div>
                         <div className='rendered-text-info-2'><u>Last Name</u>: {userInfo.last_name}</div>
                         <div className='rendered-text-info-3'><u>Email</u>: {userInfo.email}</div>
