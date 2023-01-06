@@ -3,6 +3,7 @@
 .header {
     font-family: 'VT323', sans-serif;
     font-size: 30px;
+    border: 1px solid goldenrod;
 }
 
 .home{

@@ -25,7 +25,7 @@ function Home() {
                         </div>
                         <div className="rendered-text-room1-button">
                             <NavLink className='buttonlink' to={`/room/${username}`}>
-                                <div className="button">Room #1 <span></span><span></span><span></span><span></span></div>
+                                <div className="left"></div><div className="button">Room #1 <span></span><span></span><span></span><span></span></div><div className="left"></div>
                             </NavLink>
                         </div>
                     </div>

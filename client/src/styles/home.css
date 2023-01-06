@@ -137,7 +137,12 @@
 }
 
 .buttonlink {
-    text-decoration: none;
+    text-decoration: black;
+    display: flex
+}
+
+.left {
+    width: 25%
 }
 .button {
     color: goldenrod;

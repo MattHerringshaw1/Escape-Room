@@ -62,7 +62,7 @@ function Register() {
                                     <input minLength={2} maxLength={50} required type='password' name='password' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className='rendered-text-reg-button'>
-                                    <button>Register</button>
+                                    <button className='rendered-text-reg-button2'>Register <span></span><span></span><span></span><span></span></button>
                                 </div>
                             </div>
                         </form>

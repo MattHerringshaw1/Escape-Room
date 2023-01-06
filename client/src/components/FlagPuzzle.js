@@ -69,127 +69,124 @@ function FlagPuzzle(){
             
             {leftFlag=='' &&(
             <div className='left-flag-start'>
-                <button onClick={handleChangeLeftBlue}>Blue</button>
-                <button onClick={handleChangeLeftWhite}>White</button>
-                <button onClick={handleChangeLeftRed}>Red</button>
-                <button onClick={handleChangeLeftYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeLeftBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeLeftWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeLeftRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeLeftYellow}></button>
             </div>
             )}
             {leftFlag=='blue' &&(
             <div className='left-flag-blue'>
-                <button onClick={handleChangeLeftBlue}>Blue</button>
-                <button onClick={handleChangeLeftWhite}>White</button>
-                <button onClick={handleChangeLeftRed}>Red</button>
-                <button onClick={handleChangeLeftYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeLeftBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeLeftWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeLeftRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeLeftYellow}></button>
             </div>
             )}
             {leftFlag=='white' &&(
             <div className='left-flag-white'>
-                <button onClick={handleChangeLeftBlue}>Blue</button>
-                <button onClick={handleChangeLeftWhite}>White</button>
-                <button onClick={handleChangeLeftRed}>Red</button>
-                <button onClick={handleChangeLeftYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeLeftBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeLeftWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeLeftRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeLeftYellow}></button>
             </div>
             )}
             {leftFlag=='red' &&(
             <div className='left-flag-red'>
-                <button onClick={handleChangeLeftBlue}>Blue</button>
-                <button onClick={handleChangeLeftWhite}>White</button>
-                <button onClick={handleChangeLeftRed}>Red</button>
-                <button onClick={handleChangeLeftYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeLeftBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeLeftWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeLeftRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeLeftYellow}></button>
             </div>
             )}
             {leftFlag=='yellow' &&(
             <div className='left-flag-yellow'>
-                <button onClick={handleChangeLeftBlue}>Blue</button>
-                <button onClick={handleChangeLeftWhite}>White</button>
-                <button onClick={handleChangeLeftRed}>Red</button>
-                <button onClick={handleChangeLeftYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeLeftBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeLeftWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeLeftRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeLeftYellow}></button>
             </div>
             )}
 
-
             {centerFlag=='' &&(
             <div className='center-flag-start'>
-                <button onClick={handleChangeCenterBlue}>Blue</button>
-                <button onClick={handleChangeCenterWhite}>White</button>
-                <button onClick={handleChangeCenterRed}>Red</button>
-                <button onClick={handleChangeCenterYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeCenterBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeCenterWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeCenterRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeCenterYellow}></button>
             </div>   
             )}
             {centerFlag=='blue' &&(
             <div className='center-flag-blue'>
-                <button onClick={handleChangeCenterBlue}>Blue</button>
-                <button onClick={handleChangeCenterWhite}>White</button>
-                <button onClick={handleChangeCenterRed}>Red</button>
-                <button onClick={handleChangeCenterYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeCenterBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeCenterWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeCenterRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeCenterYellow}></button>
             </div>   
             )}
             {centerFlag=='white' &&(
             <div className='center-flag-white'>
-                <button onClick={handleChangeCenterBlue}>Blue</button>
-                <button onClick={handleChangeCenterWhite}>White</button>
-                <button onClick={handleChangeCenterRed}>Red</button>
-                <button onClick={handleChangeCenterYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeCenterBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeCenterWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeCenterRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeCenterYellow}></button>
             </div>   
             )}
             {centerFlag=='red' &&(
             <div className='center-flag-red'>
-                <button onClick={handleChangeCenterBlue}>Blue</button>
-                <button onClick={handleChangeCenterWhite}>White</button>
-                <button onClick={handleChangeCenterRed}>Red</button>
-                <button onClick={handleChangeCenterYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeCenterBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeCenterWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeCenterRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeCenterYellow}></button>
             </div>   
             )}
             {centerFlag=='yellow' &&(
             <div className='center-flag-yellow'>
-                <button onClick={handleChangeCenterBlue}>Blue</button>
-                <button onClick={handleChangeCenterWhite}>White</button>
-                <button onClick={handleChangeCenterRed}>Red</button>
-                <button onClick={handleChangeCenterYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeCenterBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeCenterWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeCenterRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeCenterYellow}></button>
             </div>   
             )}
 
-
-
             {rightFlag=='' &&(
             <div className='right-flag-start'>
-                <button onClick={handleChangeRightBlue}>Blue</button>
-                <button onClick={handleChangeRightWhite}>White</button>
-                <button onClick={handleChangeRightRed}>Red</button>
-                <button onClick={handleChangeRightYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeRightBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeRightWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeRightRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeRightYellow}></button>
             </div>
             )}
             {rightFlag=='blue' &&(
             <div className='right-flag-blue'>
-                <button onClick={handleChangeRightBlue}>Blue</button>
-                <button onClick={handleChangeRightWhite}>White</button>
-                <button onClick={handleChangeRightRed}>Red</button>
-                <button onClick={handleChangeRightYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeRightBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeRightWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeRightRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeRightYellow}></button>
             </div>
             )}
             {rightFlag=='white' &&(
             <div className='right-flag-white'>
-                <button onClick={handleChangeRightBlue}>Blue</button>
-                <button onClick={handleChangeRightWhite}>White</button>
-                <button onClick={handleChangeRightRed}>Red</button>
-                <button onClick={handleChangeRightYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeRightBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeRightWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeRightRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeRightYellow}></button>
             </div>
             )}
             {rightFlag=='red' &&(
             <div className='right-flag-red'>
-                <button onClick={handleChangeRightBlue}>Blue</button>
-                <button onClick={handleChangeRightWhite}>White</button>
-                <button onClick={handleChangeRightRed}>Red</button>
-                <button onClick={handleChangeRightYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeRightBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeRightWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeRightRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeRightYellow}></button>
             </div>
             )}
             {rightFlag=='yellow' &&(
             <div className='right-flag-yellow'>
-                <button onClick={handleChangeRightBlue}>Blue</button>
-                <button onClick={handleChangeRightWhite}>White</button>
-                <button onClick={handleChangeRightRed}>Red</button>
-                <button onClick={handleChangeRightYellow}>Yellow</button>
+                <button className='flag-button-blue' onClick={handleChangeRightBlue}></button>
+                <button className='flag-button-white' onClick={handleChangeRightWhite}></button>
+                <button className='flag-button-red' onClick={handleChangeRightRed}></button>
+                <button className='flag-button-yellow' onClick={handleChangeRightYellow}></button>
             </div>
             )}
 
