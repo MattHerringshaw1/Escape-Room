@@ -1,0 +1,16 @@
+.time-save-container{
+    position: absolute;
+    left: 150px;
+    top: -15px;
+    z-index: 4
+}
+
+.time-save-btn{
+    border: solid;
+    border-width: 2px;
+    border-color: purple;
+    border-radius: 5px;
+    font-size: 20px;
+    color: purple;
+    
+}
