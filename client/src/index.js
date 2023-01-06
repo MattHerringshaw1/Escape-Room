@@ -16,6 +16,7 @@ import UserInfo from './components/UserInfo';
 import Leaderboard from './components/Leaderboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutUs from './components/AboutUs';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 
@@ -39,7 +40,7 @@ root.render(
             <Route path='/home/:username' element={<Home />} />
             <Route path='/edit-user/:userid' element={<UserInfo />} />
             <Route path='/logout' element={<Logout />} />
-            <Route path='/room/:username' element={<Room />} />
+            <Route path='/room/:username' element={<ProtectedRoute><Room/></ProtectedRoute> }/>
             <Route path='/leaderboard' element={<Leaderboard />} />
             <Route path='/about-us' element={<AboutUs />} />
           </Routes>
