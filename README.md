@@ -18,6 +18,9 @@
 ## Link to Website
 * [Escape Room!](https://www.remescape.com)
 
+## Video Demo of Website
+* [Demo](https://www.youtube.com/watch?v=lF1Uo5zgOow)
+
 ## Programming Languages
 * React, Node.js, Express.js, Mongoose, MongoDB, HTML, CSS, JavaScript
 
