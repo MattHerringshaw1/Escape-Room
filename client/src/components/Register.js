@@ -16,7 +16,7 @@ function Register() {
     // ---------------------------------------- FUNCTIONS ----------------------------------------
     const handleRegister = (e) => {
         e.preventDefault()
-        fetch('http://localhost:8080/api/register', {
+        fetch('https://gentle-shelf-51324.herokuapp.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
