@@ -16,7 +16,7 @@ function MyScores() {
     })
 
     const fetchAll = () => {
-        fetch('http://localhost:8080/api/leaderboard', {
+        fetch('https://gentle-shelf-51324.herokuapp.com/api/leaderboard', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

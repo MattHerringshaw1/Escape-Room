@@ -21,7 +21,7 @@ const CountDownTimer = (props) => {
     
     const handleSaveTime = () =>{
             console.log(mins, secs)
-            fetch('http://localhost:8080/api/leaderboard', {
+            fetch('https://gentle-shelf-51324.herokuapp.com/api/leaderboard', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -31,7 +31,7 @@ function UserInfo() {
 
 
     const fetchUser = () => {
-        fetch(`http://localhost:8080/api/view-info/${userid}`, {
+        fetch(`https://gentle-shelf-51324.herokuapp.com/api/view-info/${userid}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function UserInfo() {
         } else {
             const username = user.username
             localStorage.setItem('username', username)
-            fetch('http://localhost:8080/api/users', {
+            fetch('https://gentle-shelf-51324.herokuapp.com/api/users', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

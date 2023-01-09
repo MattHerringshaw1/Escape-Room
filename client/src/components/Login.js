@@ -22,7 +22,7 @@ function Login(props) {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:8080/api/login', {
+        fetch('https://gentle-shelf-51324.herokuapp.com/api/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ function Login(props) {
 
       const handleGuestSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:8080/api/guest-login', {
+        fetch('https://gentle-shelf-51324.herokuapp.com/api/guest-login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
