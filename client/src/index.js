@@ -37,7 +37,6 @@ root.render(
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/home/:username' element={<Home />} />
             <Route path='/edit-user/:userid' element={<UserInfo />} />
             <Route path='/logout' element={<Logout />} />
             <Route path='/room/:username' element={<ProtectedRoute><Room/></ProtectedRoute> }/>
