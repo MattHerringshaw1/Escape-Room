@@ -7,9 +7,16 @@
 
 ## Preview Example
 ![]()
+<p align="center">
+    <img src="/client/src/images/EscapeRoom1.PNG" width="auto" height="250px">
+</p>
+
+<p align="center">
+    <img src="/client/src/images/EscapeRoom2.PNG" width="auto" height="250px">
+</p>
 
 ## Link to Website
-* [Escape Room!]()
+* [Escape Room!](https://www.remescape.com)
 
 ## Programming Languages
 * React, Node.js, Express.js, Mongoose, MongoDB, HTML, CSS, JavaScript
