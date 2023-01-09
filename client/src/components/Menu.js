@@ -19,7 +19,7 @@ function Menu(props) {
         <div className="header">
             <Navbar bg="black" variant="dark">
                 <Container>
-                    <Navbar.Brand className="home" href={`/home/${username}`}>
+                    <Navbar.Brand className="home" href={'/'}>
                         <img
                             src={puzzleimage}
                             width="60"
@@ -30,7 +30,7 @@ function Menu(props) {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Nav className="me-auto">
-                        <Nav.Link href={`/home/${username}`}>- Home -</Nav.Link>
+                        <Nav.Link href={'/'}>- Home -</Nav.Link>
                         <NavDropdown title="Leaderboard" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="/leaderboard">Room 1</NavDropdown.Item>
                             <NavDropdown.Item href="#">Room 2 (WIP)</NavDropdown.Item>
