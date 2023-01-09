@@ -5,18 +5,22 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const port = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080
 // Schemas
 const User = require('./schemas/user')
 // Middlewares
 const authenticate = require('./middlewares/authMiddleware')
 const Leaderboard = require('./schemas/leaderboard')
 
+require('dotenv').config()
+
+
+
 app.use(cors())
 app.use(express.json())
 
 // Connections
-mongoose.connect('mongodb+srv://er2022:dqPVSRq6ZRxSaikX@escape-room.d7uibmr.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@escape-room.d7uibmr.mongodb.net/?retryWrites=true&w=majority`, {
     useNewUrlParser: true
 }, (error) => {
     if (!error) {
@@ -26,7 +30,7 @@ mongoose.connect('mongodb+srv://er2022:dqPVSRq6ZRxSaikX@escape-room.d7uibmr.mong
     }
 })
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('The server is closing in! Time to escape!!')
 })
 
