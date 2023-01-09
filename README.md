@@ -16,7 +16,7 @@
 </p>
 
 ## Link to Website
-* [Escape Room!](https://www.remescape.com)
+* [Escape Room!]("target='_blank'" https://www.remescape.com)
 
 ## Programming Languages
 * React, Node.js, Express.js, Mongoose, MongoDB, HTML, CSS, JavaScript
