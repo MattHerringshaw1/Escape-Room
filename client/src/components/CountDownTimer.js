@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import '../styles/timer.css'
+import { useNavigate } from 'react-router-dom'
 
 const CountDownTimer = (props) => {
     
@@ -8,6 +9,7 @@ const CountDownTimer = (props) => {
     const [[mins, secs], setTime] = React.useState([minutes, seconds])
     const [door, setDoor] = React.useState(false)
     const username = localStorage.getItem('username')
+    const navigate = useNavigate()
 
 
     const handleDoorCheck = () =>{
@@ -35,6 +37,7 @@ const CountDownTimer = (props) => {
             .then(response=> response.json())
             .then(result=>{
                 console.log(result)
+                navigate('/leaderboard')
             })
     
     }

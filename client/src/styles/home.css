@@ -50,7 +50,7 @@
 }
 
 .rendered-body-home {
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(95, 95, 95));
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(34, 33, 33));
     width: 100%;
     margin-left: 0;
     justify-content: center;
