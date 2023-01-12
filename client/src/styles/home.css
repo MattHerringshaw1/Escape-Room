@@ -2,7 +2,7 @@
 
 .background-home {
     background: rgb(86, 85, 94);
-    background: linear-gradient(144deg, rgba(86, 85, 94, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(144deg, rgb(26, 25, 27) 0%, rgba(0, 0, 0, 1) 100%);
     padding-bottom: 50%;
     padding-top: 20px
 }
@@ -50,7 +50,7 @@
 }
 
 .rendered-body-home {
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(95, 95, 95));
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0) , rgb(34, 33, 33));
     width: 100%;
     margin-left: 0;
     justify-content: center;
